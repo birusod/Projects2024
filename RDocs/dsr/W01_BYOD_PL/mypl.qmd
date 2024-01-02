@@ -1,0 +1,24 @@
+# Setup
+
+
+```{r}
+pacman::p_load(tidyverse, janitor, scales, ggthemes)
+```
+
+
+```{r}
+df <- 
+  read_csv('pl2023_2024.csv', show_col_types = FALSE) |>
+  clean_names()
+```
+
+```{r}
+df |> 
+  mutate(team = fct_reorder(team, point)) |> 
+  ggplot(aes(point, team)) +
+  geom_col() +
+  labs(x = NULL, y = NULL, 
+       title = 'PREMIER LEAGUE TEAMS',
+       subtitle  = 'Team position  as of Jan 1st, 2024')
+```
+
