@@ -131,9 +131,9 @@ dfn <-
   mutate(age = start - year(dob)) |> 
   drop_na(age, height, weight)
   
-dfn |> 
-  filter(first == 'Bryan', last == 'Hextall') |> 
-  view() # sanity check!
+#dfn |> 
+#  filter(first == 'Bryan', last == 'Hextall') |> 
+#  view() # sanity check!
 
 ## Country ------
 dff |> count(country)
@@ -272,8 +272,10 @@ dff |> viz_by_cat(group, height) +
   labs(x = NULL, y = NULL, title = 'Players By Group',
        subtitle = 'Height distribution')
 dff |> viz_by_cat(group, weight) + 
-  labs(x = NULL, y = NULL, title = 'Players By Group',
-       subtitle = 'Weight distribution')
+  labs(x = NULL, y = NULL, 
+       title = 'Players By Group',
+       subtitle = 'Weight distribution') +
+  theme(legend.position = 'none')
 
 
 ## By position ------
