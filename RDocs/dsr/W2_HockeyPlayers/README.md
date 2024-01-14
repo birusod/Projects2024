@@ -14,6 +14,6 @@
 </p>
 <br></br>
 <p align="center">
-  <img src="/W2_HockeyPlayers/plots_w2/file_name.gif" width="60%">
+  <img src="/dsr/W2_HockeyPlayers/plots_w2/file_name.gif" width="60%">
 </p>
 
