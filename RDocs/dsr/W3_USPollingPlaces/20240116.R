@@ -6,7 +6,7 @@ pacman::p_load(
   showtext, patchwork, ggtext, glue
   )
 
-pacman::p_load(g2r, reactable, tinytable)
+pacman::p_load(g2r, reactable, tinytable, htmltools)
 # https://g2r.opifex.org/articles/docs
 # https://github.com/RProDigest/Tables/blob/main/The_Power_Of_Reactable.R
 # https://vincentarelbundock.github.io/tinytable/vignettes/tutorial.html
@@ -17,9 +17,10 @@ tuesdata <- tidytuesdayR::tt_load("2024-01-16")
 dfr <- tuesdata$polling_places
 dfr |> count(state, sort = TRUE) |> tail(10)
 dfr |> filter(state == 'WA') |> view()
-
+dfr |> glimpse()
 dfs <- dfr |> 
   select(
+    state, 
     name, 
     precinct = precinct_name,
     date = election_date,
@@ -165,8 +166,7 @@ type_df |>
   fig_pie(
     asp(label = total),
     lineWidth = 1, stroke = "#fff") %>% 
-  legend_color(position = "right") %>% 
-  tooltip(showMarkers = FALSE)
+  legend_color(position = "right")
 
 
 type_df |> 
@@ -176,7 +176,6 @@ type_df |>
   axis_hide() %>% 
   interplay("element", "highlight") %>% 
   legend_color(position = "right") %>% 
-  tooltip(showMarkers = FALSE) |> 
   info_text(
     asp(x = 1, y = 110000),
     content = "Distribution of\nPolling Location Types")
@@ -213,6 +212,138 @@ type_df2 %>%
     line = NULL) |> 
   legend_color(position = "left")
 
+## Tables -----------
+
+usa <- tibble(name = state.name, abbr = state.abb)
+
+tab_pct <- dfs |> 
+  count(state, name = 'total') |> 
+  mutate(percent  =  round(total / sum(total)*100, 3)) |> 
+  left_join(usa, by = join_by(state == abbr)) |> 
+  select(name, everything()) |> 
+  rename_all(toupper)
+tab <- dfs |> 
+  count(state, name = 'total') |> 
+  mutate(percent  =  total / sum(total)) |> 
+  left_join(usa, by = join_by(state == abbr)) |> 
+  select(name, everything()) |> 
+  rename_all(toupper) |> 
+  mutate(BAR = round(PERCENT * 100, 1),
+         NAME = str_to_upper(NAME))
+
+###   basic reactable ----
+tab_pct |> 
+  reactable(
+    theme = superhero(),
+    columns = list(
+      PERCENT = colDef(
+        format = colFormat(suffix = "%", 
+                           separators = TRUE, 
+                           digits = 2))
+    ))
+
+
+tab_pct |> 
+  select(NAME, PERCENT) |> 
+  reactable(
+    defaultColDef = colDef(
+      cell = data_bars(tab_pct,
+                       text_position = "outside-end")))
+tab_pct |> 
+  select(NAME, PERCENT) |> 
+  mutate(PERCENT = round(PERCENT, 4)) |> 
+  reactable(
+    defaultColDef = colDef(
+      cell = data_bars(
+        tab_pct,
+        fill_color = c("lightblue","royalblue","navy"),
+        fill_gradient = TRUE,
+        text_position = "outside-end")))
+
+### Table with bars ------
+# library(htmltools)
+
+# Render a bar chart with a label on the left
+bar_chart <- function(label, width = "100%", height = "1rem", fill = "#00bfc4", background = NULL) {
+  bar <- div(
+    style = list(background = fill, width = width, height = height))
+  chart <- div(
+    style = list(
+      flexGrow = 1, 
+      marginLeft = "0.5rem", 
+      background = background), 
+    bar)
+  div(
+    style = list(display = "flex", alignItems = "center"), 
+    label, 
+    chart)
+}
+
+bar_style <- function(width = 1, fill = "#e6e6e6", height = "75%", align = c("left", "right"), color = NULL) {
+  align <- match.arg(align)
+  if (align == "left") {
+    position <- paste0(width * 100, "%")
+    image <- sprintf("linear-gradient(90deg, %1$s %2$s, transparent %2$s)", fill, position)
+  } else {
+    position <- paste0(100 - width * 100, "%")
+    image <- sprintf("linear-gradient(90deg, transparent %1$s, %2$s %1$s)", position, fill)
+  }
+  list(
+    backgroundImage = image,
+    backgroundSize = paste("100%", height),
+    backgroundRepeat = "no-repeat",
+    backgroundPosition = "center",
+    color = color
+  )
+}
+
+tab |> 
+  reactable(
+    theme = nytimes(header_font_size = 20),
+    searchable = TRUE,
+    defaultPageSize = 15,
+    sortable = TRUE,
+    compact = TRUE,
+    columns = (
+      list(
+        NAME = colDef(
+          width = 150),
+        PERCENT = colDef(
+          align = 'right',
+          format = colFormat(percent = TRUE, digits = 2)
+        ),
+        TOTAL = colDef(
+          width = 150,
+          style = function(value) {
+            bar_style(
+              width = value / max(tab$TOTAL), 
+              fill = "hsl(208, 70%, 90%)")
+          }),
+        BAR = colDef(
+          name = '',
+          align = "right",
+          cell = function(value) {
+            bar_chart(
+              label = '',
+              width = value / max(tab$BAR) * 100, 
+              fill = "#fc5185",
+              background = "#e1e1e1"
+              )})
+      ))
+  ) |> 
+  add_title(title = 'US Polling Places') |>
+  add_subtitle(
+    subtitle = '2012-2020',
+    font_size = 20,
+    font_color = '#1666BC',
+    margin = margin(t = 10,r = 0,b = 15,l = 0)) |>  
+  add_source(
+    source = 'TidyTuesday 2024-W3 | The Center for Public Integrity',
+    font_style = 'italic',
+    font_weight = 'bold',
+    font_color = '#666666'
+  ) |> 
+  google_font("Roboto Mono", font_weight = 500, font_style = "italic")
 
 
 # Saving Plots and Gifs ------------------------------------------------------

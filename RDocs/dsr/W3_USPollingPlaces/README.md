@@ -14,6 +14,6 @@
 </p>
 <br></br>
 <p align="center">
-  <img src="/RDocs/dsr/W3_USPollingPlaces/plots_w3/file_name.gif" width="60%">
+  <img src="/RDocs/dsr/W3_USPollingPlaces/plots_w3/Rtable.jpeg" width="60%">
 </p>
 
