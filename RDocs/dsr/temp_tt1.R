@@ -5,13 +5,13 @@
 
 # only need to update these 5 parameters, then: Alt+Cmd+r (Cmd+A+Enter)
 # ****************************************************************
-week_date <- '2024-01-23'
-week_number <- 'W4'
-weekly_data <- 'EnglishEdu'
+week_date <- '2024-01-30'
+week_number <- 'W5'
+weekly_data <- 'groundhogs'
 current_week_folder <- paste0(week_number, '_', weekly_data)
-week_title <- 'Educational Attainment Young English'
-plot_folder <- 'plots_w4'
-final_plot <- 'final_plot_w4.png'
+week_title <- 'Groundhogs Day 2024'
+plot_folder <- 'plots_w5'
+final_plot <- 'final_plot_w5.png'
 #*****************************************************************
 
 use_tt_template <- function(
