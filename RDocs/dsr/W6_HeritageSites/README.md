@@ -10,10 +10,10 @@
 <h2 align="left"> 4. Viz </h2>
 
 <p align="center">
-  <img src="/RDocs/dsr/W6_HeritageSites/plots_w5/plot_scale_nolab.png" width="60%">
+  <img src="/RDocs/dsr/W6_HeritageSites/plots_w6/plot_scale_nolab.png" width="60%">
 </p>
 <br></br>
 <p align="center">
-  <img src="/RDocs/dsr/W6_HeritageSites/plots_w5/file_name.gif" width="60%">
+  <img src="/RDocs/dsr/W6_HeritageSites/plots_w6/file_name.gif" width="60%">
 </p>
 
