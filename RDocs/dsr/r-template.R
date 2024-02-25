@@ -32,10 +32,21 @@ showtext_auto()
 #==========================================================================#
 
 bg_col <- ""
-text_col <- ""
+text_light <- ""
+text_dark <- ""
 highlight_col <- ""
+title_col <- ""
+sub_color <- ""
+tsize = unit(30, units = "cm")
 
-costum_theme <- theme()
+costum_theme <- function(){ 
+  cfont <- "roboto"   
+  theme_minimal(
+    #base_family = cfont,
+    #base_size = 40
+    ) %+replace%    
+    theme()
+}
 
 #==========================================================================#
 # Wrangling Data -----------------------------------------------------------
