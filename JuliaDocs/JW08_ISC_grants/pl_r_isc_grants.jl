@@ -4,333 +4,362 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ b3d93bfb-8de6-4def-bab5-747d3cf6344d
-using CSV, DataFrames 
-
-# ╔═╡ d183873e-90a0-4064-8428-fc0a81b39cad
-using TidierData, TidierCats, TidierPlots, Chain
-
-# ╔═╡ cb088cb2-c715-43c4-903a-bee00ec9939b
-using Statistics
-
-# ╔═╡ 41bc2b7f-81a9-4186-8ef3-fa5320cd19e7
+# ╔═╡ d5761342-7bee-48a5-b869-e8ecc93ad845
 begin
 	using PlutoUI
 	TableOfContents()
 end
 
-# ╔═╡ 825cb946-c00a-43c9-b9b2-357dd9be8561
-html"""<p style="color:crimson; font-size:40px"><b>Valentine Day<b></p>"""
+# ╔═╡ f4513b8e-ba8f-4300-ad0d-b71bef3048f1
+using CSV, Chain, DataFrames, TidierData, TidierPlots
 
-# ╔═╡ e1c7c355-5c9f-43d4-82f6-8938b337736c
+# ╔═╡ 7debfe05-5898-43ad-a698-cdfc2d4fb316
+using CairoMakie, Colors
+
+# ╔═╡ f1e44dce-29d6-45d5-87cb-a1131e1ab315
+html"""<p style="color:cyan; font-size:40px"><b>R Consortium ISC Grants<b></p>"""
+
+# ╔═╡ 4597f44c-9640-47b1-a8af-07e868834674
 html"""
-<p style="color:lime">
-<b>TidyTuesday Data 2010-2022:</b>
-<a href=https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-02-13/readme.md">Week-7</a>
-</p> 
+<p style="color:#13955E">
+<b>TidyTuesday Data:</b>
+<a href=https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-02-20/readme.md">Week-08</a>
+</p>
 """
 
-# ╔═╡ 4b1eca5d-8feb-4889-81ec-a8b548926425
-md"## Setup: Libraries"
-
-# ╔═╡ 827eb83c-d46d-11ee-0ac2-d56e44f01549
+# ╔═╡ 1089f77c-d86f-11ee-2d30-1d69d3b370fd
 pwd()
 
-# ╔═╡ cf4c2d29-526a-4746-9913-5dca051ba5e1
-md"**Libraries**"
+# ╔═╡ a0ac29ae-4e4a-4d9b-bd83-18b3b63cbee0
+md"## Packages and Data"
 
-# ╔═╡ c4d74ca7-d1ec-4c3a-a6ad-faa6ac599bc2
-md"**Loading Data**"
-
-# ╔═╡ 7e209b89-29f8-4f69-b171-7f9208e3796b
+# ╔═╡ 2d16e364-c51e-417b-8c5f-7b4f6c49f914
 begin
-	url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/"
-	hist_data = "data/2024/2024-02-13/historical_spending.csv"
-	age_data = "data/2024/2024-02-13/gifts_age.csv"
-	gdr_data = "data/2024/2024-02-13/gifts_gender.csv"
-end
-
-# ╔═╡ 291ab5c4-1f79-487d-9c00-e527bca601d0
-begin
-	hdf = CSV.File(download(url*hist_data)) |> DataFrame
-	adf = CSV.File(download(url*age_data)) |> DataFrame
-	gdf = CSV.File(download(url*gdr_data)) |> DataFrame
-end
-
-# ╔═╡ 25a2348a-5ba7-471b-9ebc-f6457bdd90cd
-first(hdf, 3)
-
-# ╔═╡ 7ffa825c-2a45-45bb-8871-262c32b44c9b
-md" ## EDA"
-
-# ╔═╡ 171ca75e-025e-4f55-8f7d-fac4f8eb615a
-md"### Basic Overview"
-
-# ╔═╡ 6fa8eebb-6adf-470a-8d67-96d11b0b29d2
-hdf |> describe
-
-# ╔═╡ e1ffa10c-0051-41e7-8928-f5f92c80fc44
-adf |> describe
-
-# ╔═╡ c91c99df-2cdf-4ca0-8971-10c663cad7fc
-gdf |> describe
-
-# ╔═╡ 97f84975-babf-4e24-bf51-81221cd7ae4e
-md"### Univariate Analysis"
-
-# ╔═╡ 6f4c16e6-e50e-4154-bf29-9ea1a85789f3
-md"**Year**"
-
-# ╔═╡ fcf24ce0-4bb0-438f-af6d-ea55d7c91753
-@chain hdf @count(Year)
-
-# ╔═╡ 95ddaf98-f0da-4c4b-86fc-ec4a218de9ea
-md"**Gender**"
-
-# ╔═╡ ff988abc-4ef8-4897-9795-7aa739cf910b
-@chain gdf @count(Gender)
-
-# ╔═╡ 1230d292-19da-4579-adac-b62163a76071
-combine(groupby(gdf, :Gender), nrow)
-
-# ╔═╡ 31071c9f-6905-4f7b-aff7-6c71e886c1bf
-md"**Age groups**"
-
-# ╔═╡ 914bfdef-5b34-4e9e-9448-c7a4fd0a804e
-@chain adf @count(Age)
-
-# ╔═╡ 7e5fa7d5-53aa-4b87-82d8-81107a147900
-@chain adf @group_by(Age) @tally
-
-# ╔═╡ 405c9a6b-16ff-48cb-89d1-636bca5a9c7e
-@chain adf begin 
-	groupby(:Age)
-	combine(nrow)
-end
-
-# ╔═╡ b2c8a10e-8c52-4bd5-ad30-c510cb27c0fc
-md"## Wrangling"
-
-# ╔═╡ 6f78f152-6e23-4fa7-9978-4fa4bec6bf5b
-md"### Pivoting to long"
-
-# ╔═╡ ffb707d9-b9eb-4469-a063-29c2b2951a40
-hdf_long = stack(hdf, 
-	Not([:Year, :PercentCelebrating, :PerPerson]), 
-	variable_name=:Type,
-	value_name=:Amount);
-
-# ╔═╡ 945d2e0f-f6d8-438d-bfe3-5147d731923e
-first(hdf_long, 3)
-
-# ╔═╡ 55cabe91-7d82-4f00-9a54-33a29576861c
-hdf_long2 = @chain hdf begin
-	@pivot_longer(Candy:GiftCards, names_to = "Type", values_to = "Amount")
+	url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-02-20/isc_grants.csv"
+	raw = CSV.File(download(url)) |> DataFrame
 end;
 
-# ╔═╡ 35751505-ed0f-429f-8e17-ea67fff50b41
-first(hdf_long2, 3)
+# ╔═╡ 9fbbf070-b4f1-429e-a4ae-a507ff66c76e
+first(raw, 3)
 
-# ╔═╡ 81ffc3f7-b632-4cde-bd72-898c4d202da0
-md"### Pivoting to wide"
+# ╔═╡ 6d114786-6522-4619-b760-65cee75f23b9
+md"## Data Wrangling"
 
-# ╔═╡ e5c421ab-86b8-4481-b3b7-bd9121fba738
-first(
-	unstack(
-		hdf_long,
-		#[:Year, :PercentCelebrating, :PerPerson] (rowkeys)
-		:Type,   # colkey,
-		:Amount  # values
-		),
-	3
-)
+# ╔═╡ 4f962be9-2ca2-4dac-ab5b-648b89749819
+md"### Selecting and renaming variables" 
 
-# ╔═╡ 1f4c4edb-a30e-4683-add9-964696f26b95
-@chain hdf_long2 begin
-	@pivot_wider(names_from = Type, values_from = Amount)
-	@slice(1:3)
-end
+# ╔═╡ 2a796047-03b4-43e4-9b61-82557e9e58ac
+df1 = @chain raw begin
+	@select(year, group, title, funded, proposed_by)
+	@rename(cycle = group, amount = funded, name = proposed_by)
+end;
 
-# ╔═╡ 79f34a2f-b392-4586-a734-887757c44d59
-md"### Renaming Columns"
+# ╔═╡ 024620b3-4cba-4d1f-beee-0e1903d6f30e
+@chain df1 first(3)
 
-# ╔═╡ 1924b00e-34fc-4a2d-a112-549af2f02138
-hdf2 = @chain hdf begin 
-	@rename(
-		Percent  = PercentCelebrating,
-		Spending = PerPerson)
-	@rename(
-		"Greeting Cards" = GreetingCards)
-	@pivot_longer(
-		Candy:GiftCards,
-		names_to=:Type,
-		values_to=:Amount)
+# ╔═╡ 1f9acb4e-c58c-4b3f-90c8-83da1f70ff61
+md"### Tranforming columns"
+
+# ╔═╡ f558d62d-8ede-4d2c-97f8-61d413fa3d21
+df2 = @chain df1 begin
 	@mutate(
-		Type = case_when(
-			Type == "EveningOut" => "Evening Out",
-			Type == "GiftCards" => "Gift Cards",
-			true => Type),
-		Year = as_string(Year)
+		cycle = case_when(cycle == 1 => "Spring", true => "Fall"),
+		year_string = string(year)
 	)
 end;
 
-# ╔═╡ c4beb7a6-f46f-4c4a-a020-43edf5ab9acb
-md"## Viz"
+# ╔═╡ 67d7f173-4846-4803-8dc2-c5b1d5897539
+@chain df2 first(3)
 
-# ╔═╡ 086da056-b7e4-4c49-a556-e5e3b1fc2bfd
-md"### Barplot"
+# ╔═╡ 9855187d-8f61-4989-9d42-3a7fd8c399ec
+md"## Dataviz"
 
-# ╔═╡ b708552f-5826-4f36-ad22-dffb3d23cf08
-year_pct =  @chain hdf2 @group_by(Year) @summarise(Percent = mean(Percent)/100);
+# ╔═╡ 32a61ed3-25c8-4970-be17-229f57c28cee
+md"### By year"
 
-# ╔═╡ 41670a5f-cd81-4e8d-b7fa-4521097069d4
-ggplot(
-	year_pct, 
-	@aes(x = Year, y = Percent)) + 
-geom_col()
+# ╔═╡ 7372a449-8f73-42b4-b3c2-0b526b7ad34a
+byear = @chain df2 @count(year_string) @rename(total = n);
 
-# ╔═╡ 826da8e2-f794-46ab-a802-d2b084505ac9
-ggplot(
-	year_pct, 
-	aes(x = "Year", y = "Percent")) + 
-geom_col()+
+# ╔═╡ ea1e37df-2ca3-46da-820e-d5452afe48b5
+y1 = ggplot(height = 260, width = 280,
+	byear,
+	aes(x = "year_string", y = "total")) +
+geom_col();
+
+# ╔═╡ 6599fbcf-2e90-4b55-b2c5-a2aafbec3198
+y2 = ggplot(height = 300, width = 300,
+	df2,
+	aes(x = "year_string")) +
+geom_bar();
+
+# ╔═╡ 15b96541-c488-4270-b24d-b9c32efa90f5
+[y1 ,  y2]
+
+# ╔═╡ 97fa2d7f-f91d-4aa4-ae8a-b43ae81cf75a
+md"### By cycle"
+
+# ╔═╡ 9667934f-283b-44aa-9df6-dd510e0e03b6
+gc = ggplot(height = 400, width = 500,
+	df2,
+	@aes(x = year_string)) +
+geom_bar(aes(color = "cycle"), position = "dodge") +
+labs(x = "", y = "Total projects", 
+	title = "R CONSORTIUM ISC GRANTS",
+	subtitle = "Number of funded projects by cycle",
+	color = "Cycle") +
+lims(y = c(0, 9.5))
+
+# ╔═╡ 0d4791d9-0479-4d20-b757-e4cdb25df924
+md"### Theming"
+
+# ╔═╡ 566232b8-6537-412b-8dae-412dc93cac3f
+ggplot_theme = Theme(
+    Axis = (
+        backgroundcolor = :gray90,
+        leftspinevisible = false,
+        rightspinevisible = false,
+        bottomspinevisible = false,
+        topspinevisible = false,
+        xgridcolor = :white,
+        ygridcolor = :white,
+    )
+)
+
+# ╔═╡ 0d614d12-69c0-44fe-a6f4-bacbbe889a75
+gc + ggplot_theme
+
+# ╔═╡ a9b7aadd-99e3-4ee7-8499-eb906900d2f5
+gc + theme_minimal()
+
+# ╔═╡ eabc3a6f-eaaa-401c-a57b-e9b06a507858
+gc + theme_black()
+
+# ╔═╡ ca497479-db49-4969-81d2-0f8e96a01f11
+gc + theme_light()
+
+# ╔═╡ c298830f-c886-4a8e-84c0-439328f4e87a
+gc + theme_dark()
+
+# ╔═╡ 2769a48c-eba3-4a0c-8f15-5ce3bedad9fd
+gc + theme_latexfonts()
+
+# ╔═╡ 615f67e5-4f5d-4a32-a4cf-973325dbbde9
+cc_theme = Theme(
+    Axis = (
+		titlecolor = :brown,
+		titlesize = 20,
+		titlefont = :bold,
+		subtitlecolor = :grey,
+		subtitlesize = 20,
+		subtitlefont = :italic,
+        backgroundcolor = :white,
+        leftspinevisible = true,
+        rightspinevisible = false,
+        bottomspinevisible = true,
+        topspinevisible = false,
+		xticksvisible = false,
+        xgridcolor = :white,
+        ygridcolor = :grey90,
+    )
+)
+
+# ╔═╡ 66d7cd7e-9c6d-4cd0-b6c9-3915a030561d
+gc + cc_theme
+
+# ╔═╡ a7c177a3-d44b-416e-a1ee-b4d9638a7088
+md"### Yearly average funding"
+
+# ╔═╡ 9c512a98-2770-4ba1-8c5e-5fc3f25f0774
+yearly_avg = 
+	@chain df2 @group_by(year, cycle) @summarise(avg = mean(amount)) @ungroup() @mutate(year = string(year));
+
+# ╔═╡ 026f30cc-1974-4d51-a13d-397dce04897a
+#f = Figure(fontsize = 24, fonts = (; regular = "Dejavu", weird = "Blackchancery"))
+#Axis(f[1, 1], title = "A title", xlabel = "An x label", xlabelfont = :weird)
+
+# ╔═╡ 101c2f9a-3ea3-493e-a4db-5716587821b5
+ac_theme = Theme(
+    Axis = (
+		titlecolor = :darkblue,
+		titlesize = 30,
+		titlefont = :"Dejavu",
+		subtitlecolor = :dodgerblue,
+		subtitlesize = 20,
+		subtitlefont = "Blackchancery",
+        backgroundcolor = :white,
+        leftspinevisible = true,
+        rightspinevisible = false,
+        bottomspinevisible = true,
+        topspinevisible = false,
+		xticksvisible = false,
+        xgridcolor = :white,
+        ygridcolor = :grey90,
+		xlabelfont = "Roboto",
+		ylabelfont = "Roboto",
+    ),
+)
+
+# ╔═╡ f2a0ec3a-8a34-4732-8e33-1846825e9443
+gg = ggplot(yearly_avg) +
+geom_col(@aes(x = year, y = avg, color = cycle), position = "dodge") +
 labs(
-	x = "\nData: TidyTuesday Week 07",  
-	y = "Percentage", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Percent of people celebrating by year") +
-theme_minimal()
+	x = "Years", y = "Average funding (USD)",
+	title = "R CONSORTIUM ISC GRANTS",
+	subtitle = "Yearly Average Funding Amount",
+	color = "Cycle")
 
-# ╔═╡ f8b015a6-23c0-43ad-9d65-60769b25a7f8
-year_spending = @chain hdf2 @group_by(Year) @summarise(Spending =  mean(Spending));
+# ╔═╡ 25e19dcd-b274-4e5c-98ad-3eabbdb51e46
+with_theme(
+    Theme(
+        palette = (color = [:red, :blue])
+    )) do
+	gg + ac_theme
+end
 
-# ╔═╡ d7e8dc86-70cb-40c3-bae5-6eab576e482d
-ggplot(
-	year_spending, 
-	aes(x = "Year", y = "Spending")) + 
-geom_col(color = :dodgerblue)+
-labs(
-	x = "\nData: TidyTuesday Week 07", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending by Year: 2010-2022") +
-theme_light()
+# ╔═╡ 17aa284b-6455-44aa-938d-8ddd09ea863f
+md"**Custom theme**"
 
-# ╔═╡ b36407cf-fb05-4167-980d-80cbba75b622
-by_type = @chain hdf2 begin 
-	@group_by(Type) 
-	@summarise(Amount = mean(Amount)) 
-	@mutate(Type= cat_reorder(Type, Amount, "median" ))
-end;
+# ╔═╡ ff94f92f-deda-43d1-b6d7-98dfe6de56fa
+gg + 
+Theme(
+	Axis = (
+		titlecolor = :darkblue,
+		titlesize = 30,
+		titlefont = :"Dejavu",
+		subtitlecolor = :dodgerblue,
+		subtitlesize = 20,
+		subtitlefont = "Blackchancery",
+        backgroundcolor = :white,
+        leftspinevisible = true,
+        rightspinevisible = false,
+        bottomspinevisible = true,
+        topspinevisible = false,
+		xticksvisible = false,
+        xgridcolor = :white,
+        ygridcolor = :grey90,
+		xlabelfont = "Roboto",
+		ylabelfont = "Roboto"),
+	Legend=(
+		framecolor= :white, 
+		backgroundcolor=(:white, 1),
+		position=:top,
+		orientation = :horizontal),
+)
 
-# ╔═╡ 1dec1184-c898-4026-a2e7-926c96098ccd
-ggplot(
-	by_type, 
-	aes(x = "Type", y = "Amount")) + 
-geom_col(color = :dodgerblue)+
-labs(
-	x = "\nData: TidyTuesday Week 07", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending On Gifts By Type") +
-theme_light()
+# ╔═╡ cb93e408-2cba-4807-be10-f04bd87e238a
+md"**publication_theme**"
 
-# ╔═╡ b6efbfb1-d18f-43ac-aa43-ea59c72d1e72
-by_type_year = @chain hdf2 begin 
-	@group_by(Year, Type) 
-	@summarise(Amount = mean(Amount)) 
-	@mutate(Type= cat_reorder(Type, Amount, "median" ))
-	@ungroup()
-end;
+# ╔═╡ 3d2c3faf-a4f7-4700-a50d-d410c20d38fb
+publication_theme() = Theme(
+    fontsize=16,
+    Axis=(
+        titlefont = "Lobster Two", subtitlefont = "Outfit",
+		xlabelsize=20,xlabelpadding=15,
+		ylabelsize=20,ylabelpadding=15,
+        xgridstyle=:dash, ygridstyle=:dash,
+        xtickalign=1, ytickalign=1,
+        yticksize=10, xticksize=10,
+        xlabel="x", ylabel="y"
+        ),
+    Legend=(
+		framevisible=false, backgroundcolor=(:white, 0.5), #framecolor=(:blue, 0.5), 
+		titlecolor=:red, titlehalign=:left, titlesize=20, titlefont="Roboto",
+		labelfont="Caladea",
+		),
+    Colorbar=(ticksize=16, tickalign=1, spinewidth=0.5),
+);
 
-# ╔═╡ 43d5dcef-0ca7-4256-848d-f97ef8ccf231
-ggplot(
-	by_type_year, 
-	aes(x = "Year", y = "Amount", color = "Type")) + 
-geom_col()+
-labs(
-	x = "\nData: TidyTuesday Week 07", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending On Gifts By Type") +
-theme_minimal()
+# ╔═╡ 8de8fdae-3053-45b6-9c2e-8ca8397da016
+gg + publication_theme()
 
-# ╔═╡ 179de016-97a2-41e8-aff1-593093919b42
-md"### Line plot"
+# ╔═╡ 69b24bf8-0879-44c2-9342-b8c432a971ff
+begin
+	f1 = Figure()
+	ax1 = Axis(f1[1, 1])
 
-# ╔═╡ d43158db-531c-4783-a2ec-42e73910ff41
-ggplot(
-	by_type_year, 
-	aes(x = "Year", y = "Amount", color = "Type")) + 
-geom_line(linewidht = 5) +
-labs(
-	x = "\nData: TidyTuesday Week 07\n\n", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending On Gifts By Type") +
-theme_minimal()
+	sc1 = scatter!(randn(10, 2), color = :red, label = "Red Dots")
+	sc2 = scatter!(randn(10, 2), color = :blue, label = "Blue Dots")
+	scatter!(randn(10, 2), color = :orange, label = "Orange Dots")
+	scatter!(randn(10, 2), color = :cyan, label = "Cyan Dots")
 
-# ╔═╡ 694c3918-753c-406e-9af7-a48f051bc03d
-md"### Grouped Barplot"
+	axislegend()
 
-# ╔═╡ aab17e71-7aab-4047-aef2-4b37c3bcea3f
-by_gender  = @chain gdf @pivot_longer(Candy:GiftCards, names_to="Type", values_to="Amount");
+	axislegend("Titled Legend", position = :lb)
 
-# ╔═╡ 1808c430-6f9c-42b9-aa80-80e35d7efba1
-ggplot(height = 400, width = 600,
-	by_gender,
-	@aes(x= Type, y = Amount)) +
-geom_col(aes(color = "Gender")) +
-labs(
-	x = "\nData: TidyTuesday Week 07\n", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending On Gifts By Type and Gender") +
-theme_minimal()
+	axislegend(
+		ax1, [sc1, sc2], ["One", "Two"], "Selected Dots", 
+		position = :lt,
+		orientation = :horizontal
+	)
 
-# ╔═╡ 5037d88b-416e-4b9d-812c-fc79b383d9ac
-ggplot(height = 600, width = 600,
-	by_gender,
-	@aes(x= Type, y = Amount, color = Gender)) +
-geom_col() +
-facet_wrap(facets = :Gender) +
-labs(
-	x = "\nData: TidyTuesday Week 07\n\n", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending On Gifts By Type and Gender\n\n\n\n") +
-theme_minimal()
+	f1
+end
 
-# ╔═╡ e64c4546-5330-4de0-bf84-abbf82ef0656
-ggplot(height = 400, width = 600,
-	by_gender,
-	@aes(x= Type, y = Amount)) +
-geom_col(aes(color = "Gender"), position = "dodge") +
-labs(
-	x = "\nData: TidyTuesday Week 07\n", 
-	y = "Amount (USD)", 
-	title = "Valentine Day Celebration", 
-	subtitle = "Average Spending On Gifts By Type and Gender") +
-theme_minimal()
+# ╔═╡ 08369c06-1fd1-42d7-a320-8e231b4e6cfd
+md"**mythm**"
+
+# ╔═╡ 757b3ff0-21a8-400e-8bef-7034ddd8bcfe
+mythm  = Theme(
+	fontsize=26,
+	font="roboto",
+	Axis = (
+		backgroundcolor=:wheat,
+		Foregroundccolor=:black,
+		xticksvisible = false,
+        xgridcolor = :wheat,
+        ygridcolor = :wheat,
+	),
+	Legend = Theme(
+		framevisible=false, backgroundcolor=(:white, 0.5), #framecolor=(:blue, 0.5), 
+		titlecolor=:red, titlehalign=:left, titlesize=20, titlefont="Roboto",
+		labelfont="Caladea",
+		
+	),
+);
+
+# ╔═╡ 3367af4d-8629-41f7-a7dc-a6ee95c2109d
+gg + mythm
+
+# ╔═╡ be7550e8-f331-45fa-af54-87a1d33e81d7
+md"### Colors palettes"
+
+# ╔═╡ 379aeb2e-0a7e-4d84-9015-cef9b5f53f0b
+gg + scale_color_discrete(palette = :seaborn_bright) + ac_theme
+
+# ╔═╡ 4e0b3a09-f961-48e8-968c-ea496363fcac
+gg + scale_color_discrete(palette = :seaborn_deep) + ac_theme
+
+# ╔═╡ 185cd954-4c1d-4516-9510-c6652b564446
+gg + scale_color_discrete(palette = :Set1_3) + ac_theme
+
+# ╔═╡ 9869ff89-265c-48a3-b957-12dacd0ddf43
+gg + scale_color_discrete(palette = :Set1_7) + ac_theme
+
+# ╔═╡ dd3d9d30-c4ae-4f05-a93c-2853e8fc0a64
+gg + scale_color_discrete(palette = :Dark2_6) + ac_theme
+
+# ╔═╡ 9c375468-72c5-4827-afdc-1e76e1e62e2f
+
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
+Colors = "5ae59095-9a9b-59fe-a467-6f913c188581"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
-TidierCats = "79ddc9fe-4dbf-4a56-a832-df41fb326d23"
 TidierData = "fe2206b3-d496-4ee9-a338-6a095c4ece80"
 TidierPlots = "337ecbd1-5042-4e2a-ae6f-ca776f97570a"
 
 [compat]
 CSV = "~0.10.12"
+CairoMakie = "~0.11.9"
 Chain = "~0.5.0"
+Colors = "~0.12.10"
 DataFrames = "~1.6.1"
 PlutoUI = "~0.7.58"
-TidierCats = "~0.1.1"
 TidierData = "~0.14.7"
 TidierPlots = "~0.5.5"
 """
@@ -341,7 +370,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.1"
 manifest_format = "2.0"
-project_hash = "713ca50427698b4ff5eb56b6af6ce774bf16c566"
+project_hash = "3bbbf82c3ae890401a3fea46c20c8255e9502969"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -497,24 +526,6 @@ deps = ["LinearAlgebra"]
 git-tree-sha1 = "f641eb0a4f00c343bbc32346e1217b86f3ce9dad"
 uuid = "49dc2e85-a5d0-5ad3-a950-438e2897f1b9"
 version = "0.5.1"
-
-[[deps.CategoricalArrays]]
-deps = ["DataAPI", "Future", "Missings", "Printf", "Requires", "Statistics", "Unicode"]
-git-tree-sha1 = "1568b28f91293458345dabba6a5ea3f183250a61"
-uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
-version = "0.10.8"
-
-    [deps.CategoricalArrays.extensions]
-    CategoricalArraysJSONExt = "JSON"
-    CategoricalArraysRecipesBaseExt = "RecipesBase"
-    CategoricalArraysSentinelArraysExt = "SentinelArrays"
-    CategoricalArraysStructTypesExt = "StructTypes"
-
-    [deps.CategoricalArrays.weakdeps]
-    JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
-    RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
-    SentinelArrays = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
-    StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
 
 [[deps.Chain]]
 git-tree-sha1 = "8c4920235f6c561e401dfe569beb8b924adad003"
@@ -1928,12 +1939,6 @@ version = "0.1.1"
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
-[[deps.TidierCats]]
-deps = ["CategoricalArrays", "DataFrames", "Reexport", "Statistics"]
-git-tree-sha1 = "c4660f2c0ffd733ec243ea0a5447bd3bfae40c6d"
-uuid = "79ddc9fe-4dbf-4a56-a832-df41fb326d23"
-version = "0.1.1"
-
 [[deps.TidierData]]
 deps = ["Chain", "Cleaner", "DataFrames", "MacroTools", "Reexport", "ShiftedArrays", "Statistics", "StatsBase"]
 git-tree-sha1 = "84f2e1c10a071f9a3c1faa095d42af591f6d33ce"
@@ -2152,62 +2157,61 @@ version = "3.5.0+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═825cb946-c00a-43c9-b9b2-357dd9be8561
-# ╠═e1c7c355-5c9f-43d4-82f6-8938b337736c
-# ╟─4b1eca5d-8feb-4889-81ec-a8b548926425
-# ╠═827eb83c-d46d-11ee-0ac2-d56e44f01549
-# ╟─cf4c2d29-526a-4746-9913-5dca051ba5e1
-# ╠═b3d93bfb-8de6-4def-bab5-747d3cf6344d
-# ╠═d183873e-90a0-4064-8428-fc0a81b39cad
-# ╠═cb088cb2-c715-43c4-903a-bee00ec9939b
-# ╟─41bc2b7f-81a9-4186-8ef3-fa5320cd19e7
-# ╟─c4d74ca7-d1ec-4c3a-a6ad-faa6ac599bc2
-# ╠═7e209b89-29f8-4f69-b171-7f9208e3796b
-# ╠═291ab5c4-1f79-487d-9c00-e527bca601d0
-# ╠═25a2348a-5ba7-471b-9ebc-f6457bdd90cd
-# ╟─7ffa825c-2a45-45bb-8871-262c32b44c9b
-# ╟─171ca75e-025e-4f55-8f7d-fac4f8eb615a
-# ╠═6fa8eebb-6adf-470a-8d67-96d11b0b29d2
-# ╠═e1ffa10c-0051-41e7-8928-f5f92c80fc44
-# ╠═c91c99df-2cdf-4ca0-8971-10c663cad7fc
-# ╟─97f84975-babf-4e24-bf51-81221cd7ae4e
-# ╟─6f4c16e6-e50e-4154-bf29-9ea1a85789f3
-# ╠═fcf24ce0-4bb0-438f-af6d-ea55d7c91753
-# ╟─95ddaf98-f0da-4c4b-86fc-ec4a218de9ea
-# ╠═ff988abc-4ef8-4897-9795-7aa739cf910b
-# ╠═1230d292-19da-4579-adac-b62163a76071
-# ╟─31071c9f-6905-4f7b-aff7-6c71e886c1bf
-# ╠═914bfdef-5b34-4e9e-9448-c7a4fd0a804e
-# ╠═7e5fa7d5-53aa-4b87-82d8-81107a147900
-# ╠═405c9a6b-16ff-48cb-89d1-636bca5a9c7e
-# ╟─b2c8a10e-8c52-4bd5-ad30-c510cb27c0fc
-# ╟─6f78f152-6e23-4fa7-9978-4fa4bec6bf5b
-# ╠═ffb707d9-b9eb-4469-a063-29c2b2951a40
-# ╠═945d2e0f-f6d8-438d-bfe3-5147d731923e
-# ╠═55cabe91-7d82-4f00-9a54-33a29576861c
-# ╠═35751505-ed0f-429f-8e17-ea67fff50b41
-# ╟─81ffc3f7-b632-4cde-bd72-898c4d202da0
-# ╠═e5c421ab-86b8-4481-b3b7-bd9121fba738
-# ╠═1f4c4edb-a30e-4683-add9-964696f26b95
-# ╟─79f34a2f-b392-4586-a734-887757c44d59
-# ╠═1924b00e-34fc-4a2d-a112-549af2f02138
-# ╟─c4beb7a6-f46f-4c4a-a020-43edf5ab9acb
-# ╟─086da056-b7e4-4c49-a556-e5e3b1fc2bfd
-# ╠═b708552f-5826-4f36-ad22-dffb3d23cf08
-# ╠═41670a5f-cd81-4e8d-b7fa-4521097069d4
-# ╠═826da8e2-f794-46ab-a802-d2b084505ac9
-# ╠═f8b015a6-23c0-43ad-9d65-60769b25a7f8
-# ╠═d7e8dc86-70cb-40c3-bae5-6eab576e482d
-# ╠═b36407cf-fb05-4167-980d-80cbba75b622
-# ╠═1dec1184-c898-4026-a2e7-926c96098ccd
-# ╠═b6efbfb1-d18f-43ac-aa43-ea59c72d1e72
-# ╠═43d5dcef-0ca7-4256-848d-f97ef8ccf231
-# ╟─179de016-97a2-41e8-aff1-593093919b42
-# ╠═d43158db-531c-4783-a2ec-42e73910ff41
-# ╟─694c3918-753c-406e-9af7-a48f051bc03d
-# ╠═aab17e71-7aab-4047-aef2-4b37c3bcea3f
-# ╠═1808c430-6f9c-42b9-aa80-80e35d7efba1
-# ╠═5037d88b-416e-4b9d-812c-fc79b383d9ac
-# ╠═e64c4546-5330-4de0-bf84-abbf82ef0656
+# ╟─f1e44dce-29d6-45d5-87cb-a1131e1ab315
+# ╟─4597f44c-9640-47b1-a8af-07e868834674
+# ╠═1089f77c-d86f-11ee-2d30-1d69d3b370fd
+# ╟─d5761342-7bee-48a5-b869-e8ecc93ad845
+# ╟─a0ac29ae-4e4a-4d9b-bd83-18b3b63cbee0
+# ╠═f4513b8e-ba8f-4300-ad0d-b71bef3048f1
+# ╠═7debfe05-5898-43ad-a698-cdfc2d4fb316
+# ╠═2d16e364-c51e-417b-8c5f-7b4f6c49f914
+# ╠═9fbbf070-b4f1-429e-a4ae-a507ff66c76e
+# ╟─6d114786-6522-4619-b760-65cee75f23b9
+# ╟─4f962be9-2ca2-4dac-ab5b-648b89749819
+# ╠═2a796047-03b4-43e4-9b61-82557e9e58ac
+# ╠═024620b3-4cba-4d1f-beee-0e1903d6f30e
+# ╟─1f9acb4e-c58c-4b3f-90c8-83da1f70ff61
+# ╠═f558d62d-8ede-4d2c-97f8-61d413fa3d21
+# ╠═67d7f173-4846-4803-8dc2-c5b1d5897539
+# ╟─9855187d-8f61-4989-9d42-3a7fd8c399ec
+# ╟─32a61ed3-25c8-4970-be17-229f57c28cee
+# ╠═7372a449-8f73-42b4-b3c2-0b526b7ad34a
+# ╠═ea1e37df-2ca3-46da-820e-d5452afe48b5
+# ╠═6599fbcf-2e90-4b55-b2c5-a2aafbec3198
+# ╠═15b96541-c488-4270-b24d-b9c32efa90f5
+# ╟─97fa2d7f-f91d-4aa4-ae8a-b43ae81cf75a
+# ╠═9667934f-283b-44aa-9df6-dd510e0e03b6
+# ╟─0d4791d9-0479-4d20-b757-e4cdb25df924
+# ╠═566232b8-6537-412b-8dae-412dc93cac3f
+# ╠═0d614d12-69c0-44fe-a6f4-bacbbe889a75
+# ╠═a9b7aadd-99e3-4ee7-8499-eb906900d2f5
+# ╠═eabc3a6f-eaaa-401c-a57b-e9b06a507858
+# ╠═ca497479-db49-4969-81d2-0f8e96a01f11
+# ╠═c298830f-c886-4a8e-84c0-439328f4e87a
+# ╠═2769a48c-eba3-4a0c-8f15-5ce3bedad9fd
+# ╠═615f67e5-4f5d-4a32-a4cf-973325dbbde9
+# ╠═66d7cd7e-9c6d-4cd0-b6c9-3915a030561d
+# ╟─a7c177a3-d44b-416e-a1ee-b4d9638a7088
+# ╠═9c512a98-2770-4ba1-8c5e-5fc3f25f0774
+# ╠═026f30cc-1974-4d51-a13d-397dce04897a
+# ╠═101c2f9a-3ea3-493e-a4db-5716587821b5
+# ╠═f2a0ec3a-8a34-4732-8e33-1846825e9443
+# ╠═25e19dcd-b274-4e5c-98ad-3eabbdb51e46
+# ╟─17aa284b-6455-44aa-938d-8ddd09ea863f
+# ╟─ff94f92f-deda-43d1-b6d7-98dfe6de56fa
+# ╟─cb93e408-2cba-4807-be10-f04bd87e238a
+# ╟─3d2c3faf-a4f7-4700-a50d-d410c20d38fb
+# ╠═8de8fdae-3053-45b6-9c2e-8ca8397da016
+# ╟─69b24bf8-0879-44c2-9342-b8c432a971ff
+# ╟─08369c06-1fd1-42d7-a320-8e231b4e6cfd
+# ╟─757b3ff0-21a8-400e-8bef-7034ddd8bcfe
+# ╠═3367af4d-8629-41f7-a7dc-a6ee95c2109d
+# ╟─be7550e8-f331-45fa-af54-87a1d33e81d7
+# ╠═379aeb2e-0a7e-4d84-9015-cef9b5f53f0b
+# ╠═4e0b3a09-f961-48e8-968c-ea496363fcac
+# ╠═185cd954-4c1d-4516-9510-c6652b564446
+# ╠═9869ff89-265c-48a3-b957-12dacd0ddf43
+# ╠═dd3d9d30-c4ae-4f05-a93c-2853e8fc0a64
+# ╠═9c375468-72c5-4827-afdc-1e76e1e62e2f
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
