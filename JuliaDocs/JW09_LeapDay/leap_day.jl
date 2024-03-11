@@ -4,191 +4,164 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ d5761342-7bee-48a5-b869-e8ecc93ad845
+# ╔═╡ c34d712a-6130-4f57-9d76-8973d1fca5a3
 begin
 	using PlutoUI
 	TableOfContents()
 end
 
-# ╔═╡ f4513b8e-ba8f-4300-ad0d-b71bef3048f1
-using CSV, Chain, DataFrames, TidierData, TidierPlots
+# ╔═╡ dd248953-ab19-42ea-a7b7-fe39a7a032c4
+using CSV, DataFrames, Tidier, Chain, Pipe
 
-# ╔═╡ 7debfe05-5898-43ad-a698-cdfc2d4fb316
-using CairoMakie, Colors
+# ╔═╡ 4ac4cf30-501b-4203-bc05-b0ec16ffa991
+using Makie, TidierPlots
 
-# ╔═╡ 86d2d8cc-db0f-4b41-ba48-60231cca608b
-using Formatting
+# ╔═╡ c0d401aa-df08-11ee-3df0-d11b65bf0e9d
+html"""<p style="color:crimson; font-size:40px"><b>Leap Day<b></p>"""
 
-# ╔═╡ f1e44dce-29d6-45d5-87cb-a1131e1ab315
-html"""<p style="color:cyan; font-size:40px"><b>R Consortium ISC Grants<b></p>"""
-
-# ╔═╡ 4597f44c-9640-47b1-a8af-07e868834674
+# ╔═╡ e9751931-2eaa-4e37-9b78-a1fdaa7a14b3
 html"""
-<p style="color:forestgreen">
+<p style="color:#13955E">
 <b>TidyTuesday Data:</b>
-<a href=https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-02-20/readme.md">Week-08</a>
+<a href=https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-02-27/readme.md">Week-09</a>
 </p>
 """
 
-# ╔═╡ 1089f77c-d86f-11ee-2d30-1d69d3b370fd
-pwd()
+# ╔═╡ ac31c9a7-5058-46e1-96b3-bafed14a0cd0
+md"## Setup"
 
-# ╔═╡ a0ac29ae-4e4a-4d9b-bd83-18b3b63cbee0
-md"## Packages and Data"
+# ╔═╡ db95835c-5353-4445-becf-9acea27c3be6
+md"### Packages"
 
-# ╔═╡ 2d16e364-c51e-417b-8c5f-7b4f6c49f914
+# ╔═╡ 2016d36b-fe10-4d83-a04e-0e9d7ac4b40f
+md"### Data"
+
+# ╔═╡ edfab7a3-4a75-483a-8526-63ac822df44b
 begin
-	url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-02-20/isc_grants.csv"
-	raw = CSV.File(download(url)) |> DataFrame
+	filepath = "/Users/birusod/Documents/DataScienceDocs/GitProjects/Projects2024/RDocs/dsr/RDrafts/leap_day_births.csv"
+	dfr = CSV.File(filepath) |> DataFrame
 end;
 
-# ╔═╡ 9fbbf070-b4f1-429e-a4ae-a507ff66c76e
-first(raw, 3)
+# ╔═╡ b9125c29-529b-42c9-b669-f1e57454f423
+typeof(dfr)
 
-# ╔═╡ 6d114786-6522-4619-b760-65cee75f23b9
-md"## Data Wrangling"
+# ╔═╡ 34b2b929-3356-40cb-a260-663199d418c8
+md"## EDA & Data Wrangling"
 
-# ╔═╡ 4f962be9-2ca2-4dac-ab5b-648b89749819
-md"### Selecting and renaming variables" 
+# ╔═╡ 9da3e4c2-a173-4548-98bf-385545b6a77c
+md"### EDA: Overview"
 
-# ╔═╡ 2a796047-03b4-43e4-9b61-82557e9e58ac
-df1 = @chain raw begin
-	@select(year, group, title, funded, proposed_by)
-	@rename(cycle = group, amount = funded, name = proposed_by)
-end;
+# ╔═╡ 8c346bed-6b97-49c6-981f-c85458b05b89
+md"**number of rows, columns names and types...**"
 
-# ╔═╡ 024620b3-4cba-4d1f-beee-0e1903d6f30e
-@chain df1 first(3)
+# ╔═╡ 964023e9-0433-434f-87b7-0a143b4fa2cb
+dfr |> names
 
-# ╔═╡ 1f9acb4e-c58c-4b3f-90c8-83da1f70ff61
-md"### Tranforming columns"
+# ╔═╡ 7d72aa9e-9473-4585-9436-4b856682fc9b
+dfr |> size
 
-# ╔═╡ f558d62d-8ede-4d2c-97f8-61d413fa3d21
-df2 = @chain df1 begin
+# ╔═╡ 2d257d0d-029f-4231-aafc-f32b3aa60713
+eltype.(eachcol(dfr))
+
+# ╔═╡ 595b17b8-d404-478f-8660-b84c37e1f001
+Dict(names(dfr) .=> eltype.(eachcol(dfr)))
+
+# ╔═╡ ec2a5713-cd9c-4b1a-9087-713fa57a3cc4
+Dict(names(dfr) .=> eltype.(eachcol(dfr))) |> DataFrame
+
+# ╔═╡ 1a509c41-3c58-47bb-baf5-91d6b565f85c
+mapcols(eltype, dfr)
+
+# ╔═╡ fdb950f0-3cea-4927-a4f7-37eb09994fec
+begin
+	tab = mapcols(eltype, dfr)
+	tab.id = string.(1:nrow(tab))  # Add column with names
+	tab2 = permutedims(tab, "id", "column")
+	rename(tab2, 2 => :type)
+end
+
+# ╔═╡ 9edc7a47-a0a9-4021-bebd-f4ec94712447
+dfr |> describe
+
+# ╔═╡ d6d7bdfb-ccf3-4052-9ff0-3d24e949ff98
+md"### EDA: Univariate"
+
+# ╔═╡ d2340a95-b6ff-4646-a97a-8bd414a741be
+md"**By Category**"
+
+# ╔═╡ be9ecf95-30bb-4eaa-918a-8a0ab5190796
+@chain dfr begin 
+	@count(category)
+	@arrange(desc(n))
+end
+
+# ╔═╡ 16a47fe9-568f-4d93-963f-8fafa5cbf301
+md"**By Origin**"
+
+# ╔═╡ 10563635-e014-4801-98a9-9b6cd1d9b8e1
+@chain dfr begin 
+	@count(origin)
+	@arrange(desc(n))
+end
+
+# ╔═╡ c1ca2ae9-ec0b-458c-929b-157898df8174
+md"**By Status**"
+
+# ╔═╡ 1ad68e81-f610-457f-883e-9de3bbb14bd0
+@chain dfr begin 
+	@count(status)
+	@arrange(desc(n))
+end
+
+# ╔═╡ 24a134bc-7ab6-4d35-a4a6-5ded44a715a2
+md"### Wrangling"
+
+# ╔═╡ f2c7db71-031b-42a5-a171-3f4bcfff3a9e
+md"
+ - Parse year_death as Intger
+ - Compute age with `year_birth` and `year_death`
+ - Group category into: Art - Sport - Other
+"
+
+# ╔═╡ 43041e43-4395-4afd-9213-9aaa1cda790e
+dff = @chain dfr begin
+	@mutate(year_death = as_integer(year_death))
+	@mutate(year_calc = case_when(
+				ismissing(year_death) => 2024,
+				true => year_death))
 	@mutate(
-		cycle = case_when(cycle == 1 => "Spring", true => "Fall"),
-		year_string = string(year)
-	)
+		age =  year_calc - year_birth,
+		cat2 = cat_infreq(
+			as_categorical(
+				case_when(
+					category ∈ ["Art", "Sport"] => category,
+					true => "Other"))))
 end;
 
-# ╔═╡ 67d7f173-4846-4803-8dc2-c5b1d5897539
-@chain df2 first(3)
+# ╔═╡ 5b81357c-d44b-4eff-84d3-8d3176caba12
+md"### Summarise age by category"
 
-# ╔═╡ 9855187d-8f61-4989-9d42-3a7fd8c399ec
-md"## Dataviz"
+# ╔═╡ 3b00ac90-fb30-4623-9080-ab26a409a2eb
+begin
+	avg_age_cat1 = @chain dff @group_by(category) @summarise(avg = round(mean(age)))
+	avg_age_cat2 = @chain dff @group_by(cat2) @summarise(avg = round(mean(age)))
+end
 
-# ╔═╡ 32a61ed3-25c8-4970-be17-229f57c28cee
-md"### By year"
+# ╔═╡ 626a994a-dbc2-4fed-8a0d-e55b3b435957
+md"## Viz with TidierPlots and Makie"
 
-# ╔═╡ 7372a449-8f73-42b4-b3c2-0b526b7ad34a
-byear = @chain df2 @count(year_string) @rename(total = n);
+# ╔═╡ 6d63e3cc-3c61-45d5-98ea-bb05b51a3fac
+md"### Custum theme"
 
-# ╔═╡ ea1e37df-2ca3-46da-820e-d5452afe48b5
-y1 = ggplot(height = 260, width = 280,
-	byear,
-	aes(x = "year_string", y = "total")) +
-geom_col();
-
-# ╔═╡ 6599fbcf-2e90-4b55-b2c5-a2aafbec3198
-y2 = ggplot(height = 300, width = 300,
-	df2,
-	aes(x = "year_string")) +
-geom_bar();
-
-# ╔═╡ 15b96541-c488-4270-b24d-b9c32efa90f5
-[y1 ,  y2]
-
-# ╔═╡ 97fa2d7f-f91d-4aa4-ae8a-b43ae81cf75a
-md"### By cycle"
-
-# ╔═╡ 9667934f-283b-44aa-9df6-dd510e0e03b6
-gc = ggplot(height = 400, width = 500,
-	df2,
-	@aes(x = year_string)) +
-geom_bar(aes(color = "cycle"), position = "dodge") +
-labs(x = "", y = "Total projects", 
-	title = "R CONSORTIUM ISC GRANTS",
-	subtitle = "Number of funded projects by cycle",
-	color = "Cycle") +
-lims(y = c(0, 9.5))
-
-# ╔═╡ 0d4791d9-0479-4d20-b757-e4cdb25df924
-md"### Theming"
-
-# ╔═╡ 566232b8-6537-412b-8dae-412dc93cac3f
-ggplot_theme = Theme(
-    Axis = (
-        backgroundcolor = :gray90,
-        leftspinevisible = false,
-        rightspinevisible = false,
-        bottomspinevisible = false,
-        topspinevisible = false,
-        xgridcolor = :white,
-        ygridcolor = :white,
-    )
-)
-
-# ╔═╡ 0d614d12-69c0-44fe-a6f4-bacbbe889a75
-gc + ggplot_theme
-
-# ╔═╡ a9b7aadd-99e3-4ee7-8499-eb906900d2f5
-gc + theme_minimal()
-
-# ╔═╡ eabc3a6f-eaaa-401c-a57b-e9b06a507858
-gc + theme_black()
-
-# ╔═╡ ca497479-db49-4969-81d2-0f8e96a01f11
-gc + theme_light()
-
-# ╔═╡ c298830f-c886-4a8e-84c0-439328f4e87a
-gc + theme_dark()
-
-# ╔═╡ 2769a48c-eba3-4a0c-8f15-5ce3bedad9fd
-gc + theme_latexfonts()
-
-# ╔═╡ 615f67e5-4f5d-4a32-a4cf-973325dbbde9
-cc_theme = Theme(
-    Axis = (
-		titlecolor = :brown,
-		titlesize = 20,
-		titlefont = :bold,
-		subtitlecolor = :grey,
-		subtitlesize = 20,
-		subtitlefont = :italic,
-        backgroundcolor = :white,
-        leftspinevisible = true,
-        rightspinevisible = false,
-        bottomspinevisible = true,
-        topspinevisible = false,
-		xticksvisible = false,
-        xgridcolor = :white,
-        ygridcolor = :grey90,
-    )
-)
-
-# ╔═╡ 66d7cd7e-9c6d-4cd0-b6c9-3915a030561d
-gc + cc_theme
-
-# ╔═╡ a7c177a3-d44b-416e-a1ee-b4d9638a7088
-md"### Yearly average funding"
-
-# ╔═╡ 9c512a98-2770-4ba1-8c5e-5fc3f25f0774
-yearly_avg = 
-	@chain df2 @group_by(year, cycle) @summarise(avg = mean(amount)) @ungroup() @mutate(year = string(year));
-
-# ╔═╡ 026f30cc-1974-4d51-a13d-397dce04897a
-#f = Figure(fontsize = 24, fonts = (; regular = "Dejavu", weird = "Blackchancery"))
-#Axis(f[1, 1], title = "A title", xlabel = "An x label", xlabelfont = :weird)
-
-# ╔═╡ 101c2f9a-3ea3-493e-a4db-5716587821b5
+# ╔═╡ 34b51846-03d9-4e56-99af-d78938cde579
 ac_theme = Theme(
     Axis = (
 		titlecolor = :darkblue,
-		titlesize = 30,
+		titlesize = 25,
 		titlefont = :"Dejavu",
-		subtitlecolor = :dodgerblue,
+		subtitlecolor = :grey,
 		subtitlesize = 20,
-		subtitlefont = "Blackchancery",
+		subtitlefont = "Roboto", #"Blackchancery",
         backgroundcolor = :white,
         leftspinevisible = true,
         rightspinevisible = false,
@@ -198,225 +171,180 @@ ac_theme = Theme(
         xgridcolor = :white,
         ygridcolor = :grey90,
 		xlabelfont = "Roboto",
+		xlabelcolor = :grey70,
+		xlabelsize = 10,
 		ylabelfont = "Roboto",
     ),
 )
 
-# ╔═╡ f2a0ec3a-8a34-4732-8e33-1846825e9443
-gg = ggplot(yearly_avg) +
-geom_col(
-	@aes(
-		x = year, 
-		y = avg, 
-		color = cycle), 
-	position = "dodge") +
-labs(
-	x = "Years", 
-	y = "Average funding (USD)",
-	title = "R CONSORTIUM ISC GRANTS",
-	subtitle = "Yearly Average Funding Amount",
-	color = "Cycle")
+# ╔═╡ 90ad188d-0138-42f3-b086-cd8b072d1460
+md"### Univariate"
 
-# ╔═╡ 25e19dcd-b274-4e5c-98ad-3eabbdb51e46
-gg + ac_theme
+# ╔═╡ 3d79eb2a-7ef1-4894-8694-f14273f904a0
+md"**GG1: By Category**"
 
-# ╔═╡ 17aa284b-6455-44aa-938d-8ddd09ea863f
-md"**Custom theme**"
+# ╔═╡ 5ab25534-c75c-405e-87be-7bd15d6cf594
+gg1 = @chain dff begin
+	@mutate(category = cat_infreq(as_categorical(category)))
+    @count(category)
+    ggplot()
+        geom_col(@aes(x = category, y = n), color = :dodgerblue)
+		labs(
+			x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+			title = "Famous People Born On Leap Day",
+			subtitle = "Distribution by sector")
+end;
 
-# ╔═╡ ff94f92f-deda-43d1-b6d7-98dfe6de56fa
-gg + 
-Theme(
-	Axis = (
-		titlecolor = :darkblue,
-		titlesize = 30,
-		titlefont = :"Dejavu",
-		subtitlecolor = :dodgerblue,
-		subtitlesize = 20,
-		subtitlefont = "Blackchancery",
-        backgroundcolor = :white,
-        leftspinevisible = true,
-        rightspinevisible = false,
-        bottomspinevisible = true,
-        topspinevisible = false,
-		xticksvisible = false,
-        xgridcolor = :white,
-        ygridcolor = :grey90,
-		xlabelfont = "Roboto",
-		ylabelfont = "Roboto"),
-	Legend=(
-		framecolor= :white, 
-		backgroundcolor=(:white, 1),
-		position=:top,
-		orientation = :horizontal),
-)
+# ╔═╡ 1679f112-4866-451a-9b98-498cb9547f29
+gg1 + ac_theme
 
-# ╔═╡ 6a311800-dcae-4670-b069-3ce59415cda6
-function my_theme()
-	theme = Theme(
-		Axis = (
-			titlecolor = :brown,
-			titlesize = 20,
-			titlefont = :bold,
-			subtitlecolor = :grey,
-			subtitlesize = 20,
-			subtitlefont = :italic,
-        	backgroundcolor = :white,
-        	leftspinevisible = true,
-        	rightspinevisible = false,
-        	bottomspinevisible = true,
-        	topspinevisible = false,
-			xticksvisible = false,
-        	xgridcolor = :white,
-        	ygridcolor = :grey90,
-			)
-		)
-	theme[:axisticks] = (ticks = (ticks -> (
-		map(ticks[1], 
-			x -> x, 
-			y -> L"$" *  format(y, commas=true, precision=2)))), )
-	return theme
-end
+# ╔═╡ 3dc64865-874a-495e-a375-904e94ed3818
+md"**By Category: 3 groups**"
 
-# ╔═╡ ba30dcfd-82d3-4625-83b2-d629c8671b18
-yearly_avg2 = 
-	@chain df2 @group_by(year, cycle) @summarise(avg = mean(amount) / 1000) @ungroup() @mutate(year = string(year));
-
-# ╔═╡ 7849e0de-d091-4a21-8c6a-4255e4153554
-yearly_avg2;
-
-# ╔═╡ ccd13862-8ef5-4148-a0d0-0094222aa733
-ggf = ggplot(yearly_avg2) +
-geom_col(
-	@aes(
-		x = year, 
-		y = avg, 
-		color = cycle), 
-	position = "dodge") +
-labs(
-	x = "Years", 
-	y = "Average funding (Thousands USD)",
-	title = "R CONSORTIUM ISC GRANTS",
-	subtitle = "Yearly Average Funding Amount",
-	color = "Cycle") +
-my_theme()
-
-# ╔═╡ cb93e408-2cba-4807-be10-f04bd87e238a
-md"**publication_theme**"
-
-# ╔═╡ 3d2c3faf-a4f7-4700-a50d-d410c20d38fb
-publication_theme() = Theme(
-    fontsize=16,
-    Axis=(
-        titlefont = "Lobster Two", subtitlefont = "Outfit",
-		xlabelsize=20,xlabelpadding=15,
-		ylabelsize=20,ylabelpadding=15,
-        xgridstyle=:dash, ygridstyle=:dash,
-        xtickalign=1, ytickalign=1,
-        yticksize=10, xticksize=10,
-        xlabel="x", ylabel="y"
-        ),
-    Legend=(
-		framevisible=false, backgroundcolor=(:white, 0.5), #framecolor=(:blue, 0.5), 
-		titlecolor=:red, titlehalign=:left, titlesize=20, titlefont="Roboto",
-		labelfont="Caladea",
-		),
-    Colorbar=(ticksize=16, tickalign=1, spinewidth=0.5),
-);
-
-# ╔═╡ 8de8fdae-3053-45b6-9c2e-8ca8397da016
-gg + publication_theme()
-
-# ╔═╡ 69b24bf8-0879-44c2-9342-b8c432a971ff
-begin
-	f1 = Figure()
-	ax1 = Axis(f1[1, 1])
-
-	sc1 = scatter!(randn(10, 2), color = :red, label = "Red Dots")
-	sc2 = scatter!(randn(10, 2), color = :blue, label = "Blue Dots")
-	scatter!(randn(10, 2), color = :orange, label = "Orange Dots")
-	scatter!(randn(10, 2), color = :cyan, label = "Cyan Dots")
-
-	axislegend()
-
-	axislegend("Titled Legend", position = :lb)
-
-	axislegend(
-		ax1, [sc1, sc2], ["One", "Two"], "Selected Dots", 
-		position = :lt,
-		orientation = :horizontal
+# ╔═╡ de75ca1f-5d80-4cac-80b6-a197cf7567c6
+ggplot(height = 400, width = 500,  
+		dff,
+		@aes(x = cat2, color = cat2)) +
+	geom_bar() + 
+	scale_color_manual(values = ["#660d20", "#e59a52", "#edce79"]) +
+	labs(x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+		 title = "Famous People Born On Leap Day",
+		 subtitle = "Distribution by sector",
+		 color = "Category") +
+	theme_light() +
+	Theme(
+    	Axis = (
+			xlabelfont = "Roboto",
+			xlabelcolor = :grey70,
+			xlabelsize = 10,
+			ylabelfont = "Roboto",
+    	)
 	)
 
-	f1
+# ╔═╡ 7276ed9c-1cc7-4f29-a6f5-177ba0d772de
+md"**GG2: By Origin**"
+
+# ╔═╡ 33d230e7-4aa7-422d-a253-8b5558ea2db3
+gg2 = @chain dff begin
+    	@count(origin)
+    	@arrange(n)
+    	ggplot()
+        geom_col(@aes(y = n, x = origin, color = origin))
+		scale_color_discrete(palette = :Set2_3)
+		labs(
+			x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+			title = "Famous People Born On Leap Day",
+			subtitle = "Distribution by sector",
+			color = "Origin") 
+	end;
+
+# ╔═╡ 484cc285-119c-4b2c-b9da-f768b286a1bf
+gg2 + 
+	Theme(
+		Axis = (
+			xticklabelsize = 20, xlabelsize = 10, 
+			xticklabelfont = "Roboto", ylabelfont = "Roboto"),
+		Legend= Theme(
+			framecolor= :white, 
+			backgroundcolor= :white)
+		)
+
+# ╔═╡ bc0329a8-a046-4045-a17e-6c57f605bda5
+@chain dff begin
+    	@count(origin)
+    	@arrange(n)
+    	ggplot()
+        geom_col(@aes(y = n, x = origin), color = "#0086a8")
+		labs(
+			x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+			title = "Famous People Born On Leap Day",
+			subtitle = "Distribution by sector")
+		theme_light() +
+		ac_theme
 end
 
-# ╔═╡ 08369c06-1fd1-42d7-a320-8e231b4e6cfd
-md"**mythm**"
+# ╔═╡ 1943154a-8af3-41f0-8d81-8956465e6e14
+md"**GT By Origin**"
 
-# ╔═╡ 757b3ff0-21a8-400e-8bef-7034ddd8bcfe
-mythm  = Theme(
-	fontsize=26,
-	font="roboto",
-	Axis = (
-		backgroundcolor=:wheat,
-		Foregroundccolor=:black,
-		xticksvisible = false,
-        xgridcolor = :wheat,
-        ygridcolor = :wheat,
-	),
-	Legend = Theme(
-		framevisible=false, backgroundcolor=(:white, 0.5), #framecolor=(:blue, 0.5), 
-		titlecolor=:red, titlehalign=:left, titlesize=20, titlefont="Roboto",
-		labelfont="Caladea",
-		
-	),
-);
+# ╔═╡ 912b68b8-bfee-428f-9ad3-1b356afdcd0d
+gt = @chain dff begin
+    	@count(origin)
+    	@arrange(n)
+    	ggplot()
+        geom_col(@aes(y = n, x = origin, color = origin))
+		labs(
+			x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+			title = "Famous People Born On Leap Day",
+			subtitle = "Distribution by origin",
+			color = "Origin")
+		theme_light()
+end;
 
-# ╔═╡ 3367af4d-8629-41f7-a7dc-a6ee95c2109d
-gg + mythm
+# ╔═╡ ce8af2df-270b-47ac-99fc-e75fd8ade661
+gt + ac_theme
 
-# ╔═╡ be7550e8-f331-45fa-af54-87a1d33e81d7
-md"### Colors palettes"
+# ╔═╡ 131d10c0-5345-4586-8d3b-3a377a1f615f
+md"**By Status**"
 
-# ╔═╡ 379aeb2e-0a7e-4d84-9015-cef9b5f53f0b
-gg + scale_color_discrete(palette = :seaborn_bright) + ac_theme
+# ╔═╡ 2c83b253-54a6-40cc-9822-aa5155085493
+@chain dff begin 
+	ggplot()
+	geom_bar(@aes(x = status, color = status))
+	scale_color_manual(values = ["#418979", "#96410e"]) 
+	labs(
+			x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+			title = "Famous People Born On Leap Day",
+			subtitle = "Distribution by origin",
+			color = "Vital\nstatus")
+	theme_minimal()
+end
 
-# ╔═╡ 4e0b3a09-f961-48e8-968c-ea496363fcac
-gg + scale_color_discrete(palette = :seaborn_deep) + ac_theme
 
-# ╔═╡ 185cd954-4c1d-4516-9510-c6652b564446
-gg + scale_color_discrete(palette = :Set1_3) + ac_theme
+# ╔═╡ eba2a825-53b3-4510-9b1d-09f1dde9a34d
+md"### Bivariate"
 
-# ╔═╡ 9869ff89-265c-48a3-b957-12dacd0ddf43
-gg + scale_color_discrete(palette = :Set1_7) + ac_theme
+# ╔═╡ 9d19af7a-0c9d-48c0-9cd4-de07862fa8ed
+md"**By status & origin**"
 
-# ╔═╡ dd3d9d30-c4ae-4f05-a93c-2853e8fc0a64
-gg + scale_color_discrete(palette = :Dark2_6) + ac_theme
+# ╔═╡ 3d6e64a5-7fa2-4049-bd6e-caddbf54a933
+by_status_orgin = @chain dfr begin 
+	@count(status, origin)
+	@arrange(desc(n))
+end;
 
-# ╔═╡ 9c375468-72c5-4827-afdc-1e76e1e62e2f
-
+# ╔═╡ 7b0056ce-3d3e-4fc3-b372-fe8646053a34
+@chain by_status_orgin begin 
+	ggplot()
+	geom_col(@aes(x = origin, y = n, color = status),  position = "dodge")
+	scale_color_manual(values = ["#418979", "#96410e"]) 
+	labs(
+			x = "\nTidyTuesday Data | week 9\n", y  = "Frequency",
+			title = "Famous People Born On Leap Day",
+			subtitle = "Distribution by status and origin",
+			color = "Origin")
+	theme_minimal()
+end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
-CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
-Colors = "5ae59095-9a9b-59fe-a467-6f913c188581"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
-Formatting = "59287772-0a20-5a39-b81b-1366585eb4c0"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+Pipe = "b98c9c47-44ae-5843-9183-064241ee97a0"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-TidierData = "fe2206b3-d496-4ee9-a338-6a095c4ece80"
+Tidier = "f0413319-3358-4bb0-8e7c-0c83523a93bd"
 TidierPlots = "337ecbd1-5042-4e2a-ae6f-ca776f97570a"
 
 [compat]
 CSV = "~0.10.12"
-CairoMakie = "~0.11.9"
 Chain = "~0.5.0"
-Colors = "~0.12.10"
 DataFrames = "~1.6.1"
-Formatting = "~0.4.2"
+Makie = "~0.20.8"
+Pipe = "~1.3.0"
 PlutoUI = "~0.7.58"
-TidierData = "~0.14.7"
+Tidier = "~1.2.1"
 TidierPlots = "~0.5.5"
 """
 
@@ -426,7 +354,12 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.2"
 manifest_format = "2.0"
-project_hash = "9239bd765032f20906e0eb8ff99cda5de79cff4a"
+project_hash = "5acea8b02d8b2acd8b3212537b36f67b394ec2df"
+
+[[deps.ANSIColoredPrinters]]
+git-tree-sha1 = "574baf8110975760d391c710b6341da1afa48d8c"
+uuid = "a4c015fc-c6ff-483c-b24f-f7ea428134e9"
+version = "0.0.1"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -533,6 +466,11 @@ git-tree-sha1 = "f1f03a9fa24271160ed7e73051fba3c1a759b53f"
 uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 version = "1.4.0"
 
+[[deps.BitFlags]]
+git-tree-sha1 = "2dc09997850d68179b69dafb58ae806167a32b1b"
+uuid = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
+version = "0.1.8"
+
 [[deps.Bzip2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
 git-tree-sha1 = "9e2a6b69137e6969bab0152632dcb3bc108c8bdd"
@@ -582,6 +520,30 @@ deps = ["LinearAlgebra"]
 git-tree-sha1 = "f641eb0a4f00c343bbc32346e1217b86f3ce9dad"
 uuid = "49dc2e85-a5d0-5ad3-a950-438e2897f1b9"
 version = "0.5.1"
+
+[[deps.Cascadia]]
+deps = ["AbstractTrees", "Gumbo"]
+git-tree-sha1 = "c0769cbd930aea932c0912c4d2749c619a263fc1"
+uuid = "54eefc05-d75b-58de-a785-1a3403f0919f"
+version = "1.0.2"
+
+[[deps.CategoricalArrays]]
+deps = ["DataAPI", "Future", "Missings", "Printf", "Requires", "Statistics", "Unicode"]
+git-tree-sha1 = "1568b28f91293458345dabba6a5ea3f183250a61"
+uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
+version = "0.10.8"
+
+    [deps.CategoricalArrays.extensions]
+    CategoricalArraysJSONExt = "JSON"
+    CategoricalArraysRecipesBaseExt = "RecipesBase"
+    CategoricalArraysSentinelArraysExt = "SentinelArrays"
+    CategoricalArraysStructTypesExt = "StructTypes"
+
+    [deps.CategoricalArrays.weakdeps]
+    JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+    RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
+    SentinelArrays = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
+    StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
 
 [[deps.Chain]]
 git-tree-sha1 = "8c4920235f6c561e401dfe569beb8b924adad003"
@@ -675,6 +637,12 @@ weakdeps = ["Dates", "LinearAlgebra"]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
 version = "1.1.0+0"
+
+[[deps.ConcurrentUtilities]]
+deps = ["Serialization", "Sockets"]
+git-tree-sha1 = "9c4708e3ed2b799e6124b5673a712dda0b596a9b"
+uuid = "f0e56b4a-5159-44fe-b623-3e5288b988bb"
+version = "2.3.1"
 
 [[deps.ConstructionBase]]
 deps = ["LinearAlgebra"]
@@ -784,6 +752,12 @@ git-tree-sha1 = "2fb1e02f2b635d0845df5d7c167fec4dd739b00d"
 uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 version = "0.9.3"
 
+[[deps.Documenter]]
+deps = ["ANSIColoredPrinters", "Base64", "Dates", "DocStringExtensions", "IOCapture", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
+git-tree-sha1 = "39fd748a73dce4c05a9655475e437170d8fb1b67"
+uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+version = "0.27.25"
+
 [[deps.Downloads]]
 deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
 uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
@@ -811,6 +785,12 @@ deps = ["IntervalArithmetic", "Random", "StaticArrays"]
 git-tree-sha1 = "b3f2ff58735b5f024c392fde763f29b057e4b025"
 uuid = "429591f6-91af-11e9-00e2-59fbe8cec110"
 version = "2.2.8"
+
+[[deps.ExceptionUnwrapping]]
+deps = ["Test"]
+git-tree-sha1 = "dcb08a0d93ec0b1cdc4af184b26b591e9695423a"
+uuid = "460bff9d-24e4-43bc-9d9f-a8973cb893f4"
+version = "0.1.10"
 
 [[deps.Expat_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -907,12 +887,6 @@ git-tree-sha1 = "f3cf88025f6d03c194d73f5d13fee9004a108329"
 uuid = "1fa38f19-a742-5d3f-a2b9-30dd87b9d5f8"
 version = "1.3.6"
 
-[[deps.Formatting]]
-deps = ["Printf"]
-git-tree-sha1 = "8339d61043228fdd3eb658d86c926cb282ae72a8"
-uuid = "59287772-0a20-5a39-b81b-1366585eb4c0"
-version = "0.4.2"
-
 [[deps.ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "LinearAlgebra", "LogExpFunctions", "NaNMath", "Preferences", "Printf", "Random", "SpecialFunctions"]
 git-tree-sha1 = "cf0fe81336da9fb90944683b8c41984b08793dad"
@@ -1003,6 +977,24 @@ version = "0.10.0"
 git-tree-sha1 = "53bb909d1151e57e2484c3d1b53e19552b887fb2"
 uuid = "42e2da0e-8278-4e71-bc24-59509adca0fe"
 version = "1.0.2"
+
+[[deps.Gumbo]]
+deps = ["AbstractTrees", "Gumbo_jll", "Libdl"]
+git-tree-sha1 = "a1a138dfbf9df5bace489c7a9d5196d6afdfa140"
+uuid = "708ec375-b3d6-5a57-a7ce-8257bf98657a"
+version = "0.8.2"
+
+[[deps.Gumbo_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "29070dee9df18d9565276d68a596854b1764aa38"
+uuid = "528830af-5a63-567c-a44a-034ed33b8444"
+version = "0.10.2+0"
+
+[[deps.HTTP]]
+deps = ["Base64", "CodecZlib", "ConcurrentUtilities", "Dates", "ExceptionUnwrapping", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
+git-tree-sha1 = "ac7b73d562b8f4287c3b67b4c66a5395a19c1ae8"
+uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+version = "1.10.2"
 
 [[deps.HarfBuzz_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "Graphite2_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Pkg"]
@@ -1220,6 +1212,12 @@ git-tree-sha1 = "50901ebc375ed41dbf8058da26f9de442febbbec"
 uuid = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 version = "1.3.1"
 
+[[deps.Languages]]
+deps = ["InteractiveUtils", "JSON", "RelocatableFolders"]
+git-tree-sha1 = "0cf92ba8402f94c9f4db0ec156888ee8d299fcb8"
+uuid = "8ef0a80b-9436-5d2c-a485-80b904378c43"
+version = "0.4.6"
+
 [[deps.LazyArtifacts]]
 deps = ["Artifacts", "Pkg"]
 uuid = "4af54fe1-eca0-43a8-85a7-787d91b784e3"
@@ -1339,6 +1337,12 @@ version = "0.3.27"
 [[deps.Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
+[[deps.LoggingExtras]]
+deps = ["Dates", "Logging"]
+git-tree-sha1 = "c1dd6d7978c12545b4179fb6153b9250c96b0075"
+uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
+version = "1.0.3"
+
 [[deps.MIMEs]]
 git-tree-sha1 = "65f28ad4b594aebe22157d6fac869786a255b7eb"
 uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
@@ -1388,6 +1392,12 @@ deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "Geo
 git-tree-sha1 = "96ca8a313eb6437db5ffe946c457a401bbb8ce1d"
 uuid = "0a4f8689-d25c-4efe-a92b-7142dfc1aa53"
 version = "0.5.7"
+
+[[deps.MbedTLS]]
+deps = ["Dates", "MbedTLS_jll", "MozillaCACerts_jll", "NetworkOptions", "Random", "Sockets"]
+git-tree-sha1 = "c067a280ddc25f196b5e7df3877c6b226d390aaf"
+uuid = "739be429-bea8-5141-9913-cc70e7f3736d"
+version = "1.1.9"
 
 [[deps.MbedTLS_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1493,6 +1503,12 @@ deps = ["Artifacts", "Libdl"]
 uuid = "05823500-19ac-5b8b-9628-191a04bc5112"
 version = "0.8.1+2"
 
+[[deps.OpenSSL]]
+deps = ["BitFlags", "Dates", "MozillaCACerts_jll", "OpenSSL_jll", "Sockets"]
+git-tree-sha1 = "51901a49222b09e3743c65b8847687ae5fc78eb2"
+uuid = "4d8831e6-92b7-49fb-bdf8-b643e874388c"
+version = "1.4.1"
+
 [[deps.OpenSSL_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "60e3045590bd104a16fefb12836c00c0ef8c7f8c"
@@ -1580,6 +1596,11 @@ deps = ["DocStringExtensions"]
 git-tree-sha1 = "d6ff87de27ff3082131f31a714d25ab6d0a88abf"
 uuid = "3bbf5609-3e7b-44cd-8549-7c69f321e792"
 version = "0.6.1"
+
+[[deps.Pipe]]
+git-tree-sha1 = "6842804e7867b115ca9de748a0cf6b364523c16d"
+uuid = "b98c9c47-44ae-5843-9183-064241ee97a0"
+version = "1.3.0"
 
 [[deps.Pixman_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "LLVMOpenMP_jll", "Libdl"]
@@ -1811,6 +1832,11 @@ git-tree-sha1 = "d263a08ec505853a5ff1c1ebde2070419e3f28e9"
 uuid = "73760f76-fbc4-59ce-8f25-708e95d2df96"
 version = "0.4.0"
 
+[[deps.SimpleBufferStream]]
+git-tree-sha1 = "874e8867b33a00e784c8a7e4b60afe9e037b74e1"
+uuid = "777ac1f9-54b0-4bf8-805c-2214025038e7"
+version = "1.1.0"
+
 [[deps.SimpleGraphs]]
 deps = ["AbstractLattices", "Combinatorics", "DataStructures", "IterTools", "LightXML", "LinearAlgebra", "LinearAlgebraX", "Optim", "Primes", "Random", "RingLists", "SimplePartitions", "SimplePolynomials", "SimpleRandom", "SparseArrays", "Statistics"]
 git-tree-sha1 = "f65caa24a622f985cc341de81d3f9744435d0d0f"
@@ -2001,17 +2027,52 @@ version = "0.1.1"
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
+[[deps.Tidier]]
+deps = ["Reexport", "TidierCats", "TidierData", "TidierDates", "TidierPlots", "TidierStrings", "TidierText", "TidierVest"]
+git-tree-sha1 = "140d6fe41c63e95bdef7f67d583420488b457b0c"
+uuid = "f0413319-3358-4bb0-8e7c-0c83523a93bd"
+version = "1.2.1"
+
+[[deps.TidierCats]]
+deps = ["CategoricalArrays", "DataFrames", "Reexport", "Statistics"]
+git-tree-sha1 = "c4660f2c0ffd733ec243ea0a5447bd3bfae40c6d"
+uuid = "79ddc9fe-4dbf-4a56-a832-df41fb326d23"
+version = "0.1.1"
+
 [[deps.TidierData]]
 deps = ["Chain", "Cleaner", "DataFrames", "MacroTools", "Reexport", "ShiftedArrays", "Statistics", "StatsBase"]
 git-tree-sha1 = "84f2e1c10a071f9a3c1faa095d42af591f6d33ce"
 uuid = "fe2206b3-d496-4ee9-a338-6a095c4ece80"
 version = "0.14.7"
 
+[[deps.TidierDates]]
+deps = ["Dates", "Documenter", "Reexport"]
+git-tree-sha1 = "16c91a420f63b0fbd42584f2595bdb63c433a91e"
+uuid = "20186a3f-b5d3-468e-823e-77aae96fe2d8"
+version = "0.2.0"
+
 [[deps.TidierPlots]]
 deps = ["AlgebraOfGraphics", "CairoMakie", "Chain", "Colors", "DataFrames", "Makie", "Reexport"]
 git-tree-sha1 = "ab72b99fc415833c1523de9d13df330636acf05f"
 uuid = "337ecbd1-5042-4e2a-ae6f-ca776f97570a"
 version = "0.5.5"
+
+[[deps.TidierStrings]]
+git-tree-sha1 = "5c2dae7c093354893ce30ae931ba2865fea33df3"
+uuid = "248e6834-d0f8-40ef-8fbb-8e711d883e9c"
+version = "0.2.0"
+
+[[deps.TidierText]]
+deps = ["DataFrames", "Languages", "MacroTools", "Reexport", "StatsBase"]
+git-tree-sha1 = "e2d33da7cb5c836dec5cdf1c1f6fb9d793c9184d"
+uuid = "8f0b679f-44a1-4a38-8011-253e3a78fd39"
+version = "0.1.1"
+
+[[deps.TidierVest]]
+deps = ["Cascadia", "DataFrames", "Gumbo", "HTTP"]
+git-tree-sha1 = "b88e71202f2619128c5e703382685d7b51abc470"
+uuid = "969b988e-7aed-4820-b60d-bdec252047c4"
+version = "0.4.3"
 
 [[deps.TiffImages]]
 deps = ["ColorTypes", "DataStructures", "DocStringExtensions", "FileIO", "FixedPointNumbers", "IndirectArrays", "Inflate", "Mmap", "OffsetArrays", "PkgVersion", "ProgressMeter", "UUIDs"]
@@ -2219,66 +2280,60 @@ version = "3.5.0+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═f1e44dce-29d6-45d5-87cb-a1131e1ab315
-# ╠═4597f44c-9640-47b1-a8af-07e868834674
-# ╠═1089f77c-d86f-11ee-2d30-1d69d3b370fd
-# ╟─d5761342-7bee-48a5-b869-e8ecc93ad845
-# ╠═a0ac29ae-4e4a-4d9b-bd83-18b3b63cbee0
-# ╠═f4513b8e-ba8f-4300-ad0d-b71bef3048f1
-# ╠═7debfe05-5898-43ad-a698-cdfc2d4fb316
-# ╠═2d16e364-c51e-417b-8c5f-7b4f6c49f914
-# ╠═9fbbf070-b4f1-429e-a4ae-a507ff66c76e
-# ╟─6d114786-6522-4619-b760-65cee75f23b9
-# ╟─4f962be9-2ca2-4dac-ab5b-648b89749819
-# ╠═2a796047-03b4-43e4-9b61-82557e9e58ac
-# ╠═024620b3-4cba-4d1f-beee-0e1903d6f30e
-# ╟─1f9acb4e-c58c-4b3f-90c8-83da1f70ff61
-# ╠═f558d62d-8ede-4d2c-97f8-61d413fa3d21
-# ╠═67d7f173-4846-4803-8dc2-c5b1d5897539
-# ╟─9855187d-8f61-4989-9d42-3a7fd8c399ec
-# ╟─32a61ed3-25c8-4970-be17-229f57c28cee
-# ╠═7372a449-8f73-42b4-b3c2-0b526b7ad34a
-# ╠═ea1e37df-2ca3-46da-820e-d5452afe48b5
-# ╠═6599fbcf-2e90-4b55-b2c5-a2aafbec3198
-# ╠═15b96541-c488-4270-b24d-b9c32efa90f5
-# ╟─97fa2d7f-f91d-4aa4-ae8a-b43ae81cf75a
-# ╠═9667934f-283b-44aa-9df6-dd510e0e03b6
-# ╟─0d4791d9-0479-4d20-b757-e4cdb25df924
-# ╠═566232b8-6537-412b-8dae-412dc93cac3f
-# ╠═0d614d12-69c0-44fe-a6f4-bacbbe889a75
-# ╠═a9b7aadd-99e3-4ee7-8499-eb906900d2f5
-# ╠═eabc3a6f-eaaa-401c-a57b-e9b06a507858
-# ╠═ca497479-db49-4969-81d2-0f8e96a01f11
-# ╠═c298830f-c886-4a8e-84c0-439328f4e87a
-# ╠═2769a48c-eba3-4a0c-8f15-5ce3bedad9fd
-# ╠═615f67e5-4f5d-4a32-a4cf-973325dbbde9
-# ╠═66d7cd7e-9c6d-4cd0-b6c9-3915a030561d
-# ╟─a7c177a3-d44b-416e-a1ee-b4d9638a7088
-# ╠═9c512a98-2770-4ba1-8c5e-5fc3f25f0774
-# ╠═026f30cc-1974-4d51-a13d-397dce04897a
-# ╠═101c2f9a-3ea3-493e-a4db-5716587821b5
-# ╠═f2a0ec3a-8a34-4732-8e33-1846825e9443
-# ╠═25e19dcd-b274-4e5c-98ad-3eabbdb51e46
-# ╟─17aa284b-6455-44aa-938d-8ddd09ea863f
-# ╠═ff94f92f-deda-43d1-b6d7-98dfe6de56fa
-# ╠═86d2d8cc-db0f-4b41-ba48-60231cca608b
-# ╠═6a311800-dcae-4670-b069-3ce59415cda6
-# ╠═ba30dcfd-82d3-4625-83b2-d629c8671b18
-# ╠═7849e0de-d091-4a21-8c6a-4255e4153554
-# ╠═ccd13862-8ef5-4148-a0d0-0094222aa733
-# ╟─cb93e408-2cba-4807-be10-f04bd87e238a
-# ╟─3d2c3faf-a4f7-4700-a50d-d410c20d38fb
-# ╠═8de8fdae-3053-45b6-9c2e-8ca8397da016
-# ╟─69b24bf8-0879-44c2-9342-b8c432a971ff
-# ╟─08369c06-1fd1-42d7-a320-8e231b4e6cfd
-# ╠═757b3ff0-21a8-400e-8bef-7034ddd8bcfe
-# ╠═3367af4d-8629-41f7-a7dc-a6ee95c2109d
-# ╟─be7550e8-f331-45fa-af54-87a1d33e81d7
-# ╠═379aeb2e-0a7e-4d84-9015-cef9b5f53f0b
-# ╠═4e0b3a09-f961-48e8-968c-ea496363fcac
-# ╠═185cd954-4c1d-4516-9510-c6652b564446
-# ╠═9869ff89-265c-48a3-b957-12dacd0ddf43
-# ╠═dd3d9d30-c4ae-4f05-a93c-2853e8fc0a64
-# ╠═9c375468-72c5-4827-afdc-1e76e1e62e2f
+# ╟─c0d401aa-df08-11ee-3df0-d11b65bf0e9d
+# ╟─e9751931-2eaa-4e37-9b78-a1fdaa7a14b3
+# ╟─c34d712a-6130-4f57-9d76-8973d1fca5a3
+# ╟─ac31c9a7-5058-46e1-96b3-bafed14a0cd0
+# ╠═db95835c-5353-4445-becf-9acea27c3be6
+# ╠═dd248953-ab19-42ea-a7b7-fe39a7a032c4
+# ╠═4ac4cf30-501b-4203-bc05-b0ec16ffa991
+# ╟─2016d36b-fe10-4d83-a04e-0e9d7ac4b40f
+# ╠═edfab7a3-4a75-483a-8526-63ac822df44b
+# ╠═b9125c29-529b-42c9-b669-f1e57454f423
+# ╟─34b2b929-3356-40cb-a260-663199d418c8
+# ╟─9da3e4c2-a173-4548-98bf-385545b6a77c
+# ╟─8c346bed-6b97-49c6-981f-c85458b05b89
+# ╠═964023e9-0433-434f-87b7-0a143b4fa2cb
+# ╠═7d72aa9e-9473-4585-9436-4b856682fc9b
+# ╠═2d257d0d-029f-4231-aafc-f32b3aa60713
+# ╠═595b17b8-d404-478f-8660-b84c37e1f001
+# ╠═ec2a5713-cd9c-4b1a-9087-713fa57a3cc4
+# ╠═1a509c41-3c58-47bb-baf5-91d6b565f85c
+# ╠═fdb950f0-3cea-4927-a4f7-37eb09994fec
+# ╠═9edc7a47-a0a9-4021-bebd-f4ec94712447
+# ╟─d6d7bdfb-ccf3-4052-9ff0-3d24e949ff98
+# ╠═d2340a95-b6ff-4646-a97a-8bd414a741be
+# ╠═be9ecf95-30bb-4eaa-918a-8a0ab5190796
+# ╟─16a47fe9-568f-4d93-963f-8fafa5cbf301
+# ╠═10563635-e014-4801-98a9-9b6cd1d9b8e1
+# ╟─c1ca2ae9-ec0b-458c-929b-157898df8174
+# ╠═1ad68e81-f610-457f-883e-9de3bbb14bd0
+# ╟─24a134bc-7ab6-4d35-a4a6-5ded44a715a2
+# ╟─f2c7db71-031b-42a5-a171-3f4bcfff3a9e
+# ╠═43041e43-4395-4afd-9213-9aaa1cda790e
+# ╟─5b81357c-d44b-4eff-84d3-8d3176caba12
+# ╠═3b00ac90-fb30-4623-9080-ab26a409a2eb
+# ╟─626a994a-dbc2-4fed-8a0d-e55b3b435957
+# ╟─6d63e3cc-3c61-45d5-98ea-bb05b51a3fac
+# ╟─34b51846-03d9-4e56-99af-d78938cde579
+# ╟─90ad188d-0138-42f3-b086-cd8b072d1460
+# ╟─3d79eb2a-7ef1-4894-8694-f14273f904a0
+# ╟─5ab25534-c75c-405e-87be-7bd15d6cf594
+# ╟─1679f112-4866-451a-9b98-498cb9547f29
+# ╟─3dc64865-874a-495e-a375-904e94ed3818
+# ╟─de75ca1f-5d80-4cac-80b6-a197cf7567c6
+# ╟─7276ed9c-1cc7-4f29-a6f5-177ba0d772de
+# ╟─33d230e7-4aa7-422d-a253-8b5558ea2db3
+# ╠═484cc285-119c-4b2c-b9da-f768b286a1bf
+# ╟─bc0329a8-a046-4045-a17e-6c57f605bda5
+# ╟─1943154a-8af3-41f0-8d81-8956465e6e14
+# ╟─912b68b8-bfee-428f-9ad3-1b356afdcd0d
+# ╟─ce8af2df-270b-47ac-99fc-e75fd8ade661
+# ╟─131d10c0-5345-4586-8d3b-3a377a1f615f
+# ╠═2c83b253-54a6-40cc-9822-aa5155085493
+# ╟─eba2a825-53b3-4510-9b1d-09f1dde9a34d
+# ╟─9d19af7a-0c9d-48c0-9cd4-de07862fa8ed
+# ╟─3d6e64a5-7fa2-4049-bd6e-caddbf54a933
+# ╟─7b0056ce-3d3e-4fc3-b372-fe8646053a34
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
