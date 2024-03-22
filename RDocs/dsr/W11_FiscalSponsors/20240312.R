@@ -45,6 +45,7 @@ dfs |> is.na() |> colMeans() |> round(2)
 dfs |> filter(is.na(project)) |> view()
 
 
+
 ## Any duplicate name? ----
 
 dfs |> select(name) |> duplicated() |> sum()
@@ -268,7 +269,7 @@ plot_caption <- paste0(
 
 ptitle2 <- "FISCAL SPONSOR FACTS & STATS"
 ptitle <- glue("<span style = 'color:", title_col, "'>FISCAL SPONSOR FACTS & STATS</span>")
-psubtitle <- "Distribution of services offered between 1903 and 2022"
+psubtitle <- "Total projects sponsored by service type between 1903 and 2022"
 
 
 
@@ -296,7 +297,7 @@ costum_theme <- function(){
 
       plot.subtitle = element_textbox_simple(
         family = subt_font,
-        size = 3 * tsize,
+        size = 2.5 * tsize,
         color = sub_color,
         hjust = 0.5,
         margin = margin(0,0,1,0, unit = 'cm')),
