@@ -10,7 +10,7 @@
 <h2 align="left"> 4. Viz </h2>
 
 <p align="center">
-  <img src="/RDocs/dsr/W11_FiscalSponsors/plots_w11/final_plot_w11.png" width="60%">
+  <img src="/RDocs/dsr/W11_FiscalSponsors/plots_w11/final_plot2_w11.png" width="60%">
 </p>
 <br></br> 
 <br></br>

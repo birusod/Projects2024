@@ -380,7 +380,8 @@ ggsave(
 
 ## adjust size, background -----
 ggsave(
-  filename = here::here("W11_FiscalSponsors", "plots_w11", "final_plot.png"),
+  filename = here::here(
+    "W11_FiscalSponsors", "plots_w11", "final_plot2_w11.png"),
   width = 40, 
   height = 30, 
   units = "cm",
