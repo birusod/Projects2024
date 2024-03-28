@@ -20,6 +20,11 @@ tuesdata <- tidytuesdayR::tt_load(date_chr)
 
 
 
+#===========================================================================#
+# Data Viz ------------------------------------------------------------------
+#===========================================================================#
+
+
 
 
 #==========================================================================#
@@ -27,11 +32,6 @@ tuesdata <- tidytuesdayR::tt_load(date_chr)
 #==========================================================================#
 
 font_add_google("Roboto", "roboto")
-font_add_google("Fira code", "firac")
-font_add_google("Fira sans", "firas")
-font_add_google("Alfa Slab One", "alfaslab")          
-font_add_google("Saira Extra Condensed", "sairacond") 
-font_add_google("Righteous", family = "righteous")  
 showtext_auto()
 
 
@@ -70,7 +70,7 @@ social_caption <- glue::glue(
   <span style='font-family:fab6_reg;'>{xtwitter};</span> 
   <span style='color: {text_col}'>{xtwitter_username}</span>")
 plot_caption <- paste0(
-  "**Data**: TidyTuesday Week 6<br>", 
+  "**Data**: TidyTuesday Week ##<br>", 
   "**Graphics:** ", 
   social_caption)
 
@@ -93,9 +93,6 @@ costum_theme <- function(){
 }
 
 
-#===========================================================================#
-# Data Viz ------------------------------------------------------------------
-#===========================================================================#
 
 
 
