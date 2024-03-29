@@ -4,548 +4,151 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 0ca05e46-673f-458c-ad87-2fabf4bb1a4e
+# ╔═╡ 1055250f-0dc4-4f44-a011-34afdcc197a8
 begin
 	using PlutoUI
 	TableOfContents()
 end
 
-# ╔═╡ d9761cd6-7841-43d3-b469-afc659394ed1
-using CSV, DataFrames, Tidier, Pipe, Chain
+# ╔═╡ a1d0a947-41c3-4aaa-b28a-8c167bfc7c73
+using CSV, DataFrames, Tidier
 
-# ╔═╡ 43900811-1cd8-4961-82d3-02fa3442a5b4
-using VegaLite, Deneb
+# ╔═╡ 80c8bc71-d934-4ba3-9bd5-8135ec2a517d
+using Chain, TidierPlots
 
-# ╔═╡ 2144e6fa-51bf-46b5-aa92-3ffb534737ed
-using TidierStrings
+# ╔═╡ 8d7b1aa8-6025-4c9f-a3d7-7b084687720c
+using CairoMakie
 
-# ╔═╡ daec640a-e8c3-11ee-1a9e-47258f3486cc
+# ╔═╡ 2c45b996-c62f-469d-96de-7f7a9bb38b13
 html"""
-<p style="color:seagreen; font-size:40px"><b>Fiscal Sponsors<b></p>
-<p style="color:skyblue">
+<p style="color:magenta; font-size:40px"><b>X-MEN MUTANT MONEYBALL<b></p>
+<p style="color:purple">
 <b>TidyTuesday Data:</b>
-<a href=https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-03-05/readme.md">Week-11</a>
+<a href=https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-03-19/readme.md">Week-12</a>
 </p>
 """
 
-# ╔═╡ fefa6164-c73c-4522-b6b4-290f4009049c
+# ╔═╡ 81b798f5-a1f9-4045-a770-92e157b42bed
 md"---"
 
-# ╔═╡ 36610831-95ff-4e62-b124-6a6ce84a7c41
+# ╔═╡ b3e0c4bc-854e-455d-ab52-ab5af260efc2
 md"## Setup"
 
-# ╔═╡ 2dd5237a-4829-4f02-9592-10c6c7895184
-md"### Packages"
+# ╔═╡ 9ba4277d-b328-445a-bc43-4bb83a250400
+md"### Pacakges"
 
-# ╔═╡ 949fe2d9-83c3-4bc2-a8f8-6a08992ff0e0
+# ╔═╡ 6da0c80b-bf13-47f6-a144-f5ed3ae8ae73
 md"### Data"
 
-# ╔═╡ 52c60974-89b7-4d50-a3b0-689805416106
-#pwd()
-
-# ╔═╡ 4d19f5b8-876b-453c-8c91-4873dcfc43f6
+# ╔═╡ d862355c-ed87-11ee-114f-130802ad3874
 readdir()
 
-# ╔═╡ bda97615-7669-4a94-bf50-318af3f73c89
+# ╔═╡ 34f7e001-5178-4c38-938c-32faf9187bd8
 begin
-	file_path = pwd() *  "/fiscal_data_w11.csv"
-	dfr = CSV.File(file_path) |> DataFrame
+	file_path = pwd() *  "/final_xmenmutant_df.csv"
+	xm = CSV.File(file_path) |> DataFrame
 end;
 
-# ╔═╡ a5d2b8b1-8f11-405c-a087-c11a0a5684ec
+# ╔═╡ 33425692-9c97-4b6b-a9af-2b7fc9f8671b
+first(xm, 4)
+
+# ╔═╡ 8e8dfaca-c96b-4b16-ba69-58caf0949f3e
+Dict(names(xm) .=> eltype.(eachcol(xm)))
+
+# ╔═╡ d1d2d32b-939f-4dc8-ba1a-460aba57deeb
 md"## EDA"
 
-# ╔═╡ a792977f-0e84-43b9-b7f8-47af46bb9189
-md"Heavy  work done with R to wrangle the the data including: cleaning grouping and re-coding"
+# ╔═╡ e3556084-0d03-4420-ac17-72335295ccd5
+md"### Member appearance"
 
-# ╔═╡ 93e0ceec-fe05-4f07-ac18-769646a291c9
-first(dfr, 4)
-
-# ╔═╡ 58b222df-3668-4679-b357-ca7b7b49be4d
-Dict(names(dfr) .=> eltype.(eachcol(dfr)))
-
-# ╔═╡ 34c9e201-2752-4f51-9915-043b9ea10771
-describe(dfr, :nunique, :nmissing, :eltype)
-
-# ╔═╡ 2665ac26-e16b-4408-a583-ff81a851f8fb
-md"## Data Wrangling"
-
-# ╔═╡ ea9e55d9-22ee-4ba8-aa79-cf85b5e0f87f
-sdf = @chain dfr begin
-	@group_by(name, services)
-	@summarise(avg = mean(total))
-	@ungroup
-	@group_by(services)
-	@summarise(total = as_integer(sum(avg)))
-	@mutate(services = uppercase(services))
+# ╔═╡ 4afa0206-ea98-41f4-9701-bb38f68ffbb0
+@chain xm begin
+	@group_by(name) 
+	@summarise(total = sum(appearance))
 	@arrange(desc(total))
+	ggplot()
+    geom_col(@aes(x = name, y = total)) +
+	labs(title = "Member appearance on issues between 1960 and 1990")
+end
+
+# ╔═╡ dbde9e67-026a-4c8e-887b-567482e54a34
+md"
+
+# ╔═╡ 144b7452-0a30-4997-b852-97e0948b9deb
+first(xm, 4)
+
+# ╔═╡ 16d12ae5-3ad8-4378-8e21-0a03f47d3621
+md"### Average price per issue"
+
+# ╔═╡ f928cd17-d32c-45ad-b3d7-b56034f9fa66
+md"Average price per issue for each X-Men member based on highest sales on Heritage for issues published between 1963 and 1969"
+
+# ╔═╡ 7389451c-104c-43e5-b2a6-d13d8accd8c7
+dd = @chain xm begin
+	@select(decade, ends_with("ppi")) 
+	@mutate(decade = string(decade))
+	@rename(
+		"Heritage" = h_ppi,
+		"eBay" = ebay_ppi,
+		"Wizard PG" = wiz_ppi,
+		"Overstreet PG" = os_ppi)
+	@pivot_longer(-decade, names_to = listing, values_to = price)
+	@filter(listing == "Heritage")
+	@group_by(decade)
+	@summarise(average = round(mean(price), digits=0))
+	ggplot()
+	geom_col(@aes(x = decade, y = average), color = :purple) 
+	labs(
+		x = "", y = "",
+		title =  "X-MEN MUTANT MONEYBALL",
+		subtitle = "Decade average price per issue for each X-Men member based\non highest sales on Heritage for issues published between 1960 and 1990"
+		)
 end;
 
-# ╔═╡ c6e4e430-a69a-4251-bf53-5a4016bef092
-first(sdf, 3)
-
-# ╔═╡ 780c4a88-5d42-4a9a-91fb-7340b50fd2c7
-md"## Data Viz"
-
-# ╔═╡ 0529876e-5b21-4d73-8045-c26ad737239b
-string.(sdf.services)
-
-# ╔═╡ 19be78eb-23af-4a3a-be31-cd89bef38297
-md"### VegaLite"
-
-# ╔═╡ 8bd4c798-e3af-4cb9-8034-d768e223536d
-sdf |>
-@vlplot(
-	:bar, x = "services", y = "total",
-	color={
-		:services, 
-		scale={range=[:grey, :grey]},
-		legend={title="Service Types"}
-		},
-
-	title  = {
-		text = "FISCAL SPONSORS FACTS & STATS",
-		subtitle  = ["Number of projects sponsored by service type", "between 1903 and 2022"]
-		},
-	height =  200, width = 400)
-
-# ╔═╡ 901a896e-1224-4ff6-856a-ea01a08074f5
-sdf |>
-@vlplot(
-	height =  400, width = 300,
-	mark={:bar, color=:red},
-	x={
-        :total,
-        title="Total",
-		axis={
-			tickSize=2, 
-			tickWidth=1, 
-			values=[2000, 4000, 6000, 8000]}
-    },
-	y = {
-		"services:n", 
-		sort="total",
-		title  = "",
-		axis={
-			tickSize=0, 
-			tickWidth=0
-			}
-	}, 
-
-	color={
-		:services, 
-		scale={
-			domain = [
-				"BOOKKEEPING", "DONATIONS", "ORG/PROG DEVELOPMENT", "OTHER",
-				"TAX REPORTING", "BILL PAYING", "PAYROLL SERVICES", "INSURANCE",
-				"HR MANAGEMENT", "AUDITING", "LEGAL SERVICES", "COMPUTER IT",
-				"OFFICE SPACE"],
-	        range = ["#675193", "#675193", "#675193", "#828388", 
-					  "#8571ad", "#8571ad", "#8571ad", "#8571ad",
-					  "#8571ad", "#8571ad", "#8571ad", "#8571ad",
-					  "#8571ad"]},
-		legend=false
-	  },
-
-	title  = {
-		text = "FISCAL SPONSORS FACTS & STATS",
-		subtitle  = ["Number of projects sponsored by service type", "between 1903 and 2022"]
-		},
-	config={
-        title={
-            color=:red, 
-			fontWeight = "bold", 
-			subtitleFontWeight = "bold",
-			subtitleFontStyle =  "italic",
-			font = "roboto",
-			subtitleFont = "roboto",
-			fontSize = 16
-        	}
-    	},
+# ╔═╡ 50f5ed1a-dfd7-4ee8-9c90-ada933906648
+cc_theme = Theme(
+    Axis = (
+		titlecolor = :purple,
+		titlesize = 20,
+		titlefont = :bold,
+		subtitlecolor = :grey,
+		subtitlesize = 16,
+		subtitlefont = :italic,
+        backgroundcolor = :white,
+        leftspinevisible = true,
+        rightspinevisible = false,
+        bottomspinevisible = true,
+        topspinevisible = false,
+		xticksvisible = false,
+		xticklabelfont = :bold,
+		xticklabelsize = 18,
+        xgridcolor = :white,
+        ygridcolor = :grey90,
+    )
 )
 
-# ╔═╡ 3dc66fef-3409-4083-bde5-004a66ecf507
-sdf |>
-@vlplot(
-    width=600,
-    height={step=32},
-    y={
-		:services,
-		axis=nothing,
-		sort="total",
-		title  = ""
-		},
-	title  = {
-		text = "FISCAL SPONSORS FACTS & STATS",
-		subtitle  = ["Number of projects sponsored by service type", "between 1903 and 2022"]
-		},
-	config={
-        title={
-            color="#393A3F", 
-			subtitleColor = "#919297",
-			fontWeight = "bold", 
-			subtitleFontWeight = "bold",
-			subtitleFontStyle =  "italic",
-			font = "roboto",
-			subtitleFont = "roboto",
-			fontSize = 16
-        	}
-    	},
-) +
-@vlplot(
-    mark={:bar,
-		color="#55565B"},
-    x={
-		"total",
-		title="Total",
-		scale={domain=[0,8500]},
-		axis={
-			tickSize=2, 
-			tickWidth=1, 
-			values=[2000, 4000, 6000, 8000]}
-		}
-) +
-@vlplot(
-    mark={:text,align="left",x=5, color = :white},
-    text="services:n",
-    detail={aggregate="count",type="quantitative"}
-)
-
-# ╔═╡ 711db557-0cbb-4b77-88c2-37d6b8df9c71
-md"### Deneb: Vegalite + Tooltips"
-
-# ╔═╡ 9558256e-4d1d-4226-a86a-57e7d9ffbb25
-md"#### Basics"
-
-# ╔═╡ a502bc3a-bdf4-41cf-9f4b-708bb2078113
-dnb = (
-    name = collect("CCCDDDEEE"),
-    vals = [2, 7, 4, 1, 2, 6, 8, 4, 7],
-)
-
-# ╔═╡ 29b7fb0d-7230-4c40-9563-5dcb3d2f14c1
-md"**Data:** `Deneb.jl` support any tabular data type."
-
-# ╔═╡ d9fc5230-11fd-4389-aa27-ce5f8640e54a
-Data(dnb)
-
-# ╔═╡ cb6eec36-92b8-47d0-bd25-e30fa60ba63b
-md"**Encoding Data with Marks:**"
-
-# ╔═╡ 6f7e14d4-3d1c-46d2-90ef-6d84be9632cd
-Mark(:point)
-
-# ╔═╡ 8bee1ed8-5bd4-4cdb-a433-b8707a8181c1
-Data(dnb) * Mark(:point)
-
-# ╔═╡ a5c333a5-5607-413d-b650-013c5984d30b
-Encoding(x=(field=:name, type=:nominal))
-
-# ╔═╡ 2a332201-e55d-4e9b-a741-4514e6c4b259
-Encoding(x="name:N")
-
-# ╔═╡ 545f2741-6009-4e10-a95f-9e734edbd6a1
-
-
-# ╔═╡ ac653646-557d-47fe-9327-905bfe1f2505
-md"**Visual encoding for the field `name`**"
-
-# ╔═╡ 403dac7f-843a-416f-8f9f-d91d9973b1fa
-Data(dnb) * Mark(:point) * Encoding(x="name:N")
-
-# ╔═╡ 6b8479bc-a41e-4ab2-bd9d-f830eaf160d8
-md"**Encoding field `vals`:**"
-
-# ╔═╡ 1d59ea33-21d4-41df-8498-65b8dbc447ea
-Encoding(y="vals:Q")
-
-# ╔═╡ efc5b670-5acb-4257-984d-528fe77f4b43
-md"**Visual encoding for both fields: `name` and `vals`**"
-
-# ╔═╡ 094b7f98-aa3f-4b8a-b339-a508d962f6ce
-Data(dnb) * Mark(:point) * Encoding(
-    x="name:N",
-    y="vals:Q"
-)
-
-# ╔═╡ 046ba856-349c-4c6a-8665-8a83573f6f59
-Data(dnb) * Mark(:bar) * Encoding(
-    x="name:N",
-    y="vals:Q"
-)
-
-# ╔═╡ 488ca498-0fba-4c0c-82c7-b7dc7c80a9a6
-md"#### Data Transformation: Aggregation"
-
-# ╔═╡ 1a59946c-a8ee-4619-bca3-867806d4ce8c
-Encoding(
-    y=(field=:vals, aggregate=:average, type=:nominal)
-)
-
-# ╔═╡ 4936a9c5-be10-4644-b3af-6b4b7ac69845
-Encoding(y="average(vals):N")
-
-# ╔═╡ b6799713-abea-4832-97ea-b2de46c0d86c
-Data(dnb) * Mark(:point) * Encoding(
-    x="name:N",
-    y="average(vals):Q",
-)
-
-# ╔═╡ 449ff1c5-a541-44f2-aeb5-de1c12b7bc7d
-Data(dnb) * Mark(:bar) * Encoding(
-    x="name:N",
-    y="average(vals):Q",
-)
-
-# ╔═╡ c41113a8-7dbb-4337-969a-ba45b1730572
-Data(dnb) * Mark(:bar, color=:crimson) * Encoding(
-    x=field("average(vals):Q", title="AVERAGES"),
-	y=field("name:N", title=:NAMES)
-)
-
-# ╔═╡ c6653422-241e-4358-95bd-c03b5aec2cfa
-md"#### Bar chart with  Deneb"
-
-# ╔═╡ a19ce30a-6c20-46a3-96a9-5720cfa67513
-Data(sdf)
-
-# ╔═╡ 0a046cbb-6bb6-43b0-aca0-522fcc093463
-Data(sdf) * 
-	Mark(:bar, color = :sienna) * 
-	Encoding(
-		x = field(
-			"total:Q", 
-			title = "Total sponsored"),
-		y = field(
-			"services:N", 
-			sort = "-x", 
-			title = "")
-		) *
-	title("FISCAL SPONSORS FACTS & STATS")
-
-# ╔═╡ e5b90c87-17bb-403e-94fc-1ffce7d5eff0
-Data(sdf) * 
-	Encoding(
-		x = field(
-			"total:Q", 
-			title = "Total sponsored",
-			scale=(;domain=[0, 9500])),
-		y = field(
-			"services:N", 
-			sort = "-x", 
-			title = ""),
-		color=field(
-			"services",
-			scale = (
-				domain = [
-					"BOOKKEEPING", "DONATIONS", "ORG/PROG DEVELOPMENT", "OTHER",
-					"TAX REPORTING", "BILL PAYING", "PAYROLL SERVICES", "INSURANCE",
-					"HR MANAGEMENT", "AUDITING", "LEGAL SERVICES", "COMPUTER IT",
-					"OFFICE SPACE"],
-	        	range = [
-					"seagreen", "seagreen", "seagreen", "#828388", 
-					"springgreen", "springgreen", "springgreen", "springgreen",
-					"springgreen", "springgreen", "springgreen", "springgreen",
-					"springgreen"]),
-			legend=false
-			)
-		) *
-	(
-		Mark(:bar) +
-		Mark(
-			:text, 
-			align=:left, 
-			baseline=:middle, 
-			dx=3) * Encoding(text=field("total", format=".0f"))
-	) * 
-	
-	title("FISCAL SPONSORS FACTS & STATS") *
-	vlspec(height=300, width=400)
-
-# ╔═╡ dd03da5e-1c00-4659-9df9-6f76b065c043
-md"### Deneb: Theme"
-
-# ╔═╡ d7e8970e-2353-4c15-8f34-26351d66279c
-md"[Vega-themes](https://vega.github.io/vega-themes/?theme=vox)"
-
-# ╔═╡ 985d49a0-62ce-40f0-aa79-896968c1937c
-#set_theme!(:default)
-set_theme!(:vox)
-
-# ╔═╡ 77df28eb-82e4-490a-921c-0d971caa0b69
-begin
-	base = 
-		Data(sdf) * 
-		
-		Encoding(
-			x = field(
-				"total:Q", 
-				title = "Total sponsored",
-				scale=(;domain=[0, 9500])
-				),
-			y = field(
-				"services:N", 
-				sort = "-x", 
-				title = "",
-				axis=(tickSize=0, tickWidth=0)
-				)
-			)
-				
-	bar = Mark(:bar, cornerRadiusTopRight =  10, cornerRadiusBottomRight =  10)
-	
-	text = 
-		Mark(
-			:text, 
-			align=:left, 
-			baseline=:middle, 
-			dx=-35, 
-			color = :white, size = 14, fontWeight = "bold") * 
-		Encoding(
-			text=field(
-				"total", 
-				format=".0f")
-		)
-	
-	chart = 
-		base * 
-		(bar + text) * 
-		vlspec(height=300, width = 500) *
-		title(
-			text = "FISCAL SPONSORS FACTS & STATS",
-			subtitle  = ["Number of projects sponsored by service type", "between 1903 and 2022"],
-			font = "Verdana",
-			color = "darkblue",
-    		fontSize =  16,
-    		fontWeight =  "bold",
-    		fontStyle =  "normal",
-			subtitleFontWeight = "bold",
-			subtitleFontStyle =  "italic",
-			subtitleFont = "roboto",
-			)
-end
-
-# ╔═╡ a12c834c-cf1b-45bf-9422-857dd97df52c
- md"### Deneb: Pie, Donut and Radial charts"
-
-# ╔═╡ 21f1f7a4-ae54-44cf-ab4e-ad8296f6eadc
-set_theme!(:default)
-
-# ╔═╡ 399dad9a-931e-4f7e-a33d-ed585f027abf
-defined_models = @chain dfr begin 
-	@filter(model != "Other", model != "Unknown")
-	@count(model) 
-	@rename(total = n)
-	@arrange(desc(total))
-	@mutate(model_cat = 
-		categorical(
-			str_squish(
-				str_remove_all(
-					uppercase(String(model)),
-					"MODEL"))))
-end
-
-# ╔═╡ 8c718bff-a6e8-4da8-99c3-b334541f48d5
-md"**Pie chart**"
-
-# ╔═╡ ab1e3d01-f83c-41f7-833d-534bb9ccaa34
-Data(defined_models) * 
-	Mark(:arc) * 
-	Encoding(
-		theta="total:q",
-		color=field(
-			"model_cat:n",
-			title = "Types",
-			sort = ["A", "C", "B", "F", "D", "L", "E"],
-			legend=(clipHeight=10, format='c', orient = "bottom")),
-		order =field(
-			"total", 
-			type = "quantitative", 
-			sort = "descending")) *
-	title(
-		text = "FISCAL SPONSORS FACTS & STATS",
-		subtitle  = ["Defined Models (1903-2022)"],
-		font = "Verdana") *
-	vlspec(width=350, height=350,)
-
-# ╔═╡ 3d13b49c-4a40-4c4c-b4eb-37789d3ae9a2
-md"**Donut chart**"
-
-# ╔═╡ e6d6486f-7942-4b04-874e-720ef60c22d3
-Data(defined_models) * 
-	Mark(:arc, innerRadius=75) * 
-	Encoding(
-		theta=field(
-			"total", 
-			type = "quantitative"),
-		color=field(
-			"model_cat:n",
-			title = "Types"),
-		order =field(
-			"total", 
-			type = "quantitative", 
-			sort = "descending")) *
-	title(
-		text = "FISCAL SPONSORS FACTS & STATS",
-		subtitle  = ["Defined Models (1903-2022)"],
-		font = "Verdana") *
-	vlspec(width=350, height=350,)
-
-# ╔═╡ 2886cb85-fcb8-4f93-9bf0-271d5a6605a4
-md"**Radial chart**"
-
-# ╔═╡ c746873f-6928-4863-8c46-cb24b720aebb
-Data(defined_models) * 
-	Mark(:arc, innerRadius=25, stroke= "#fff") * 
-	Encoding(
-		theta=field(
-			"total", 
-			type = "quantitative",
-			stack=true
-		),
-		radius=field(
-			"total:q",
-			scale=(
-				type=:sqrt,
-				zero=true,
-				rangeMin=20
-			)
-		),
-		color=field(
-			"model_cat:n",
-			title = "Types"),
-		order =field(
-			"total", 
-			type = "quantitative", 
-			sort = "descending")) *
-	title(
-		text = "FISCAL SPONSORS FACTS & STATS",
-		subtitle  = ["Defined Models (1903-2022)"],
-		font = "Verdana") *
-	vlspec(width=400, height=400,)
+# ╔═╡ 5dc86703-0a5b-4a50-8e3f-b1c3ee9eebde
+dd + cc_theme
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
-Deneb = "b5a61f88-a05b-4725-9526-4eca17cec623"
-Pipe = "b98c9c47-44ae-5843-9183-064241ee97a0"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Tidier = "f0413319-3358-4bb0-8e7c-0c83523a93bd"
-TidierStrings = "248e6834-d0f8-40ef-8fbb-8e711d883e9c"
-VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
+TidierPlots = "337ecbd1-5042-4e2a-ae6f-ca776f97570a"
 
 [compat]
-CSV = "~0.10.12"
+CSV = "~0.10.13"
+CairoMakie = "~0.11.9"
 Chain = "~0.5.0"
 DataFrames = "~1.6.1"
-Deneb = "~0.3.0"
-Pipe = "~1.3.0"
 PlutoUI = "~0.7.58"
 Tidier = "~1.2.1"
-TidierStrings = "~0.2.0"
-VegaLite = "~3.3.0"
+TidierPlots = "~0.5.5"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -554,7 +157,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.2"
 manifest_format = "2.0"
-project_hash = "1b4cbcad7a7201ba025bff639a8863b68836a697"
+project_hash = "cf63ea5ec2f45651c014d037a6b0bf62c5082f1e"
 
 [[deps.ANSIColoredPrinters]]
 git-tree-sha1 = "574baf8110975760d391c710b6341da1afa48d8c"
@@ -579,9 +182,9 @@ version = "0.3.0"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
-git-tree-sha1 = "c278dfab760520b8bb7e9511b968bf4ba38b7acc"
+git-tree-sha1 = "0f748c81756f2e5e6854298f11ad8b2dfae6911a"
 uuid = "6e696c72-6542-2067-7265-42206c756150"
-version = "1.2.3"
+version = "1.3.0"
 
 [[deps.AbstractTrees]]
 git-tree-sha1 = "2d9c9a55f9c93e8887ad391fbae72f8ef55e1177"
@@ -590,9 +193,9 @@ version = "0.4.5"
 
 [[deps.Adapt]]
 deps = ["LinearAlgebra", "Requires"]
-git-tree-sha1 = "0fb305e0253fd4e833d486914367a2ee2c2e78d0"
+git-tree-sha1 = "6a55b747d1812e699320963ffde36f1ebdda4099"
 uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
-version = "4.0.1"
+version = "4.0.4"
 weakdeps = ["StaticArrays"]
 
     [deps.Adapt.extensions]
@@ -615,16 +218,18 @@ uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
 version = "1.1.1"
 
 [[deps.ArrayInterface]]
-deps = ["Adapt", "LinearAlgebra", "Requires", "SparseArrays", "SuiteSparse"]
-git-tree-sha1 = "c5aeb516a84459e0318a02507d2261edad97eb75"
+deps = ["Adapt", "LinearAlgebra", "SparseArrays", "SuiteSparse"]
+git-tree-sha1 = "44691067188f6bd1b2289552a23e4b7572f4528d"
 uuid = "4fba245c-0d91-5ea0-9b3e-6abc04ee57a9"
-version = "7.7.1"
+version = "7.9.0"
 
     [deps.ArrayInterface.extensions]
     ArrayInterfaceBandedMatricesExt = "BandedMatrices"
     ArrayInterfaceBlockBandedMatricesExt = "BlockBandedMatrices"
     ArrayInterfaceCUDAExt = "CUDA"
+    ArrayInterfaceChainRulesExt = "ChainRules"
     ArrayInterfaceGPUArraysCoreExt = "GPUArraysCore"
+    ArrayInterfaceReverseDiffExt = "ReverseDiff"
     ArrayInterfaceStaticArraysCoreExt = "StaticArraysCore"
     ArrayInterfaceTrackerExt = "Tracker"
 
@@ -632,7 +237,9 @@ version = "7.7.1"
     BandedMatrices = "aae01518-5342-5314-be14-df237901396f"
     BlockBandedMatrices = "ffab5731-97b5-5995-9138-79e8c1846df0"
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    ChainRules = "082447d4-558c-5d27-93f4-14fc19e9eca2"
     GPUArraysCore = "46192b85-c4d5-4398-a991-12ede77f4527"
+    ReverseDiff = "37e2e3b7-166d-5795-8a7a-e32c996b4267"
     StaticArraysCore = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
     Tracker = "9f7883ad-71c0-57eb-9f7f-b5c9e6d3789c"
 
@@ -660,21 +267,10 @@ version = "0.4.7"
 [[deps.Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
-[[deps.BenchmarkTools]]
-deps = ["JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
-git-tree-sha1 = "f1f03a9fa24271160ed7e73051fba3c1a759b53f"
-uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
-version = "1.4.0"
-
 [[deps.BitFlags]]
 git-tree-sha1 = "2dc09997850d68179b69dafb58ae806167a32b1b"
 uuid = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
 version = "0.1.8"
-
-[[deps.BufferedStreams]]
-git-tree-sha1 = "4ae47f9a4b1dc19897d3743ff13685925c5202ec"
-uuid = "e1450e63-4bb3-523b-b2a4-4ffa8c0fd77d"
-version = "1.2.1"
 
 [[deps.Bzip2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -698,9 +294,9 @@ version = "1.0.1+0"
 
 [[deps.CSV]]
 deps = ["CodecZlib", "Dates", "FilePathsBase", "InlineStrings", "Mmap", "Parsers", "PooledArrays", "PrecompileTools", "SentinelArrays", "Tables", "Unicode", "WeakRefStrings", "WorkerUtilities"]
-git-tree-sha1 = "679e69c611fff422038e9e21e270c4197d49d918"
+git-tree-sha1 = "a44910ceb69b0d44fe262dd451ab11ead3ed0be8"
 uuid = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
-version = "0.10.12"
+version = "0.10.13"
 
 [[deps.Cairo]]
 deps = ["Cairo_jll", "Colors", "Glib_jll", "Graphics", "Libdl", "Pango_jll"]
@@ -715,10 +311,10 @@ uuid = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 version = "0.11.9"
 
 [[deps.Cairo_jll]]
-deps = ["Artifacts", "Bzip2_jll", "CompilerSupportLibraries_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "JLLWrappers", "LZO_jll", "Libdl", "Pixman_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Zlib_jll", "libpng_jll"]
-git-tree-sha1 = "4b859a208b2397a7a623a03449e4636bdb17bcf2"
+deps = ["Artifacts", "Bzip2_jll", "CompilerSupportLibraries_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "JLLWrappers", "LZO_jll", "Libdl", "Pixman_jll", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Zlib_jll", "libpng_jll"]
+git-tree-sha1 = "a4c43f59baa34011e303e76f5c8c91bf58415aaf"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
-version = "1.16.1+1"
+version = "1.18.0+1"
 
 [[deps.Calculus]]
 deps = ["LinearAlgebra"]
@@ -737,13 +333,18 @@ deps = ["DataAPI", "Future", "Missings", "Printf", "Requires", "Statistics", "Un
 git-tree-sha1 = "1568b28f91293458345dabba6a5ea3f183250a61"
 uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 version = "0.10.8"
-weakdeps = ["JSON", "RecipesBase", "SentinelArrays", "StructTypes"]
 
     [deps.CategoricalArrays.extensions]
     CategoricalArraysJSONExt = "JSON"
     CategoricalArraysRecipesBaseExt = "RecipesBase"
     CategoricalArraysSentinelArraysExt = "SentinelArrays"
     CategoricalArraysStructTypesExt = "StructTypes"
+
+    [deps.CategoricalArrays.weakdeps]
+    JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+    RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
+    SentinelArrays = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
+    StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
 
 [[deps.Chain]]
 git-tree-sha1 = "8c4920235f6c561e401dfe569beb8b924adad003"
@@ -752,9 +353,9 @@ version = "0.5.0"
 
 [[deps.ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra"]
-git-tree-sha1 = "aef70bb349b20aa81a82a19704c3ef339d4ee494"
+git-tree-sha1 = "575cd02e080939a33b6df6c5853d14924c08e35b"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "1.22.1"
+version = "1.23.0"
 weakdeps = ["SparseArrays"]
 
     [deps.ChainRulesCore.extensions]
@@ -765,12 +366,6 @@ deps = ["PrettyTables", "Tables"]
 git-tree-sha1 = "414fd95708e93b37d4148bc07a3c27999f96f73c"
 uuid = "caabdcdb-0ab6-47cf-9f62-08858e44f38f"
 version = "1.0.6"
-
-[[deps.CodecBzip2]]
-deps = ["Bzip2_jll", "Libdl", "TranscodingStreams"]
-git-tree-sha1 = "9b1ca1aa6ce3f71b3d1840c538a8210a043625eb"
-uuid = "523fee87-0ab8-5b00-afb7-3ecf72e48cfd"
-version = "0.8.2"
 
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
@@ -840,15 +435,15 @@ version = "1.1.0+0"
 
 [[deps.ConcurrentUtilities]]
 deps = ["Serialization", "Sockets"]
-git-tree-sha1 = "9c4708e3ed2b799e6124b5673a712dda0b596a9b"
+git-tree-sha1 = "6cbbd4d241d7e6579ab354737f4dd95ca43946e1"
 uuid = "f0e56b4a-5159-44fe-b623-3e5288b988bb"
-version = "2.3.1"
+version = "2.4.1"
 
 [[deps.ConstructionBase]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "c53fc348ca4d40d7b371e71fd52251839080cbc9"
+git-tree-sha1 = "260fd2400ed2dab602a7c15cf10c1933c59930a2"
 uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
-version = "1.5.4"
+version = "1.5.5"
 weakdeps = ["IntervalSets", "StaticArrays"]
 
     [deps.ConstructionBase.extensions]
@@ -878,42 +473,24 @@ version = "1.6.1"
 
 [[deps.DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "1fb174f0d48fe7d142e1109a10636bc1d14f5ac2"
+git-tree-sha1 = "0f4b5d62a88d8f59003e43c25a8a90de9eb76317"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.17"
+version = "0.18.18"
 
 [[deps.DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
 uuid = "e2d170a0-9d28-54be-80f0-106bbe20a464"
 version = "1.0.0"
 
-[[deps.DataValues]]
-deps = ["DataValueInterfaces", "Dates"]
-git-tree-sha1 = "d88a19299eba280a6d062e135a43f00323ae70bf"
-uuid = "e7dc6d0d-1eca-5fa6-8ad6-5aecde8b7ea5"
-version = "0.4.13"
-
 [[deps.Dates]]
 deps = ["Printf"]
 uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
-
-[[deps.DefaultApplication]]
-deps = ["InteractiveUtils"]
-git-tree-sha1 = "c0dfa5a35710a193d83f03124356eef3386688fc"
-uuid = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
-version = "1.1.0"
 
 [[deps.DelaunayTriangulation]]
 deps = ["DataStructures", "EnumX", "ExactPredicates", "Random", "SimpleGraphs"]
 git-tree-sha1 = "d4e9dc4c6106b8d44e40cd4faf8261a678552c7c"
 uuid = "927a84f5-c5f4-47a5-9785-b46e178433df"
 version = "0.8.12"
-
-[[deps.Deneb]]
-deps = ["DefaultApplication", "JSON", "MultilineStrings", "NodeJS_18_jll", "REPL", "Tables", "UUIDs"]
-git-tree-sha1 = "8ef6aba728cef0dcc3c8634fba5e05c9fac341f9"
-uuid = "b5a61f88-a05b-4725-9526-4eca17cec623"
-version = "0.3.0"
 
 [[deps.Dictionaries]]
 deps = ["Indexing", "Random", "Serialization"]
@@ -1041,9 +618,9 @@ version = "3.3.10+0"
 
 [[deps.FileIO]]
 deps = ["Pkg", "Requires", "UUIDs"]
-git-tree-sha1 = "c5c28c245101bd59154f649e19b038d15901b5dc"
+git-tree-sha1 = "82d8afa92ecf4b52d78d869f038ebfb881267322"
 uuid = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
-version = "1.16.2"
+version = "1.16.3"
 
 [[deps.FilePaths]]
 deps = ["FilePathsBase", "MacroTools", "Reexport", "Requires"]
@@ -1074,9 +651,9 @@ weakdeps = ["PDMats", "SparseArrays", "Statistics"]
 
 [[deps.FiniteDiff]]
 deps = ["ArrayInterface", "LinearAlgebra", "Requires", "Setfield", "SparseArrays"]
-git-tree-sha1 = "73d1214fec245096717847c62d389a5d2ac86504"
+git-tree-sha1 = "bc0c5092d6caaea112d3c8e3b238d61563c58d5f"
 uuid = "6a86dc24-6348-571c-b903-95158fe2bd41"
-version = "2.22.0"
+version = "2.23.0"
 
     [deps.FiniteDiff.extensions]
     FiniteDiffBandedMatricesExt = "BandedMatrices"
@@ -1101,9 +678,9 @@ uuid = "a3f928ae-7b40-5064-980b-68af3947d34b"
 version = "2.13.93+0"
 
 [[deps.Format]]
-git-tree-sha1 = "f3cf88025f6d03c194d73f5d13fee9004a108329"
+git-tree-sha1 = "9c68794ef81b08086aeb32eeaf33531668d5f5fc"
 uuid = "1fa38f19-a742-5d3f-a2b9-30dd87b9d5f8"
-version = "1.3.6"
+version = "1.3.7"
 
 [[deps.ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "LinearAlgebra", "LogExpFunctions", "NaNMath", "Preferences", "Printf", "Random", "SpecialFunctions"]
@@ -1169,9 +746,9 @@ version = "0.21.0+0"
 
 [[deps.Glib_jll]]
 deps = ["Artifacts", "Gettext_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Libiconv_jll", "Libmount_jll", "PCRE2_jll", "Zlib_jll"]
-git-tree-sha1 = "e94c92c7bf4819685eb80186d51c43e71d4afa17"
+git-tree-sha1 = "359a1ba2e320790ddbe4ee8b4d54a305c0ea2aff"
 uuid = "7746bdde-850d-59dc-9ae8-88ece973131d"
-version = "2.76.5+0"
+version = "2.80.0+0"
 
 [[deps.Graphics]]
 deps = ["Colors", "LinearAlgebra", "NaNMath"]
@@ -1187,9 +764,9 @@ version = "1.3.14+0"
 
 [[deps.GridLayoutBase]]
 deps = ["GeometryBasics", "InteractiveUtils", "Observables"]
-git-tree-sha1 = "af13a277efd8a6e716d79ef635d5342ccb75be61"
+git-tree-sha1 = "6f93a83ca11346771a93bbde2bdad2f65b61498f"
 uuid = "3955a311-db13-416c-9275-1d80ed98e5e9"
-version = "0.10.0"
+version = "0.10.2"
 
 [[deps.Grisu]]
 git-tree-sha1 = "53bb909d1151e57e2484c3d1b53e19552b887fb2"
@@ -1210,9 +787,9 @@ version = "0.10.2+0"
 
 [[deps.HTTP]]
 deps = ["Base64", "CodecZlib", "ConcurrentUtilities", "Dates", "ExceptionUnwrapping", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
-git-tree-sha1 = "ac7b73d562b8f4287c3b67b4c66a5395a19c1ae8"
+git-tree-sha1 = "8e59b47b9dc525b70550ca082ce85bcd7f5477cd"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "1.10.2"
+version = "1.10.5"
 
 [[deps.HarfBuzz_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "Graphite2_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Pkg"]
@@ -1330,9 +907,9 @@ version = "0.15.1"
 
 [[deps.IntervalArithmetic]]
 deps = ["CRlibm_jll", "RoundingEmulator"]
-git-tree-sha1 = "2d6d22fe481eff6e337808cc0880c567d7324f9a"
+git-tree-sha1 = "552505ed27d2a90ff04c15b0ecf4634e0ab5547b"
 uuid = "d1acc4aa-44c8-5952-acd4-ba5d80a2a253"
-version = "0.22.8"
+version = "0.22.9"
 weakdeps = ["DiffRules", "ForwardDiff", "RecipesBase"]
 
     [deps.IntervalArithmetic.extensions]
@@ -1388,24 +965,6 @@ deps = ["Dates", "Mmap", "Parsers", "Unicode"]
 git-tree-sha1 = "31e996f0a15c7b280ba9f76636b3ff9e2ae58c9a"
 uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 version = "0.21.4"
-
-[[deps.JSON3]]
-deps = ["Dates", "Mmap", "Parsers", "PrecompileTools", "StructTypes", "UUIDs"]
-git-tree-sha1 = "eb3edce0ed4fa32f75a0a11217433c31d56bd48b"
-uuid = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
-version = "1.14.0"
-
-    [deps.JSON3.extensions]
-    JSON3ArrowExt = ["ArrowTypes"]
-
-    [deps.JSON3.weakdeps]
-    ArrowTypes = "31f734f8-188a-4ce0-8406-c8a06bd891cd"
-
-[[deps.JSONSchema]]
-deps = ["Downloads", "JSON", "JSON3", "URIs"]
-git-tree-sha1 = "5f0bd0cd69df978fa64ccdcb5c152fbc705455a1"
-uuid = "7d188eb4-7ad8-530c-ae41-71a32a6d4692"
-version = "1.3.0"
 
 [[deps.JpegTurbo]]
 deps = ["CEnum", "FileIO", "ImageCore", "JpegTurbo_jll", "TOML"]
@@ -1515,16 +1074,16 @@ uuid = "94ce4f54-9a6c-5748-9c1c-f9c7231a4531"
 version = "1.17.0+0"
 
 [[deps.Libmount_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
-git-tree-sha1 = "9c30530bf0effd46e15e0fdcf2b8636e78cbbd73"
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "dae976433497a2f841baadea93d27e68f1a12a97"
 uuid = "4b2f31a3-9ecc-558c-b454-b3730dcb73e9"
-version = "2.35.0+0"
+version = "2.39.3+0"
 
 [[deps.Libuuid_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
-git-tree-sha1 = "7f3efec06033682db852f8b3bc3c1d2b0a0ab066"
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "0a04a1318df1bf510beb2562cf90fb0c386f58c4"
 uuid = "38a345b3-de98-5d2b-a5d3-14cd9215e700"
-version = "2.36.0+0"
+version = "2.39.3+1"
 
 [[deps.LightXML]]
 deps = ["Libdl", "XML2_jll"]
@@ -1617,12 +1176,6 @@ version = "0.4.2"
 deps = ["Base64"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
-[[deps.MathOptInterface]]
-deps = ["BenchmarkTools", "CodecBzip2", "CodecZlib", "DataStructures", "ForwardDiff", "JSON", "LinearAlgebra", "MutableArithmetics", "NaNMath", "OrderedCollections", "PrecompileTools", "Printf", "SparseArrays", "SpecialFunctions", "Test", "Unicode"]
-git-tree-sha1 = "e8b98c868029d007102dc5f98986c81f33b0ec37"
-uuid = "b8f27783-ece8-5eb3-8dc8-9495eed66fee"
-version = "1.26.0"
-
 [[deps.MathTeXEngine]]
 deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "GeometryBasics", "LaTeXStrings", "REPL", "RelocatableFolders", "UnicodeFun"]
 git-tree-sha1 = "96ca8a313eb6437db5ffe946c457a401bbb8ce1d"
@@ -1664,21 +1217,10 @@ version = "0.3.4"
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
 version = "2023.1.10"
 
-[[deps.MultilineStrings]]
-git-tree-sha1 = "3214216b069fb1bc329f55094681e06b64a51022"
-uuid = "1e8d2bf6-9821-4900-9a2f-4d87552df2bd"
-version = "0.1.1"
-
 [[deps.Multisets]]
 git-tree-sha1 = "8d852646862c96e226367ad10c8af56099b4047e"
 uuid = "3b2b4ff1-bcff-5658-a3ee-dbcf1ce5ac09"
 version = "0.4.4"
-
-[[deps.MutableArithmetics]]
-deps = ["LinearAlgebra", "SparseArrays", "Test"]
-git-tree-sha1 = "302fd161eb1c439e4115b51ae456da4e9984f130"
-uuid = "d8a4904e-b15c-11e9-3269-09a3773c0cb0"
-version = "1.4.1"
 
 [[deps.NLSolversBase]]
 deps = ["DiffResults", "Distributed", "FiniteDiff", "ForwardDiff"]
@@ -1701,18 +1243,6 @@ version = "1.1.1"
 [[deps.NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
 version = "1.2.0"
-
-[[deps.NodeJS]]
-deps = ["Pkg"]
-git-tree-sha1 = "bf1f49fd62754064bc42490a8ddc2aa3694a8e7a"
-uuid = "2bd173c7-0d6d-553b-b6af-13a54713934c"
-version = "2.0.0"
-
-[[deps.NodeJS_18_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "82dbe46101dfce63c5a66e7805e6ac453addc4cb"
-uuid = "c1e1d063-8311-5f52-a749-c7b05e91ae37"
-version = "18.16.1+0"
 
 [[deps.Observables]]
 git-tree-sha1 = "7438a59546cf62428fc9d1bc94729146d37a7225"
@@ -1758,9 +1288,9 @@ version = "0.8.1+2"
 
 [[deps.OpenSSL]]
 deps = ["BitFlags", "Dates", "MozillaCACerts_jll", "OpenSSL_jll", "Sockets"]
-git-tree-sha1 = "51901a49222b09e3743c65b8847687ae5fc78eb2"
+git-tree-sha1 = "af81a32750ebc831ee28bdaaba6e1067decef51e"
 uuid = "4d8831e6-92b7-49fb-bdf8-b643e874388c"
-version = "1.4.1"
+version = "1.4.2"
 
 [[deps.OpenSSL_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -1775,10 +1305,16 @@ uuid = "efe28fd5-8261-553b-a9e1-b2916fc3738e"
 version = "0.5.5+0"
 
 [[deps.Optim]]
-deps = ["Compat", "FillArrays", "ForwardDiff", "LineSearches", "LinearAlgebra", "MathOptInterface", "NLSolversBase", "NaNMath", "Parameters", "PositiveFactorizations", "Printf", "SparseArrays", "StatsBase"]
-git-tree-sha1 = "d024bfb56144d947d4fafcd9cb5cafbe3410b133"
+deps = ["Compat", "FillArrays", "ForwardDiff", "LineSearches", "LinearAlgebra", "NLSolversBase", "NaNMath", "PackageExtensionCompat", "Parameters", "PositiveFactorizations", "Printf", "SparseArrays", "StatsBase"]
+git-tree-sha1 = "d1223e69af90b6d26cea5b6f3b289b3148ba702c"
 uuid = "429524aa-4258-5aef-a3af-852621145aeb"
-version = "1.9.2"
+version = "1.9.3"
+
+    [deps.Optim.extensions]
+    OptimMOIExt = "MathOptInterface"
+
+    [deps.Optim.weakdeps]
+    MathOptInterface = "b8f27783-ece8-5eb3-8dc8-9495eed66fee"
 
 [[deps.Opus_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -1808,6 +1344,12 @@ git-tree-sha1 = "67186a2bc9a90f9f85ff3cc8277868961fb57cbd"
 uuid = "f57f5aa1-a3ce-4bc8-8ab9-96f992907883"
 version = "0.4.3"
 
+[[deps.PackageExtensionCompat]]
+git-tree-sha1 = "fb28e33b8a95c4cee25ce296c817d89cc2e53518"
+uuid = "65ce6f38-6b18-4e1d-a461-8949797d7930"
+version = "1.0.2"
+weakdeps = ["Requires", "TOML"]
+
 [[deps.Packing]]
 deps = ["GeometryBasics"]
 git-tree-sha1 = "ec3edfe723df33528e085e632414499f26650501"
@@ -1822,9 +1364,9 @@ version = "0.5.12"
 
 [[deps.Pango_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "FriBidi_jll", "Glib_jll", "HarfBuzz_jll", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "4745216e94f71cb768d58330b059c9b76f32cb66"
+git-tree-sha1 = "526f5a03792669e4187e584e8ec9d534248ca765"
 uuid = "36c8627f-9965-5494-a995-c6b170f724f3"
-version = "1.50.14+0"
+version = "1.52.1+0"
 
 [[deps.Parameters]]
 deps = ["OrderedCollections", "UnPack"]
@@ -1850,11 +1392,6 @@ git-tree-sha1 = "d6ff87de27ff3082131f31a714d25ab6d0a88abf"
 uuid = "3bbf5609-3e7b-44cd-8549-7c69f321e792"
 version = "0.6.1"
 
-[[deps.Pipe]]
-git-tree-sha1 = "6842804e7867b115ca9de748a0cf6b364523c16d"
-uuid = "b98c9c47-44ae-5843-9183-064241ee97a0"
-version = "1.3.0"
-
 [[deps.Pixman_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "LLVMOpenMP_jll", "Libdl"]
 git-tree-sha1 = "64779bc4c9784fee475689a1752ef4d5747c5e87"
@@ -1874,9 +1411,9 @@ version = "0.3.3"
 
 [[deps.PlotUtils]]
 deps = ["ColorSchemes", "Colors", "Dates", "PrecompileTools", "Printf", "Random", "Reexport", "Statistics"]
-git-tree-sha1 = "862942baf5663da528f66d24996eb6da85218e76"
+git-tree-sha1 = "7b1a9df27f072ac4c9c7cbe5efb198489258d1f5"
 uuid = "995b91a9-d308-5afd-9ec6-746e21dbc043"
-version = "1.4.0"
+version = "1.4.1"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1894,13 +1431,18 @@ deps = ["LinearAlgebra", "RecipesBase", "Setfield", "SparseArrays"]
 git-tree-sha1 = "a9c7a523d5ed375be3983db190f6a5874ae9286d"
 uuid = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
 version = "4.0.6"
-weakdeps = ["ChainRulesCore", "FFTW", "MakieCore", "MutableArithmetics"]
 
     [deps.Polynomials.extensions]
     PolynomialsChainRulesCoreExt = "ChainRulesCore"
     PolynomialsFFTWExt = "FFTW"
     PolynomialsMakieCoreExt = "MakieCore"
     PolynomialsMutableArithmeticsExt = "MutableArithmetics"
+
+    [deps.Polynomials.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
+    MakieCore = "20f20a25-4f0e-4fdf-b5d1-57303727442b"
+    MutableArithmetics = "d8a4904e-b15c-11e9-3269-09a3773c0cb0"
 
 [[deps.PooledArrays]]
 deps = ["DataAPI", "Future"]
@@ -1916,15 +1458,15 @@ version = "0.2.4"
 
 [[deps.PrecompileTools]]
 deps = ["Preferences"]
-git-tree-sha1 = "03b4c25b43cb84cee5c90aa9b5ea0a78fd848d2f"
+git-tree-sha1 = "5aa36f7049a63a1528fe8f7c3f2113413ffd4e1f"
 uuid = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
-version = "1.2.0"
+version = "1.2.1"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "00805cd429dcb4870060ff49ef443486c262e38e"
+git-tree-sha1 = "9306f6085165d270f7e3db02af26a400d580f5c6"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.4.1"
+version = "1.4.3"
 
 [[deps.PrettyTables]]
 deps = ["Crayons", "LaTeXStrings", "Markdown", "PrecompileTools", "Printf", "Reexport", "StringManipulation", "Tables"]
@@ -1942,15 +1484,11 @@ version = "0.5.6"
 deps = ["Unicode"]
 uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
-[[deps.Profile]]
-deps = ["Printf"]
-uuid = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
-
 [[deps.ProgressMeter]]
 deps = ["Distributed", "Printf"]
-git-tree-sha1 = "00099623ffee15972c16111bcf84c58a0051257c"
+git-tree-sha1 = "763a8ceb07833dd51bb9e3bbca372de32c0605ad"
 uuid = "92933f4c-e287-5a05-a399-4b506db050ca"
-version = "1.9.0"
+version = "1.10.0"
 
 [[deps.QOI]]
 deps = ["ColorTypes", "FileIO", "FixedPointNumbers"]
@@ -2239,12 +1777,6 @@ version = "0.6.18"
     SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
     StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
-[[deps.StructTypes]]
-deps = ["Dates", "UUIDs"]
-git-tree-sha1 = "ca4bccb03acf9faaf4137a9abc1881ed1841aa70"
-uuid = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
-version = "1.10.0"
-
 [[deps.SuiteSparse]]
 deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
 uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
@@ -2264,12 +1796,6 @@ deps = ["IteratorInterfaceExtensions"]
 git-tree-sha1 = "c06b2f539df1c6efa794486abfb6ed2022561a39"
 uuid = "3783bdb8-4a98-5b6b-af9a-565f29a5fe9c"
 version = "1.0.1"
-
-[[deps.TableTraitsUtils]]
-deps = ["DataValues", "IteratorInterfaceExtensions", "Missings", "TableTraits"]
-git-tree-sha1 = "78fecfe140d7abb480b53a44f3f85b6aa373c293"
-uuid = "382cd787-c1b6-5bf2-a167-d5b971a19bda"
-version = "1.0.2"
 
 [[deps.Tables]]
 deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "LinearAlgebra", "OrderedCollections", "TableTraits"]
@@ -2346,9 +1872,9 @@ uuid = "731e570b-9d59-4bfa-96dc-6df516fadf69"
 version = "0.6.8"
 
 [[deps.TranscodingStreams]]
-git-tree-sha1 = "54194d92959d8ebaa8e26227dbe3cdefcdcd594f"
+git-tree-sha1 = "71509f04d045ec714c4748c785a59045c3736349"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
-version = "0.10.3"
+version = "0.10.7"
 weakdeps = ["Random", "Test"]
 
     [deps.TranscodingStreams.extensions]
@@ -2368,12 +1894,6 @@ version = "0.1.0"
 git-tree-sha1 = "41d61b1c545b06279871ef1a4b5fcb2cac2191cd"
 uuid = "9d95972d-f1c8-5527-a6e0-b4b365fa01f6"
 version = "1.5.0"
-
-[[deps.URIParser]]
-deps = ["Unicode"]
-git-tree-sha1 = "53a9f49546b8d2dd2e688d216421d050c9a31d0d"
-uuid = "30578b45-9adc-5946-b283-645ec420af67"
-version = "0.4.1"
 
 [[deps.URIs]]
 git-tree-sha1 = "67db6cc7b3821e19ebe75791a9dd19c9b1188f2b"
@@ -2398,18 +1918,6 @@ git-tree-sha1 = "53915e50200959667e78a92a418594b428dffddf"
 uuid = "1cfade01-22cf-5700-b092-accc4b62d6e1"
 version = "0.4.1"
 
-[[deps.Vega]]
-deps = ["BufferedStreams", "DataStructures", "DataValues", "Dates", "FileIO", "FilePaths", "IteratorInterfaceExtensions", "JSON", "JSONSchema", "MacroTools", "NodeJS", "Pkg", "REPL", "Random", "Setfield", "TableTraits", "TableTraitsUtils", "URIParser"]
-git-tree-sha1 = "0efd71a3df864e86d24236c99aaae3970e6f0ed0"
-uuid = "239c3e63-733f-47ad-beb7-a12fde22c578"
-version = "2.7.0"
-
-[[deps.VegaLite]]
-deps = ["Base64", "BufferedStreams", "DataStructures", "DataValues", "Dates", "FileIO", "FilePaths", "IteratorInterfaceExtensions", "JSON", "MacroTools", "NodeJS", "Pkg", "REPL", "Random", "TableTraits", "TableTraitsUtils", "URIParser", "Vega"]
-git-tree-sha1 = "79115432a0a40955f071bccc6e5574ae5567a7b0"
-uuid = "112f6efa-9a02-5b7d-90c0-432ed331239a"
-version = "3.3.0"
-
 [[deps.WeakRefStrings]]
 deps = ["DataAPI", "InlineStrings", "Parsers"]
 git-tree-sha1 = "b1be2855ed9ed8eac54e5caff2afcdb442d52c23"
@@ -2429,9 +1937,9 @@ version = "1.6.1"
 
 [[deps.XML2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libiconv_jll", "Zlib_jll"]
-git-tree-sha1 = "07e470dabc5a6a4254ffebc29a1b3fc01464e105"
+git-tree-sha1 = "532e22cf7be8462035d092ff21fada7527e2c488"
 uuid = "02c8fc9c-b97f-50b9-bbe4-9be30ff0a78a"
-version = "2.12.5+0"
+version = "2.12.6+0"
 
 [[deps.XSLT_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libgcrypt_jll", "Libgpg_error_jll", "Libiconv_jll", "Pkg", "XML2_jll", "Zlib_jll"]
@@ -2523,9 +2031,9 @@ version = "2.0.2+0"
 
 [[deps.libpng_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Zlib_jll"]
-git-tree-sha1 = "873b4f805771d3e4bafe63af759a26ea8ca84d14"
+git-tree-sha1 = "d7015d2e18a5fd9a4f47de711837e980519781a4"
 uuid = "b53b4c65-9356-5827-b1ea-8c7a1a84506f"
-version = "1.6.42+0"
+version = "1.6.43+1"
 
 [[deps.libsixel_jll]]
 deps = ["Artifacts", "JLLWrappers", "JpegTurbo_jll", "Libdl", "Pkg", "libpng_jll"]
@@ -2563,72 +2071,28 @@ version = "3.5.0+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═daec640a-e8c3-11ee-1a9e-47258f3486cc
-# ╟─fefa6164-c73c-4522-b6b4-290f4009049c
-# ╟─0ca05e46-673f-458c-ad87-2fabf4bb1a4e
-# ╟─36610831-95ff-4e62-b124-6a6ce84a7c41
-# ╟─2dd5237a-4829-4f02-9592-10c6c7895184
-# ╠═d9761cd6-7841-43d3-b469-afc659394ed1
-# ╠═43900811-1cd8-4961-82d3-02fa3442a5b4
-# ╠═2144e6fa-51bf-46b5-aa92-3ffb534737ed
-# ╟─949fe2d9-83c3-4bc2-a8f8-6a08992ff0e0
-# ╠═52c60974-89b7-4d50-a3b0-689805416106
-# ╠═4d19f5b8-876b-453c-8c91-4873dcfc43f6
-# ╠═bda97615-7669-4a94-bf50-318af3f73c89
-# ╟─a5d2b8b1-8f11-405c-a087-c11a0a5684ec
-# ╟─a792977f-0e84-43b9-b7f8-47af46bb9189
-# ╠═93e0ceec-fe05-4f07-ac18-769646a291c9
-# ╠═58b222df-3668-4679-b357-ca7b7b49be4d
-# ╠═34c9e201-2752-4f51-9915-043b9ea10771
-# ╟─2665ac26-e16b-4408-a583-ff81a851f8fb
-# ╠═ea9e55d9-22ee-4ba8-aa79-cf85b5e0f87f
-# ╠═c6e4e430-a69a-4251-bf53-5a4016bef092
-# ╟─780c4a88-5d42-4a9a-91fb-7340b50fd2c7
-# ╠═0529876e-5b21-4d73-8045-c26ad737239b
-# ╟─19be78eb-23af-4a3a-be31-cd89bef38297
-# ╠═8bd4c798-e3af-4cb9-8034-d768e223536d
-# ╠═901a896e-1224-4ff6-856a-ea01a08074f5
-# ╠═3dc66fef-3409-4083-bde5-004a66ecf507
-# ╟─711db557-0cbb-4b77-88c2-37d6b8df9c71
-# ╟─9558256e-4d1d-4226-a86a-57e7d9ffbb25
-# ╠═a502bc3a-bdf4-41cf-9f4b-708bb2078113
-# ╟─29b7fb0d-7230-4c40-9563-5dcb3d2f14c1
-# ╠═d9fc5230-11fd-4389-aa27-ce5f8640e54a
-# ╟─cb6eec36-92b8-47d0-bd25-e30fa60ba63b
-# ╠═6f7e14d4-3d1c-46d2-90ef-6d84be9632cd
-# ╠═8bee1ed8-5bd4-4cdb-a433-b8707a8181c1
-# ╠═a5c333a5-5607-413d-b650-013c5984d30b
-# ╠═2a332201-e55d-4e9b-a741-4514e6c4b259
-# ╠═545f2741-6009-4e10-a95f-9e734edbd6a1
-# ╟─ac653646-557d-47fe-9327-905bfe1f2505
-# ╠═403dac7f-843a-416f-8f9f-d91d9973b1fa
-# ╟─6b8479bc-a41e-4ab2-bd9d-f830eaf160d8
-# ╠═1d59ea33-21d4-41df-8498-65b8dbc447ea
-# ╟─efc5b670-5acb-4257-984d-528fe77f4b43
-# ╠═094b7f98-aa3f-4b8a-b339-a508d962f6ce
-# ╠═046ba856-349c-4c6a-8665-8a83573f6f59
-# ╟─488ca498-0fba-4c0c-82c7-b7dc7c80a9a6
-# ╠═1a59946c-a8ee-4619-bca3-867806d4ce8c
-# ╠═4936a9c5-be10-4644-b3af-6b4b7ac69845
-# ╠═b6799713-abea-4832-97ea-b2de46c0d86c
-# ╠═449ff1c5-a541-44f2-aeb5-de1c12b7bc7d
-# ╠═c41113a8-7dbb-4337-969a-ba45b1730572
-# ╟─c6653422-241e-4358-95bd-c03b5aec2cfa
-# ╠═a19ce30a-6c20-46a3-96a9-5720cfa67513
-# ╠═0a046cbb-6bb6-43b0-aca0-522fcc093463
-# ╠═e5b90c87-17bb-403e-94fc-1ffce7d5eff0
-# ╟─dd03da5e-1c00-4659-9df9-6f76b065c043
-# ╟─d7e8970e-2353-4c15-8f34-26351d66279c
-# ╠═985d49a0-62ce-40f0-aa79-896968c1937c
-# ╠═77df28eb-82e4-490a-921c-0d971caa0b69
-# ╟─a12c834c-cf1b-45bf-9422-857dd97df52c
-# ╠═21f1f7a4-ae54-44cf-ab4e-ad8296f6eadc
-# ╠═399dad9a-931e-4f7e-a33d-ed585f027abf
-# ╟─8c718bff-a6e8-4da8-99c3-b334541f48d5
-# ╠═ab1e3d01-f83c-41f7-833d-534bb9ccaa34
-# ╟─3d13b49c-4a40-4c4c-b4eb-37789d3ae9a2
-# ╠═e6d6486f-7942-4b04-874e-720ef60c22d3
-# ╟─2886cb85-fcb8-4f93-9bf0-271d5a6605a4
-# ╠═c746873f-6928-4863-8c46-cb24b720aebb
+# ╟─2c45b996-c62f-469d-96de-7f7a9bb38b13
+# ╟─81b798f5-a1f9-4045-a770-92e157b42bed
+# ╟─1055250f-0dc4-4f44-a011-34afdcc197a8
+# ╟─b3e0c4bc-854e-455d-ab52-ab5af260efc2
+# ╟─9ba4277d-b328-445a-bc43-4bb83a250400
+# ╠═a1d0a947-41c3-4aaa-b28a-8c167bfc7c73
+# ╠═80c8bc71-d934-4ba3-9bd5-8135ec2a517d
+# ╟─6da0c80b-bf13-47f6-a144-f5ed3ae8ae73
+# ╠═d862355c-ed87-11ee-114f-130802ad3874
+# ╠═34f7e001-5178-4c38-938c-32faf9187bd8
+# ╠═33425692-9c97-4b6b-a9af-2b7fc9f8671b
+# ╠═8e8dfaca-c96b-4b16-ba69-58caf0949f3e
+# ╟─d1d2d32b-939f-4dc8-ba1a-460aba57deeb
+# ╟─e3556084-0d03-4420-ac17-72335295ccd5
+# ╠═4afa0206-ea98-41f4-9701-bb38f68ffbb0
+# ╠═dbde9e67-026a-4c8e-887b-567482e54a34
+# ╠═144b7452-0a30-4997-b852-97e0948b9deb
+# ╟─16d12ae5-3ad8-4378-8e21-0a03f47d3621
+# ╠═f928cd17-d32c-45ad-b3d7-b56034f9fa66
+# ╠═7389451c-104c-43e5-b2a6-d13d8accd8c7
+# ╠═8d7b1aa8-6025-4c9f-a3d7-7b084687720c
+# ╠═50f5ed1a-dfd7-4ee8-9c90-ada933906648
+# ╠═5dc86703-0a5b-4a50-8e3f-b1c3ee9eebde
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
