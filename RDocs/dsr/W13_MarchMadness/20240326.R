@@ -159,7 +159,7 @@ title_font <- 'rso'
 
 subtitle_win <- "Total Champioship Wins"
 
-subtitle_pct <- str_wrap("Top 20 teams with highest winning percentage based on result from previous years", 50)
+subtitle_pct <- str_wrap("Top 20 teams with highest winning percentage based on results from previous years", 50)
 
 subtitle_font <- 'changa'
 
