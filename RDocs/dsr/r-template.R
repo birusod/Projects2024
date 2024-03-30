@@ -39,12 +39,13 @@ showtext_auto()
 # Defining colors and Theme------------------------------------------------
 #==========================================================================#
 
-bg_col <- ""
+bg_color <- "white"
 text_light <- ""
 text_dark <- ""
-highlight_col <- ""
-title_col <- ""
+highlight <- ""
+title_color <- ""
 sub_color <- ""
+cap_color <- ""
 tsize = unit(30, units = "cm")
 
 
@@ -66,9 +67,9 @@ xtwitter_username <- "@DSbyKnight"
 
 social_caption <- glue::glue(
   "<span style='font-family:fab6_reg;'>{github};</span> 
-  <span style='color: {text_col}'>{github_username}  </span> 
+  <span style='color: {cap_color}'>{github_username}  </span> 
   <span style='font-family:fab6_reg;'>{xtwitter};</span> 
-  <span style='color: {text_col}'>{xtwitter_username}</span>")
+  <span style='color: {cap_color}'>{xtwitter_username}</span>")
 plot_caption <- paste0(
   "**Data**: TidyTuesday Week ##<br>", 
   "**Graphics:** ", 
@@ -110,7 +111,7 @@ ggsave(
 
 ggsave(
   filename = here::here(),
-  plot = plot,
+  #plot = plot,
   width = 40, 
   height = 30, 
   units = "cm",
