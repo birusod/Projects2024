@@ -11,7 +11,7 @@
 
 
 <p align="center">
-  <img src="/RDocs/dsr/W13_MarchMadness/plots_w13/final_plot_w13.png" width="60%">
+  <img src="/RDocs/dsr/W13_MarchMadness/plots_w13/final_plot2_w13.png" width="60%">
 </p>
 <br></br>
 <p align="center">
