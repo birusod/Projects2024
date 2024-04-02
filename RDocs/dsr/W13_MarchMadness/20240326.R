@@ -38,7 +38,7 @@ wins <- results |>
 wpercent20 <- results |> 
   select(team, winpercent) |> 
   mutate(winpercent = round(winpercent, 2),
-         wpct_fmt = format(round(winpercent, 2), 2)) |> 
+         wpct_fmt = format(round(winpercent * 100, 2), 2)) |> 
   filter(winpercent > 0) |> 
   arrange(desc(winpercent)) |>
   head(20) |> 
@@ -78,7 +78,8 @@ wins |>
 
 wpercent20 |> 
   ggplot(aes(winpercent, fct_reorder(team, winpercent) )) +
-  geom_col()
+  geom_col() +
+  scale_x_continuous(labels = percent)
 
 wpercent20 |> 
   ggplot(aes(winpercent, fct_reorder(team, winpercent) )) +
