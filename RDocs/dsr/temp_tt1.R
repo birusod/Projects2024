@@ -5,13 +5,13 @@
 
 # only need to update these 5 parameters, then: Alt+Cmd+r (Cmd+A+Enter)
 # ****************************************************************
-week_date <- '2024-03-26'
-week_number <- 'W13'
-weekly_data <- 'MarchMadness'
+week_date <- '2024-04-02'
+week_number <- 'W14'
+weekly_data <- 'DuBois'
 current_week_folder <- paste0(week_number, '_', weekly_data)
-week_title <- "NCAA Men's March Madness"
-plot_folder <- 'plots_w13'
-final_plot <- 'final_plot_w13.png'
+week_title <- "Du Bois Viz Challenge 2024"
+plot_folder <- 'plots_w14'
+final_plot <- 'final_plot_w14.png'
 #*****************************************************************
 
 use_tt_template <- function(

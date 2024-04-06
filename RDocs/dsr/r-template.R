@@ -3,8 +3,10 @@
 #==========================================================================#
 
 pacman::p_load(
-  tidytuesdayR, tidyverse, janitor, scales, ggthemes,
-  showtext, patchwork, ggtext, glue)
+  tidytuesdayR, tidyverse, janitor,          
+  scales, ggthemes, patchwork,               
+  showtext, extrafont, ggtext, ggtext, glue  
+)
 
 
 #==========================================================================#
@@ -20,18 +22,15 @@ tuesdata <- tidytuesdayR::tt_load(date_chr)
 
 
 
-#===========================================================================#
-# Data Viz ------------------------------------------------------------------
-#===========================================================================#
-
-
-
-
 #==========================================================================#
 # Loading fonts ------------------------------------------------------------
 #==========================================================================#
-
+#font_import()
+#loadfonts()
+#font_files() |> tibble() |> view()
 font_add_google("Roboto", "roboto")
+
+font_families()
 showtext_auto()
 
 
@@ -39,14 +38,14 @@ showtext_auto()
 # Defining colors and Theme------------------------------------------------
 #==========================================================================#
 
-bg_color <- "white"
-text_light <- ""
-text_dark <- ""
-highlight <- ""
+bg_color    <- "white"
+text_light  <- ""
+text_dark   <- ""
+highlight   <- ""
 title_color <- ""
-sub_color <- ""
-cap_color <- ""
-tsize = unit(30, units = "cm")
+sub_color   <- ""
+cap_color   <- ""
+tsize       <-  unit(30, units = "cm")
 
 
 
@@ -56,13 +55,13 @@ tsize = unit(30, units = "cm")
 tsize = unit(30, units = "cm")
 
 sysfonts::font_add(
-  family = "fab6_reg",
+  family  = "fab6_reg",
   regular = "Font Awesome 6 Brands-Regular-400.otf") #/Library/Fonts/
 
-github <- "&#xf09b"
+github          <- "&#xf09b"
 github_username <- "birusod"
 
-xtwitter <- "&#xe61b"
+xtwitter          <- "&#xe61b"
 xtwitter_username <- "@DSbyKnight"
 
 social_caption <- glue::glue(
@@ -76,7 +75,7 @@ plot_caption <- paste0(
   social_caption)
 
 
-title <- ""
+title    <- ""
 subtitle <- ""
 
 
@@ -96,6 +95,13 @@ costum_theme <- function(){
 
 
 
+#===========================================================================#
+# Data Viz ------------------------------------------------------------------
+#===========================================================================#
+
+
+
+
 
 #===========================================================================#
 # Saving Plots and Gifs -----------------------------------------------------
@@ -103,17 +109,16 @@ costum_theme <- function(){
 
 # save the final plot as 'final_plot'
 ggsave(
-  filename = file.path(
-    wkf,
-    pfolder, 
-    paste0("final_plot", ".png"))
+  filename = file.path(wkf,
+                       pfolder, 
+                       paste0("final_plot", ".png"))
   )
 
 ggsave(
   filename = here::here(),
-  #plot = plot,
-  width = 40, 
-  height = 30, 
-  units = "cm",
-  bg = bg_col
+  #plot    = plot,
+  width    = 40, 
+  height   = 30, 
+  units    = "cm",
+  bg       = bg_col
 )
