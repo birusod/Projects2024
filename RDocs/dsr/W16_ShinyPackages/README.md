@@ -10,7 +10,7 @@
 <h2 align="left"> 4. Viz </h2>
 
 <p align="center">
-  <img src="/RDocs/dsr/W16_ShinyPackages/plots_w16/final_plot_w16.png.png" width="60%">
+  <img src="/RDocs/dsr/W16_ShinyPackages/plots_w16/final_plot_w16.png" width="60%">
 </p>
 <br></br>
 <p align="center">
