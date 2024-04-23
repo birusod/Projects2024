@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.19.41
 
 using Markdown
 using InteractiveUtils
@@ -147,6 +147,17 @@ canvas_gdp  + map_gdp
 # ╔═╡ 26bbb3f5-93ee-48fc-a215-b0a7d24404f4
 md"## GDP percent per country"
 
+# ╔═╡ 9c722312-eb65-4b5a-b470-2bb93f830ae8
+canvas_globe = @vlplot(
+    width = 600,
+    height = 360,
+    title = "2019 GDP Percent by Country",
+    projection = {
+        type = :orthographic,
+        rotate = east
+    }
+);
+
 # ╔═╡ 991b3d71-3d20-4070-9fb6-30075cdd5bdf
 map_globe = @vlplot(
     data = {
@@ -178,17 +189,6 @@ Diagonal  = $(@bind diag Slider(-360:10:360, default= -0, show_value=true))
 
 # ╔═╡ 6af964fb-6761-4cf1-be40-e9d32ccd5f30
 east = [lat, lon, diag]
-
-# ╔═╡ 9c722312-eb65-4b5a-b470-2bb93f830ae8
-canvas_globe = @vlplot(
-    width = 600,
-    height = 360,
-    title = "2019 GDP Percent by Country",
-    projection = {
-        type = :orthographic,
-        rotate = east
-    }
-);
 
 # ╔═╡ db56c16b-2ef8-400e-945f-cddf25472775
 canvas_globe + map_globe
