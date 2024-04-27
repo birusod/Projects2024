@@ -10,10 +10,10 @@
 <h2 align="left"> 4. Viz </h2>
 
 <p align="center">
-  <img src="/RDocs/dsr/W2_HockeyPlayers/plots_w2/w2_final_plot.jpeg" width="60%">
+  <img src="/RDocs/dsr/W02_HockeyPlayers/plots_w2/w2_final_plot.jpeg" width="60%">
 </p>
 <br></br>
 <p align="center">
-  <img src="/RDocs/dsr/W2_HockeyPlayers/plots_w2/file_name.gif" width="60%">
+  <img src="/RDocs/dsr/W02_HockeyPlayers/plots_w2/file_name.gif" width="60%">
 </p>
 

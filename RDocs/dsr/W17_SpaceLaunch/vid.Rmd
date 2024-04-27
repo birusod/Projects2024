@@ -1,0 +1,10 @@
+---
+title: "GIF"
+output:
+  html_document
+---
+
+
+<video controls autoplay>
+   <source src="/Users/birusod/Documents/DataScienceDocs/GitProjects/Projects2024/RDocs/dsr/W17_SpaceLaunch/plots_w17/vid_01.mp4" type="video/mp4">
+</video>

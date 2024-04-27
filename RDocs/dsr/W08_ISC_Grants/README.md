@@ -1,4 +1,4 @@
-<h1 align="center"> US Polling Places 2012-2020 </h1>
+<h1 align="center"> R Consortium ISC Grants </h1>
 
 
 <h2 align="left"> 1. Libraries and Data sets </h2>
@@ -10,10 +10,10 @@
 <h2 align="left"> 4. Viz </h2>
 
 <p align="center">
-  <img src="/RDocs/dsr/W3_USPollingPlaces/plots_w3/final_plot_w3.jpeg" width="60%">
+  <img src="/RDocs/dsr/W08_ISC_Grants/plots_w8/final_plot_grants.png" width="60%">
 </p>
 <br></br>
 <p align="center">
-  <img src="/RDocs/dsr/W3_USPollingPlaces/plots_w3/Rtable.jpeg" width="60%">
+  <img src="/RDocs/dsr/W08_ISC_Grants/plots_w8/file_name.gif" width="60%">
 </p>
 

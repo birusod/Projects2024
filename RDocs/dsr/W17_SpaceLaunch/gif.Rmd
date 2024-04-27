@@ -1,0 +1,7 @@
+---
+title: "GIF"
+output:
+  html_document
+---
+
+<img src="/Users/birusod/Documents/DataScienceDocs/GitProjects/Projects2024/RDocs/dsr/W17_SpaceLaunch/plots_w17/gif_01.gif"/>
