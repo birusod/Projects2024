@@ -1,0 +1,1350 @@
+year,a3,a2,name,edu_level,category,group,value,class
+2000,AGO,ao,Angola,No Education,Overall,Overall,0.0728133916854858,Private
+2008,AGO,ao,Angola,No Education,Overall,Overall,0.098992221057415,Private
+2014,AGO,ao,Angola,No Education,Overall,Overall,0.0728952810168266,Private
+2000,AGO,ao,Angola,No Education,Overall,Overall,0.0370121896266937,Public
+2008,AGO,ao,Angola,No Education,Overall,Overall,0.0737585201859474,Public
+2014,AGO,ao,Angola,No Education,Overall,Overall,0.040031436830759,Public
+2000,AGO,ao,Angola,Primary Education,Overall,Overall,0.759052336215973,Private
+2008,AGO,ao,Angola,Primary Education,Overall,Overall,0.647593915462494,Private
+2014,AGO,ao,Angola,Primary Education,Overall,Overall,0.496326565742493,Private
+2000,AGO,ao,Angola,Primary Education,Overall,Overall,0.604095816612244,Public
+2008,AGO,ao,Angola,Primary Education,Overall,Overall,0.517069637775421,Public
+2014,AGO,ao,Angola,Primary Education,Overall,Overall,0.338891893625259,Public
+2000,AGO,ao,Angola,Secondary Education,Overall,Overall,0.134714111685753,Private
+2008,AGO,ao,Angola,Secondary Education,Overall,Overall,0.136929407715797,Private
+2014,AGO,ao,Angola,Secondary Education,Overall,Overall,0.315266758203506,Private
+2000,AGO,ao,Angola,Secondary Education,Overall,Overall,0.274198800325394,Public
+2008,AGO,ao,Angola,Secondary Education,Overall,Overall,0.234464079141617,Public
+2014,AGO,ao,Angola,Secondary Education,Overall,Overall,0.416597068309784,Public
+2000,AGO,ao,Angola,Tertiary Education,Overall,Overall,0.0334201566874981,Private
+2008,AGO,ao,Angola,Tertiary Education,Overall,Overall,0.116484463214874,Private
+2014,AGO,ao,Angola,Tertiary Education,Overall,Overall,0.115511417388916,Private
+2000,AGO,ao,Angola,Tertiary Education,industry,Education,0.18438583612442,Private
+2008,AGO,ao,Angola,Tertiary Education,industry,Education,0.309929728507996,Private
+2014,AGO,ao,Angola,Tertiary Education,industry,Education,0.289385914802551,Private
+2000,AGO,ao,Angola,Tertiary Education,industry,Health,0,Private
+2008,AGO,ao,Angola,Tertiary Education,industry,Health,0.162576004862785,Private
+2014,AGO,ao,Angola,Tertiary Education,industry,Health,0.20833332836628,Private
+2000,AGO,ao,Angola,Tertiary Education,occupation,Medical workers,0.0231154672801495,Private
+2008,AGO,ao,Angola,Tertiary Education,occupation,Medical workers,0.28383594751358,Private
+2000,AGO,ao,Angola,Tertiary Education,occupation,Teachers,0.200672701001167,Private
+2008,AGO,ao,Angola,Tertiary Education,occupation,Teachers,0.21135775744915,Private
+2000,AGO,ao,Angola,Tertiary Education,Overall,Overall,0.0846931934356689,Public
+2008,AGO,ao,Angola,Tertiary Education,Overall,Overall,0.174707770347595,Public
+2014,AGO,ao,Angola,Tertiary Education,Overall,Overall,0.204479590058327,Public
+2000,AGO,ao,Angola,Tertiary Education,industry,Core Public Administration,0.116594947874546,Public
+2008,AGO,ao,Angola,Tertiary Education,industry,Core Public Administration,0.102925911545753,Public
+2014,AGO,ao,Angola,Tertiary Education,industry,Core Public Administration,0.265776813030243,Public
+2000,AGO,ao,Angola,Tertiary Education,industry,Education,0.0888814777135849,Public
+2008,AGO,ao,Angola,Tertiary Education,industry,Education,0.239761129021645,Public
+2014,AGO,ao,Angola,Tertiary Education,industry,Education,0.310420483350754,Public
+2000,AGO,ao,Angola,Tertiary Education,industry,Health,0.0517522282898426,Public
+2008,AGO,ao,Angola,Tertiary Education,industry,Health,0.137118503451347,Public
+2014,AGO,ao,Angola,Tertiary Education,industry,Health,0.192170813679695,Public
+2000,AGO,ao,Angola,Tertiary Education,industry,Public Administration,0.0795994251966476,Public
+2008,AGO,ao,Angola,Tertiary Education,industry,Public Administration,0.183844536542892,Public
+2014,AGO,ao,Angola,Tertiary Education,industry,Public Administration,0.220227643847466,Public
+2000,AGO,ao,Angola,Tertiary Education,industry,Public Safety,0.0569316707551479,Public
+2008,AGO,ao,Angola,Tertiary Education,industry,Public Safety,0.234310388565063,Public
+2014,AGO,ao,Angola,Tertiary Education,industry,Public Safety,0.157838270068169,Public
+2000,AGO,ao,Angola,Tertiary Education,industry,Social Security,0,Public
+2008,AGO,ao,Angola,Tertiary Education,industry,Social Security,0,Public
+2000,AGO,ao,Angola,Tertiary Education,occupation,Medical workers,0.272270649671555,Public
+2008,AGO,ao,Angola,Tertiary Education,occupation,Medical workers,0.113905593752861,Public
+2000,AGO,ao,Angola,Tertiary Education,occupation,Teachers,0.114157527685165,Public
+2008,AGO,ao,Angola,Tertiary Education,occupation,Teachers,0.183858603239059,Public
+2003,BEN,bj,Benin,No Education,Overall,Overall,0.33069983124733,Private
+2011,BEN,bj,Benin,No Education,Overall,Overall,0.171838745474815,Private
+2003,BEN,bj,Benin,No Education,Overall,Overall,0.0614406764507294,Public
+2011,BEN,bj,Benin,No Education,Overall,Overall,0.0220215041190386,Public
+2003,BEN,bj,Benin,Primary Education,Overall,Overall,0.247104361653328,Private
+2011,BEN,bj,Benin,Primary Education,Overall,Overall,0.247837275266647,Private
+2003,BEN,bj,Benin,Primary Education,Overall,Overall,0.126679986715317,Public
+2011,BEN,bj,Benin,Primary Education,Overall,Overall,0.0805144980549812,Public
+2003,BEN,bj,Benin,Secondary Education,Overall,Overall,0.305285304784775,Private
+2011,BEN,bj,Benin,Secondary Education,Overall,Overall,0.421037971973419,Private
+2003,BEN,bj,Benin,Secondary Education,Overall,Overall,0.458047121763229,Public
+2011,BEN,bj,Benin,Secondary Education,Overall,Overall,0.546444058418274,Public
+2003,BEN,bj,Benin,Tertiary Education,Overall,Overall,0.116910509765148,Private
+2011,BEN,bj,Benin,Tertiary Education,Overall,Overall,0.159285992383957,Private
+2003,BEN,bj,Benin,Tertiary Education,Overall,Overall,0.353832215070724,Public
+2011,BEN,bj,Benin,Tertiary Education,Overall,Overall,0.351019948720932,Public
+2009,BWA,bw,Botswana,No Education,Overall,Overall,0.132068604230881,Private
+2015,BWA,bw,Botswana,No Education,Overall,Overall,0.107018366456032,Private
+2009,BWA,bw,Botswana,No Education,Overall,Overall,0.0570564679801464,Public
+2015,BWA,bw,Botswana,No Education,Overall,Overall,0.0694120451807976,Public
+2009,BWA,bw,Botswana,Primary Education,Overall,Overall,0.216690942645073,Private
+2015,BWA,bw,Botswana,Primary Education,Overall,Overall,0.182824522256851,Private
+2009,BWA,bw,Botswana,Primary Education,Overall,Overall,0.155595287680626,Public
+2015,BWA,bw,Botswana,Primary Education,Overall,Overall,0.121004216372967,Public
+2009,BWA,bw,Botswana,Secondary Education,Overall,Overall,0.522035300731659,Private
+2015,BWA,bw,Botswana,Secondary Education,Overall,Overall,0.544990003108978,Private
+2009,BWA,bw,Botswana,Secondary Education,Overall,Overall,0.386155396699905,Public
+2015,BWA,bw,Botswana,Secondary Education,Overall,Overall,0.362417042255402,Public
+2009,BWA,bw,Botswana,Tertiary Education,Overall,Overall,0.129205137491226,Private
+2015,BWA,bw,Botswana,Tertiary Education,Overall,Overall,0.165167093276978,Private
+2009,BWA,bw,Botswana,Tertiary Education,industry,Education,0.552761077880859,Private
+2009,BWA,bw,Botswana,Tertiary Education,industry,Health,0.478945821523666,Private
+2009,BWA,bw,Botswana,Tertiary Education,occupation,Medical workers,1,Private
+2009,BWA,bw,Botswana,Tertiary Education,occupation,Teachers,0.881364107131958,Private
+2009,BWA,bw,Botswana,Tertiary Education,Overall,Overall,0.401192843914032,Public
+2015,BWA,bw,Botswana,Tertiary Education,Overall,Overall,0.447166681289673,Public
+2009,BWA,bw,Botswana,Tertiary Education,industry,Education,0.748898446559906,Public
+2009,BWA,bw,Botswana,Tertiary Education,industry,Health,0.458427935838699,Public
+2009,BWA,bw,Botswana,Tertiary Education,industry,Public Administration,0.325933694839478,Public
+2009,BWA,bw,Botswana,Tertiary Education,occupation,Medical workers,0.860110521316528,Public
+2009,BWA,bw,Botswana,Tertiary Education,occupation,Teachers,0.680879294872284,Public
+2003,BFA,bf,Burkina Faso,No Education,Overall,Overall,0.377892076969147,Private
+2009,BFA,bf,Burkina Faso,No Education,Overall,Overall,0.34539732336998,Private
+2014,BFA,bf,Burkina Faso,No Education,Overall,Overall,0.352545410394669,Private
+2003,BFA,bf,Burkina Faso,No Education,Overall,Overall,0.0647138357162476,Public
+2009,BFA,bf,Burkina Faso,No Education,Overall,Overall,0.0469003170728683,Public
+2014,BFA,bf,Burkina Faso,No Education,Overall,Overall,0.117127232253551,Public
+2003,BFA,bf,Burkina Faso,Primary Education,Overall,Overall,0.488221615552902,Private
+2009,BFA,bf,Burkina Faso,Primary Education,Overall,Overall,0.476664692163467,Private
+2014,BFA,bf,Burkina Faso,Primary Education,Overall,Overall,0.480107992887497,Private
+2003,BFA,bf,Burkina Faso,Primary Education,Overall,Overall,0.272981077432632,Public
+2009,BFA,bf,Burkina Faso,Primary Education,Overall,Overall,0.363454878330231,Public
+2014,BFA,bf,Burkina Faso,Primary Education,Overall,Overall,0.293905943632126,Public
+2003,BFA,bf,Burkina Faso,Secondary Education,Overall,Overall,0.0947982221841812,Private
+2009,BFA,bf,Burkina Faso,Secondary Education,Overall,Overall,0.115115307271481,Private
+2014,BFA,bf,Burkina Faso,Secondary Education,Overall,Overall,0.0883260816335678,Private
+2003,BFA,bf,Burkina Faso,Secondary Education,Overall,Overall,0.428245365619659,Public
+2009,BFA,bf,Burkina Faso,Secondary Education,Overall,Overall,0.413065582513809,Public
+2014,BFA,bf,Burkina Faso,Secondary Education,Overall,Overall,0.316707015037537,Public
+2003,BFA,bf,Burkina Faso,Tertiary Education,Overall,Overall,0.0390880815684795,Private
+2009,BFA,bf,Burkina Faso,Tertiary Education,Overall,Overall,0.0628226846456528,Private
+2014,BFA,bf,Burkina Faso,Tertiary Education,Overall,Overall,0.0790205299854279,Private
+2003,BFA,bf,Burkina Faso,Tertiary Education,Overall,Overall,0.234059706330299,Public
+2009,BFA,bf,Burkina Faso,Tertiary Education,Overall,Overall,0.17657920718193101,Public
+2014,BFA,bf,Burkina Faso,Tertiary Education,Overall,Overall,0.272259831428528,Public
+2000,CPV,cv,Cabo Verde,No Education,Overall,Overall,0.0684274509549141,Private
+2007,CPV,cv,Cabo Verde,No Education,Overall,Overall,0.00140070240013301,Private
+2000,CPV,cv,Cabo Verde,No Education,Overall,Overall,0.101708896458149,Public
+2007,CPV,cv,Cabo Verde,No Education,Overall,Overall,3.1546846730634e-4,Public
+2000,CPV,cv,Cabo Verde,Primary Education,Overall,Overall,0.650460481643677,Private
+2007,CPV,cv,Cabo Verde,Primary Education,Overall,Overall,0.522522866725922,Private
+2007,CPV,cv,Cabo Verde,Primary Education,Overall,Overall,0.367976456880569,Public
+2000,CPV,cv,Cabo Verde,Secondary Education,Overall,Overall,0.246463939547539,Private
+2007,CPV,cv,Cabo Verde,Secondary Education,Overall,Overall,0.424879729747772,Private
+2000,CPV,cv,Cabo Verde,Secondary Education,Overall,Overall,0.307444512844086,Public
+2007,CPV,cv,Cabo Verde,Secondary Education,Overall,Overall,0.459497362375259,Public
+2000,CPV,cv,Cabo Verde,Tertiary Education,Overall,Overall,0.0346481315791607,Private
+2007,CPV,cv,Cabo Verde,Tertiary Education,Overall,Overall,0.0511966869235039,Private
+2000,CPV,cv,Cabo Verde,Tertiary Education,Overall,Overall,0.0720094293355942,Public
+2007,CPV,cv,Cabo Verde,Tertiary Education,Overall,Overall,0.172210738062859,Public
+2001,CMR,cm,Cameroon,No Education,Overall,Overall,0.0853317677974701,Private
+2007,CMR,cm,Cameroon,No Education,Overall,Overall,0.060317125171423,Private
+2010,CMR,cm,Cameroon,No Education,Overall,Overall,0.058252427726984,Private
+2014,CMR,cm,Cameroon,No Education,Overall,Overall,0.0622360520064831,Private
+2001,CMR,cm,Cameroon,No Education,Overall,Overall,0.0364379324018955,Public
+2007,CMR,cm,Cameroon,No Education,Overall,Overall,0.0159989092499018,Public
+2010,CMR,cm,Cameroon,No Education,Overall,Overall,0.00493827182799578,Public
+2014,CMR,cm,Cameroon,No Education,Overall,Overall,0.0161117874085903,Public
+2007,CMR,cm,Cameroon,Primary Education,Overall,Overall,0.322845727205276,Private
+2010,CMR,cm,Cameroon,Primary Education,Overall,Overall,0.670981645584106,Private
+2007,CMR,cm,Cameroon,Primary Education,Overall,Overall,0.0829939171671867,Public
+2010,CMR,cm,Cameroon,Primary Education,Overall,Overall,0.320987641811371,Public
+2014,CMR,cm,Cameroon,Primary Education,Overall,Overall,0.0553861111402512,Public
+2001,CMR,cm,Cameroon,Secondary Education,Overall,Overall,0.111183658242226,Private
+2001,CMR,cm,Cameroon,Secondary Education,Overall,Overall,0.19540511071682,Public
+2014,CMR,cm,Cameroon,Secondary Education,Overall,Overall,0.473601818084717,Public
+2001,CMR,cm,Cameroon,Tertiary Education,Overall,Overall,0.0862264111638069,Private
+2007,CMR,cm,Cameroon,Tertiary Education,Overall,Overall,0.096257820725441,Private
+2010,CMR,cm,Cameroon,Tertiary Education,Overall,Overall,0.216828480362892,Private
+2014,CMR,cm,Cameroon,Tertiary Education,Overall,Overall,0.190880641341209,Private
+2007,CMR,cm,Cameroon,Tertiary Education,occupation,Medical workers,1,Private
+2010,CMR,cm,Cameroon,Tertiary Education,occupation,Medical workers,1,Private
+2014,CMR,cm,Cameroon,Tertiary Education,occupation,Medical workers,0.726889967918396,Private
+2007,CMR,cm,Cameroon,Tertiary Education,occupation,Teachers,0.776623368263245,Private
+2010,CMR,cm,Cameroon,Tertiary Education,occupation,Teachers,0.818181812763214,Private
+2014,CMR,cm,Cameroon,Tertiary Education,occupation,Teachers,0.80938595533371,Private
+2007,CMR,cm,Cameroon,Tertiary Education,Overall,Overall,0.370868623256683,Public
+2014,CMR,cm,Cameroon,Tertiary Education,Overall,Overall,0.454900294542313,Public
+2010,CMR,cm,Cameroon,Tertiary Education,occupation,Medical workers,0.692307710647583,Public
+2008,CAF,cf,Central African Republic,No Education,Overall,Overall,0.136313647031784,Private
+2008,CAF,cf,Central African Republic,No Education,Overall,Overall,0.0793328583240509,Public
+2008,CAF,cf,Central African Republic,Primary Education,Overall,Overall,0.284513026475906,Private
+2008,CAF,cf,Central African Republic,Primary Education,Overall,Overall,0.100683607161045,Public
+2008,CAF,cf,Central African Republic,Secondary Education,Overall,Overall,0.457631140947342,Private
+2008,CAF,cf,Central African Republic,Secondary Education,Overall,Overall,0.533309102058411,Public
+2008,CAF,cf,Central African Republic,Tertiary Education,Overall,Overall,0.121542192995548,Private
+2008,CAF,cf,Central African Republic,Tertiary Education,Overall,Overall,0.286674439907074,Public
+2003,TCD,td,Chad,No Education,Overall,Overall,0.373045891523361,Private
+2011,TCD,td,Chad,No Education,Overall,Overall,0.404181718826294,Private
+2003,TCD,td,Chad,No Education,Overall,Overall,0.247741043567657,Public
+2011,TCD,td,Chad,No Education,Overall,Overall,0.241349205374718,Public
+2003,TCD,td,Chad,Primary Education,Overall,Overall,0.247378587722778,Private
+2011,TCD,td,Chad,Primary Education,Overall,Overall,0.200778856873512,Private
+2003,TCD,td,Chad,Primary Education,Overall,Overall,0.128782331943512,Public
+2011,TCD,td,Chad,Primary Education,Overall,Overall,0.1689463108778,Public
+2003,TCD,td,Chad,Secondary Education,Overall,Overall,0.300931215286255,Private
+2011,TCD,td,Chad,Secondary Education,Overall,Overall,0.241952285170555,Private
+2003,TCD,td,Chad,Secondary Education,Overall,Overall,0.423309773206711,Public
+2011,TCD,td,Chad,Secondary Education,Overall,Overall,0.263463586568832,Public
+2003,TCD,td,Chad,Tertiary Education,Overall,Overall,0.0786442831158638,Private
+2011,TCD,td,Chad,Tertiary Education,Overall,Overall,0.153087124228477,Private
+2003,TCD,td,Chad,Tertiary Education,industry,Education,0.344033688306808,Private
+2003,TCD,td,Chad,Tertiary Education,industry,Health,0.111088454723358,Private
+2003,TCD,td,Chad,Tertiary Education,occupation,Medical workers,0,Private
+2003,TCD,td,Chad,Tertiary Education,Overall,Overall,0.20016685128212,Public
+2011,TCD,td,Chad,Tertiary Education,Overall,Overall,0.32624089717865,Public
+2003,TCD,td,Chad,Tertiary Education,industry,Education,0.30521884560585,Public
+2003,TCD,td,Chad,Tertiary Education,industry,Health,0.382651627063751,Public
+2003,TCD,td,Chad,Tertiary Education,industry,Public Administration,0.17732372879982,Public
+2003,TCD,td,Chad,Tertiary Education,occupation,Medical workers,0,Public
+2013,COM,km,Comoros,No Education,Overall,Overall,0.29313725233078,Private
+2013,COM,km,Comoros,No Education,Overall,Overall,0.057621855288744,Public
+2013,COM,km,Comoros,Primary Education,Overall,Overall,0.336290597915649,Private
+2013,COM,km,Comoros,Primary Education,Overall,Overall,0.0962967723608017,Public
+2013,COM,km,Comoros,Secondary Education,Overall,Overall,0.269923359155655,Private
+2013,COM,km,Comoros,Secondary Education,Overall,Overall,0.354173481464386,Public
+2013,COM,km,Comoros,Tertiary Education,Overall,Overall,0.100648805499077,Private
+2013,COM,km,Comoros,Tertiary Education,industry,Education,0.512728571891785,Private
+2013,COM,km,Comoros,Tertiary Education,industry,Health,0.190472766757011,Private
+2013,COM,km,Comoros,Tertiary Education,Overall,Overall,0.491907894611359,Public
+2013,COM,km,Comoros,Tertiary Education,industry,Core Public Administration,0.510946691036224,Public
+2013,COM,km,Comoros,Tertiary Education,industry,Education,0.671092510223389,Public
+2013,COM,km,Comoros,Tertiary Education,industry,Health,0.622353553771973,Public
+2013,COM,km,Comoros,Tertiary Education,industry,Public Administration,0.502852022647858,Public
+2013,COM,km,Comoros,Tertiary Education,industry,Public Safety,0.56795471906662,Public
+2013,COM,km,Comoros,Tertiary Education,industry,Social Security,0.310703784227371,Public
+2005,COG,cg,Congo,No Education,Overall,Overall,0.0450291410088539,Private
+2011,COG,cg,Congo,No Education,Overall,Overall,0.0791165083646774,Private
+2005,COG,cg,Congo,No Education,Overall,Overall,0.0159485768526793,Public
+2011,COG,cg,Congo,No Education,Overall,Overall,0.0355161614716053,Public
+2005,COG,cg,Congo,Primary Education,Overall,Overall,0.16416671872139,Private
+2011,COG,cg,Congo,Primary Education,Overall,Overall,0.0880178138613701,Private
+2005,COG,cg,Congo,Primary Education,Overall,Overall,0.035182747989893,Public
+2011,COG,cg,Congo,Primary Education,Overall,Overall,0.0346279628574848,Public
+2005,COG,cg,Congo,Secondary Education,Overall,Overall,0.665045559406281,Private
+2011,COG,cg,Congo,Secondary Education,Overall,Overall,0.663288354873657,Private
+2005,COG,cg,Congo,Secondary Education,Overall,Overall,0.624189913272858,Public
+2011,COG,cg,Congo,Secondary Education,Overall,Overall,0.531647086143494,Public
+2005,COG,cg,Congo,Tertiary Education,Overall,Overall,0.125758588314056,Private
+2011,COG,cg,Congo,Tertiary Education,Overall,Overall,0.169577345252037,Private
+2005,COG,cg,Congo,Tertiary Education,Overall,Overall,0.324678778648376,Public
+2011,COG,cg,Congo,Tertiary Education,Overall,Overall,0.398208796977997,Public
+2004,COD,cd,Dem. Rep. Congo,No Education,Overall,Overall,0.0675037056207657,Private
+2012,COD,cd,Dem. Rep. Congo,No Education,Overall,Overall,0.0954114720225334,Private
+2004,COD,cd,Dem. Rep. Congo,No Education,Overall,Overall,0.021461134776473,Public
+2012,COD,cd,Dem. Rep. Congo,No Education,Overall,Overall,0.0361707136034966,Public
+2004,COD,cd,Dem. Rep. Congo,Primary Education,Overall,Overall,0.33224681019783,Private
+2012,COD,cd,Dem. Rep. Congo,Primary Education,Overall,Overall,0.191065728664398,Private
+2004,COD,cd,Dem. Rep. Congo,Primary Education,Overall,Overall,0.157935991883278,Public
+2012,COD,cd,Dem. Rep. Congo,Primary Education,Overall,Overall,0.12987095117569,Public
+2004,COD,cd,Dem. Rep. Congo,Secondary Education,Overall,Overall,0.453979551792145,Private
+2012,COD,cd,Dem. Rep. Congo,Secondary Education,Overall,Overall,0.46483901143074,Private
+2004,COD,cd,Dem. Rep. Congo,Secondary Education,Overall,Overall,0.626304030418396,Public
+2012,COD,cd,Dem. Rep. Congo,Secondary Education,Overall,Overall,0.503438830375671,Public
+2004,COD,cd,Dem. Rep. Congo,Tertiary Education,Overall,Overall,0.146269932389259,Private
+2012,COD,cd,Dem. Rep. Congo,Tertiary Education,Overall,Overall,0.248683795332909,Private
+2004,COD,cd,Dem. Rep. Congo,Tertiary Education,Overall,Overall,0.194298833608627,Public
+2012,COD,cd,Dem. Rep. Congo,Tertiary Education,Overall,Overall,0.330519497394562,Public
+2009,SWZ,sz,Eswatini,No Education,Overall,Overall,0.102123312652111,Private
+2016,SWZ,sz,Eswatini,No Education,Overall,Overall,0.0596772842109203,Private
+2009,SWZ,sz,Eswatini,No Education,Overall,Overall,0.0318059325218201,Public
+2016,SWZ,sz,Eswatini,No Education,Overall,Overall,0.0115289315581322,Public
+2009,SWZ,sz,Eswatini,Primary Education,Overall,Overall,0.251681178808212,Private
+2016,SWZ,sz,Eswatini,Primary Education,Overall,Overall,0.303971350193024,Private
+2009,SWZ,sz,Eswatini,Primary Education,Overall,Overall,0.169394880533218,Public
+2016,SWZ,sz,Eswatini,Primary Education,Overall,Overall,0.10113050788641,Public
+2009,SWZ,sz,Eswatini,Secondary Education,Overall,Overall,0.544656693935394,Private
+2016,SWZ,sz,Eswatini,Secondary Education,Overall,Overall,0.563195943832397,Private
+2009,SWZ,sz,Eswatini,Secondary Education,Overall,Overall,0.425845772027969,Public
+2016,SWZ,sz,Eswatini,Secondary Education,Overall,Overall,0.386556833982468,Public
+2009,SWZ,sz,Eswatini,Tertiary Education,Overall,Overall,0.101538807153702,Private
+2016,SWZ,sz,Eswatini,Tertiary Education,Overall,Overall,0.07315544039011,Private
+2009,SWZ,sz,Eswatini,Tertiary Education,Overall,Overall,0.372953414916992,Public
+2016,SWZ,sz,Eswatini,Tertiary Education,Overall,Overall,0.50078374147415206,Public
+2003,ETH,et,Ethiopia,No Education,Overall,Overall,0.272717535495758,Private
+2004,ETH,et,Ethiopia,No Education,Overall,Overall,0.288114994764328,Private
+2006,ETH,et,Ethiopia,No Education,Overall,Overall,0.256828725337982,Private
+2009,ETH,et,Ethiopia,No Education,Overall,Overall,0.215990647673607,Private
+2010,ETH,et,Ethiopia,No Education,Overall,Overall,0.1914202272892,Private
+2011,ETH,et,Ethiopia,No Education,Overall,Overall,0.187010690569878,Private
+2012,ETH,et,Ethiopia,No Education,Overall,Overall,0.162240594625473,Private
+2013,ETH,et,Ethiopia,No Education,Overall,Overall,0.224722400307655,Private
+2014,ETH,et,Ethiopia,No Education,Overall,Overall,0.142873033881187,Private
+2015,ETH,et,Ethiopia,No Education,Overall,Overall,0.127520740032196,Private
+2016,ETH,et,Ethiopia,No Education,Overall,Overall,0.125824555754662,Private
+2000,ETH,et,Ethiopia,No Education,Overall,Overall,0.133172407746315,Public
+2003,ETH,et,Ethiopia,No Education,Overall,Overall,0.0517956838011742,Public
+2004,ETH,et,Ethiopia,No Education,Overall,Overall,0.0832178518176079,Public
+2006,ETH,et,Ethiopia,No Education,Overall,Overall,0.0417886078357697,Public
+2009,ETH,et,Ethiopia,No Education,Overall,Overall,0.0537922345101833,Public
+2010,ETH,et,Ethiopia,No Education,Overall,Overall,0.0488525107502937,Public
+2011,ETH,et,Ethiopia,No Education,Overall,Overall,0.0398600772023201,Public
+2012,ETH,et,Ethiopia,No Education,Overall,Overall,0.0328430905938149,Public
+2013,ETH,et,Ethiopia,No Education,Overall,Overall,0.047761682420969,Public
+2014,ETH,et,Ethiopia,No Education,Overall,Overall,0.023785587400198,Public
+2015,ETH,et,Ethiopia,No Education,Overall,Overall,0.0215857215225697,Public
+2016,ETH,et,Ethiopia,No Education,Overall,Overall,0.0216458011418581,Public
+2003,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.438497275114059,Private
+2004,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.3968465924263,Private
+2005,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.367000490427017,Private
+2006,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.409637033939362,Private
+2009,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.405886143445969,Private
+2010,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.39630851149559,Private
+2011,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.404099553823471,Private
+2012,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.394069492816925,Private
+2013,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.376617074012756,Private
+2014,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.390325665473938,Private
+2015,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.39069402217865,Private
+2016,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.395971924066544,Private
+2000,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.189664974808693,Public
+2003,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.188977718353271,Public
+2004,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.191672116518021,Public
+2005,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.201838999986649,Public
+2006,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.163890525698662,Public
+2009,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.143202036619186,Public
+2010,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.122912012040615,Public
+2011,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.119273938238621,Public
+2012,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.117838241159916,Public
+2013,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.0831015557050705,Public
+2014,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.110326603055,Public
+2015,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.0972105488181114,Public
+2016,ETH,et,Ethiopia,Primary Education,Overall,Overall,0.0923121646046638,Public
+2003,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.240135461091995,Private
+2004,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.263902842998505,Private
+2005,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.147396102547646,Private
+2006,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.265049964189529,Private
+2009,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.278262257575989,Private
+2010,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.294170200824738,Private
+2011,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.272449761629105,Private
+2012,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.282309621572495,Private
+2013,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.270284682512283,Private
+2014,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.293137431144714,Private
+2015,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.297464489936829,Private
+2016,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.303635209798813,Private
+2003,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.498473286628723,Public
+2004,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.480291128158569,Public
+2005,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.250383406877518,Public
+2006,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.437366276979446,Public
+2009,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.342347383499146,Public
+2010,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.300275146961212,Public
+2011,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.25503733754158,Public
+2012,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.244404345750809,Public
+2013,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.35366815328598,Public
+2014,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.208778709173203,Public
+2015,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.207700982689857,Public
+2016,ETH,et,Ethiopia,Secondary Education,Overall,Overall,0.185632452368736,Public
+2000,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,7.528465357609e-4,Private
+2003,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.0486497208476067,Private
+2004,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.0511355474591255,Private
+2005,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.05213288590312,Private
+2006,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.0684842690825462,Private
+2009,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.0998609662055969,Private
+2010,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.118101067841053,Private
+2011,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.136440008878708,Private
+2012,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.161380305886269,Private
+2013,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.128375813364983,Private
+2014,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.173663884401321,Private
+2015,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.184320732951164,Private
+2016,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.174568310379982,Private
+2003,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.340603172779083,Private
+2004,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.319093197584152,Private
+2005,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.390858203172684,Private
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.339894741773605,Private
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.45305734872818,Private
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.468974858522415,Private
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.588420152664185,Private
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.628446042537689,Private
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.398210883140564,Private
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.622450411319733,Private
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.685129821300507,Private
+2016,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.627087950706482,Private
+2004,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.263623058795929,Private
+2005,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.29044246673584,Private
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.283967882394791,Private
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.511956632137299,Private
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.515060663223267,Private
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.575301468372345,Private
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.565454125404358,Private
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.345748662948608,Private
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.562827289104462,Private
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.531475365161896,Private
+2016,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.58477383852005,Private
+2000,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.664604485034943,Private
+2004,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.763640344142914,Private
+2005,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.82229083776474,Private
+2006,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.915387213230133,Private
+2009,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.779744684696198,Private
+2003,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.686883389949799,Private
+2005,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.669984579086304,Private
+2006,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.651202023029327,Private
+2009,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.643380761146545,Private
+2010,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.67769455909729,Private
+2011,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.839900255203247,Private
+2012,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.811870455741882,Private
+2013,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.664013147354126,Private
+2014,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.923108816146851,Private
+2015,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.962644577026367,Private
+2016,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.992976188659668,Private
+2005,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.339400559663773,Public
+2006,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.356954604387283,Public
+2009,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.460658341646194,Public
+2010,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.527960300445557,Public
+2011,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.58582866191864,Public
+2012,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.604914307594299,Public
+2013,ETH,et,Ethiopia,Tertiary Education,Overall,Overall,0.515468597412109,Public
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.410910338163376,Public
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.535784959793091,Public
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.580572783946991,Public
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.710448384284973,Public
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.67163473367691,Public
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.566921234130859,Public
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Core Public Administration,0.728922247886658,Public
+2005,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.780956029891968,Public
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.460640519857407,Public
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.579203963279724,Public
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.67206346988678,Public
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.699648857116699,Public
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.738982319831848,Public
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.594112515449524,Public
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.790210604667664,Public
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.81602931022644,Public
+2016,ETH,et,Ethiopia,Tertiary Education,industry,Education,0.825077950954437,Public
+2005,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.498162418603897,Public
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.467754930257797,Public
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.542968928813934,Public
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.604481101036072,Public
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.666415631771088,Public
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.712177932262421,Public
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.572167634963989,Public
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.714738309383392,Public
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Health,0.733396589756012,Public
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.322918236255646,Public
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.461764603853226,Public
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.494969129562378,Public
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.591449677944183,Public
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.567183494567871,Public
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.45613107085228,Public
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.636550486087799,Public
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Public Administration,0.619597434997559,Public
+2003,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.159838274121284,Public
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.161437958478928,Public
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.322752237319946,Public
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.302628934383392,Public
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.380552440881729,Public
+2012,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.388055801391602,Public
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.2654068171978,Public
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.447904199361801,Public
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.423165291547775,Public
+2016,ETH,et,Ethiopia,Tertiary Education,industry,Public Safety,0.447068959474564,Public
+2004,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.365016251802444,Public
+2006,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.366312503814697,Public
+2009,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.428444355726242,Public
+2010,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.591720581054688,Public
+2011,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.732976138591766,Public
+2013,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.481511920690537,Public
+2014,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.672730386257172,Public
+2015,ETH,et,Ethiopia,Tertiary Education,industry,Social Security,0.569622576236725,Public
+2003,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.88696014881134,Public
+2004,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.792182922363281,Public
+2005,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.901616215705872,Public
+2006,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.92932403087616,Public
+2009,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.798325181007385,Public
+2016,ETH,et,Ethiopia,Tertiary Education,occupation,Medical workers,0.990069150924683,Public
+2003,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.847388744354248,Public
+2004,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.921140670776367,Public
+2005,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.841230154037476,Public
+2006,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.783671081066132,Public
+2009,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.759276568889618,Public
+2010,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.823846220970154,Public
+2011,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.865994036197662,Public
+2012,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.896621286869049,Public
+2013,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.778523623943329,Public
+2014,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.967130661010742,Public
+2015,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.990068912506104,Public
+2016,ETH,et,Ethiopia,Tertiary Education,occupation,Teachers,0.992455720901489,Public
+2005,GAB,ga,Gabon,No Education,Overall,Overall,0.0852120071649551,Private
+2005,GAB,ga,Gabon,No Education,Overall,Overall,0.0114001873880625,Public
+2005,GAB,ga,Gabon,Primary Education,Overall,Overall,0.19828388094902,Private
+2005,GAB,ga,Gabon,Primary Education,Overall,Overall,0.0814716368913651,Public
+2005,GAB,ga,Gabon,Secondary Education,Overall,Overall,0.601008236408234,Private
+2005,GAB,ga,Gabon,Secondary Education,Overall,Overall,0.586573004722595,Public
+2005,GAB,ga,Gabon,Tertiary Education,Overall,Overall,0.11549586802721,Private
+2017,GAB,ga,Gabon,Tertiary Education,occupation,Teachers,0.119298785924911,Private
+2005,GAB,ga,Gabon,Tertiary Education,Overall,Overall,0.320555150508881,Public
+2017,GAB,ga,Gabon,Tertiary Education,occupation,Teachers,1,Public
+2005,GHA,gh,Ghana,No Education,Overall,Overall,0.116077475249767,Private
+2012,GHA,gh,Ghana,No Education,Overall,Overall,0.0897754579782486,Private
+2005,GHA,gh,Ghana,No Education,Overall,Overall,0.0348219275474548,Public
+2012,GHA,gh,Ghana,No Education,Overall,Overall,0.025371178984642,Public
+2005,GHA,gh,Ghana,Primary Education,Overall,Overall,0.136843368411064,Private
+2012,GHA,gh,Ghana,Primary Education,Overall,Overall,0.17170162498951,Private
+2005,GHA,gh,Ghana,Primary Education,Overall,Overall,0.0441821627318859,Public
+2012,GHA,gh,Ghana,Primary Education,Overall,Overall,0.0407621264457703,Public
+2005,GHA,gh,Ghana,Secondary Education,Overall,Overall,0.679111480712891,Private
+2012,GHA,gh,Ghana,Secondary Education,Overall,Overall,0.580561578273773,Private
+2005,GHA,gh,Ghana,Secondary Education,Overall,Overall,0.478019386529922,Public
+2012,GHA,gh,Ghana,Secondary Education,Overall,Overall,0.363171011209488,Public
+2005,GHA,gh,Ghana,Tertiary Education,Overall,Overall,0.0679676607251167,Private
+2012,GHA,gh,Ghana,Tertiary Education,Overall,Overall,0.15796135365963,Private
+2005,GHA,gh,Ghana,Tertiary Education,Overall,Overall,0.442976534366608,Public
+2012,GHA,gh,Ghana,Tertiary Education,Overall,Overall,0.570695698261261,Public
+2002,GIN,gn,Guinea,No Education,Overall,Overall,0.455494791269302,Private
+2007,GIN,gn,Guinea,No Education,Overall,Overall,0.367872536182404,Private
+2002,GIN,gn,Guinea,No Education,Overall,Overall,0.0825815498828888,Public
+2007,GIN,gn,Guinea,No Education,Overall,Overall,0.0983016341924667,Public
+2002,GIN,gn,Guinea,Primary Education,Overall,Overall,0.120066046714783,Private
+2007,GIN,gn,Guinea,Primary Education,Overall,Overall,0.16023713350296,Private
+2002,GIN,gn,Guinea,Primary Education,Overall,Overall,0.0414551943540573,Public
+2007,GIN,gn,Guinea,Primary Education,Overall,Overall,0.0338596627116203,Public
+2002,GIN,gn,Guinea,Secondary Education,Overall,Overall,0.203162714838982,Private
+2007,GIN,gn,Guinea,Secondary Education,Overall,Overall,0.249125361442566,Private
+2002,GIN,gn,Guinea,Secondary Education,Overall,Overall,0.143285185098648,Public
+2007,GIN,gn,Guinea,Secondary Education,Overall,Overall,0.208149656653404,Public
+2002,GIN,gn,Guinea,Tertiary Education,Overall,Overall,0.221276447176933,Private
+2007,GIN,gn,Guinea,Tertiary Education,Overall,Overall,0.222764953970909,Private
+2002,GIN,gn,Guinea,Tertiary Education,Overall,Overall,0.732678055763245,Public
+2007,GIN,gn,Guinea,Tertiary Education,Overall,Overall,0.65968906879425,Public
+2010,GNB,gw,Guinea-Bissau,No Education,Overall,Overall,0.183142304420471,Private
+2010,GNB,gw,Guinea-Bissau,No Education,Overall,Overall,0.0505512319505215,Public
+2010,GNB,gw,Guinea-Bissau,Primary Education,Overall,Overall,0.339285463094711,Private
+2010,GNB,gw,Guinea-Bissau,Primary Education,Overall,Overall,0.199549272656441,Public
+2010,GNB,gw,Guinea-Bissau,Secondary Education,Overall,Overall,0.42222386598587,Private
+2010,GNB,gw,Guinea-Bissau,Secondary Education,Overall,Overall,0.554610371589661,Public
+2010,GNB,gw,Guinea-Bissau,Tertiary Education,Overall,Overall,0.0553483553230762,Private
+2010,GNB,gw,Guinea-Bissau,Tertiary Education,Overall,Overall,0.195289134979248,Public
+2005,KEN,ke,Kenya,No Education,Overall,Overall,0.0878852754831314,Private
+2015,KEN,ke,Kenya,No Education,Overall,Overall,0.0589045882225037,Private
+2005,KEN,ke,Kenya,No Education,Overall,Overall,0.0418965369462967,Public
+2015,KEN,ke,Kenya,No Education,Overall,Overall,0.0282898172736168,Public
+2005,KEN,ke,Kenya,Primary Education,Overall,Overall,0.596076905727386,Private
+2015,KEN,ke,Kenya,Primary Education,Overall,Overall,0.494955241680145,Private
+2005,KEN,ke,Kenya,Primary Education,Overall,Overall,0.234639510512352,Public
+2015,KEN,ke,Kenya,Primary Education,Overall,Overall,0.197679072618484,Public
+2005,KEN,ke,Kenya,Secondary Education,Overall,Overall,0.29060772061348,Private
+2015,KEN,ke,Kenya,Secondary Education,Overall,Overall,0.308206915855408,Private
+2005,KEN,ke,Kenya,Secondary Education,Overall,Overall,0.604149878025055,Public
+2015,KEN,ke,Kenya,Secondary Education,Overall,Overall,0.310635775327683,Public
+2005,KEN,ke,Kenya,Tertiary Education,Overall,Overall,0.0254300758242607,Private
+2015,KEN,ke,Kenya,Tertiary Education,Overall,Overall,0.137933269143105,Private
+2005,KEN,ke,Kenya,Tertiary Education,occupation,Medical workers,0.399573117494583,Private
+2005,KEN,ke,Kenya,Tertiary Education,occupation,Teachers,0.239985138177872,Private
+2005,KEN,ke,Kenya,Tertiary Education,occupation,Medical workers,0.204236000776291,Public
+2005,KEN,ke,Kenya,Tertiary Education,occupation,Teachers,0.388306438922882,Public
+2010,LSO,ls,Lesotho,No Education,Overall,Overall,0.0775057524442673,Private
+2018,LSO,ls,Lesotho,No Education,Overall,Overall,0.082257904112339,Private
+2002,LSO,ls,Lesotho,No Education,Overall,Overall,0.151942446827888,Public
+2010,LSO,ls,Lesotho,No Education,Overall,Overall,0.0246433448046446,Public
+2018,LSO,ls,Lesotho,No Education,Overall,Overall,0.0281635690480471,Public
+2002,LSO,ls,Lesotho,Primary Education,Overall,Overall,0.398332685232162,Private
+2010,LSO,ls,Lesotho,Primary Education,Overall,Overall,0.595245838165283,Private
+2018,LSO,ls,Lesotho,Primary Education,Overall,Overall,0.470248073339462,Private
+2002,LSO,ls,Lesotho,Primary Education,Overall,Overall,0.257953852415085,Public
+2010,LSO,ls,Lesotho,Primary Education,Overall,Overall,0.331717789173126,Public
+2018,LSO,ls,Lesotho,Primary Education,Overall,Overall,0.183955013751984,Public
+2002,LSO,ls,Lesotho,Secondary Education,Overall,Overall,0.190553113818169,Private
+2010,LSO,ls,Lesotho,Secondary Education,Overall,Overall,0.294747859239578,Private
+2018,LSO,ls,Lesotho,Secondary Education,Overall,Overall,0.387580007314682,Private
+2002,LSO,ls,Lesotho,Secondary Education,Overall,Overall,0.291620463132858,Public
+2010,LSO,ls,Lesotho,Secondary Education,Overall,Overall,0.369161605834961,Public
+2018,LSO,ls,Lesotho,Secondary Education,Overall,Overall,0.351086974143982,Public
+2002,LSO,ls,Lesotho,Tertiary Education,Overall,Overall,0.056622102856636,Private
+2010,LSO,ls,Lesotho,Tertiary Education,Overall,Overall,0.0325005240738392,Private
+2018,LSO,ls,Lesotho,Tertiary Education,Overall,Overall,0.0599140413105488,Private
+2002,LSO,ls,Lesotho,Tertiary Education,occupation,Medical workers,0,Private
+2010,LSO,ls,Lesotho,Tertiary Education,occupation,Medical workers,0,Private
+2002,LSO,ls,Lesotho,Tertiary Education,Overall,Overall,0.29848325252533,Public
+2010,LSO,ls,Lesotho,Tertiary Education,Overall,Overall,0.274477243423462,Public
+2018,LSO,ls,Lesotho,Tertiary Education,Overall,Overall,0.436794430017471,Public
+2010,LBR,lr,Liberia,No Education,Overall,Overall,0.231863215565681,Private
+2014,LBR,lr,Liberia,No Education,Overall,Overall,0.281462162733078,Private
+2010,LBR,lr,Liberia,No Education,Overall,Overall,0.0877334251999855,Public
+2014,LBR,lr,Liberia,No Education,Overall,Overall,0.206199124455452,Public
+2010,LBR,lr,Liberia,Primary Education,Overall,Overall,0.304872572422028,Private
+2014,LBR,lr,Liberia,Primary Education,Overall,Overall,0.114972852170467,Private
+2010,LBR,lr,Liberia,Primary Education,Overall,Overall,0.125054255127907,Public
+2014,LBR,lr,Liberia,Primary Education,Overall,Overall,0.0558953769505024,Public
+2014,LBR,lr,Liberia,Tertiary Education,Overall,Overall,0.108568377792835,Private
+2014,LBR,lr,Liberia,Tertiary Education,industry,Education,0.231676027178764,Private
+2014,LBR,lr,Liberia,Tertiary Education,industry,Health,0.155118554830551,Private
+2014,LBR,lr,Liberia,Tertiary Education,occupation,Teachers,0.20844079554081,Private
+2014,LBR,lr,Liberia,Tertiary Education,industry,Education,0.266120761632919,Public
+2014,LBR,lr,Liberia,Tertiary Education,industry,Health,0.401249051094055,Public
+2014,LBR,lr,Liberia,Tertiary Education,industry,Public Administration,0.380636513233185,Public
+2014,LBR,lr,Liberia,Tertiary Education,occupation,Teachers,0.292454093694687,Public
+2001,MDG,mg,Madagascar,No Education,Overall,Overall,0.13758197426796,Private
+2005,MDG,mg,Madagascar,No Education,Overall,Overall,0.197964191436768,Private
+2012,MDG,mg,Madagascar,No Education,Overall,Overall,0.103460542857647,Private
+2001,MDG,mg,Madagascar,No Education,Overall,Overall,0.0384842716157436,Public
+2005,MDG,mg,Madagascar,No Education,Overall,Overall,0.0621207132935524,Public
+2012,MDG,mg,Madagascar,No Education,Overall,Overall,0.0535406991839409,Public
+2001,MDG,mg,Madagascar,Primary Education,Overall,Overall,0.313215911388397,Private
+2005,MDG,mg,Madagascar,Primary Education,Overall,Overall,0.332942336797714,Private
+2012,MDG,mg,Madagascar,Primary Education,Overall,Overall,0.278066575527191,Private
+2001,MDG,mg,Madagascar,Primary Education,Overall,Overall,0.0967369601130486,Public
+2012,MDG,mg,Madagascar,Primary Education,Overall,Overall,0.0471190474927425,Public
+2001,MDG,mg,Madagascar,Secondary Education,Overall,Overall,0.458932131528854,Private
+2005,MDG,mg,Madagascar,Secondary Education,Overall,Overall,0.357848584651947,Private
+2012,MDG,mg,Madagascar,Secondary Education,Overall,Overall,0.499374240636826,Private
+2001,MDG,mg,Madagascar,Secondary Education,Overall,Overall,0.640097975730896,Public
+2012,MDG,mg,Madagascar,Secondary Education,Overall,Overall,0.643816292285919,Public
+2001,MDG,mg,Madagascar,Tertiary Education,Overall,Overall,0.0902699753642082,Private
+2005,MDG,mg,Madagascar,Tertiary Education,Overall,Overall,0.111244879662991,Private
+2012,MDG,mg,Madagascar,Tertiary Education,Overall,Overall,0.119098626077175,Private
+2001,MDG,mg,Madagascar,Tertiary Education,occupation,Medical workers,0.41801980137825,Private
+2005,MDG,mg,Madagascar,Tertiary Education,occupation,Medical workers,0.433481156826019,Private
+2001,MDG,mg,Madagascar,Tertiary Education,occupation,Teachers,0.321198314428329,Private
+2005,MDG,mg,Madagascar,Tertiary Education,occupation,Teachers,0.406191766262054,Private
+2012,MDG,mg,Madagascar,Tertiary Education,occupation,Teachers,0.253704756498337,Private
+2001,MDG,mg,Madagascar,Tertiary Education,Overall,Overall,0.22468076646328,Public
+2005,MDG,mg,Madagascar,Tertiary Education,Overall,Overall,0.388009548187256,Public
+2012,MDG,mg,Madagascar,Tertiary Education,Overall,Overall,0.255523979663849,Public
+2001,MDG,mg,Madagascar,Tertiary Education,occupation,Medical workers,0.583592355251312,Public
+2005,MDG,mg,Madagascar,Tertiary Education,occupation,Medical workers,0.517379343509674,Public
+2001,MDG,mg,Madagascar,Tertiary Education,occupation,Teachers,0.244991287589073,Public
+2005,MDG,mg,Madagascar,Tertiary Education,occupation,Teachers,0.419036149978638,Public
+2012,MDG,mg,Madagascar,Tertiary Education,occupation,Teachers,0.208203792572021,Public
+2004,MWI,mw,Malawi,No Education,Overall,Overall,0.149981796741486,Private
+2013,MWI,mw,Malawi,No Education,Overall,Overall,0.0664012059569359,Private
+2016,MWI,mw,Malawi,No Education,Overall,Overall,0.0591466315090656,Private
+2004,MWI,mw,Malawi,No Education,Overall,Overall,0.088408850133419,Public
+2013,MWI,mw,Malawi,No Education,Overall,Overall,0.0080901151522994,Public
+2016,MWI,mw,Malawi,No Education,Overall,Overall,0.00762011995539069,Public
+2004,MWI,mw,Malawi,Primary Education,Overall,Overall,0.48536691069603,Private
+2013,MWI,mw,Malawi,Primary Education,Overall,Overall,0.473983228206635,Private
+2016,MWI,mw,Malawi,Primary Education,Overall,Overall,0.396389454603195,Private
+2004,MWI,mw,Malawi,Primary Education,Overall,Overall,0.260260313749313,Public
+2013,MWI,mw,Malawi,Primary Education,Overall,Overall,0.153228223323822,Public
+2016,MWI,mw,Malawi,Primary Education,Overall,Overall,0.116145119071007,Public
+2004,MWI,mw,Malawi,Secondary Education,Overall,Overall,0.306464195251465,Private
+2013,MWI,mw,Malawi,Secondary Education,Overall,Overall,0.166007921099663,Private
+2016,MWI,mw,Malawi,Secondary Education,Overall,Overall,0.16578671336174,Private
+2013,MWI,mw,Malawi,Secondary Education,Overall,Overall,0.081194780766964,Public
+2016,MWI,mw,Malawi,Secondary Education,Overall,Overall,0.0950729250907898,Public
+2013,MWI,mw,Malawi,Tertiary Education,Overall,Overall,0.293607622385025,Private
+2016,MWI,mw,Malawi,Tertiary Education,Overall,Overall,0.378677219152451,Private
+2003,MLI,ml,Mali,No Education,Overall,Overall,0.652048766613007,Private
+2010,MLI,ml,Mali,No Education,Overall,Overall,0.66846120357513406,Private
+2003,MLI,ml,Mali,No Education,Overall,Overall,0.101833708584309,Public
+2010,MLI,ml,Mali,No Education,Overall,Overall,0.206792488694191,Public
+2003,MLI,ml,Mali,Primary Education,Overall,Overall,0.154444068670273,Private
+2010,MLI,ml,Mali,Primary Education,Overall,Overall,0.0442692376673222,Private
+2003,MLI,ml,Mali,Primary Education,Overall,Overall,0.0816100165247917,Public
+2010,MLI,ml,Mali,Primary Education,Overall,Overall,0.0264662839472294,Public
+2003,MLI,ml,Mali,Secondary Education,Overall,Overall,0.177602484822273,Private
+2010,MLI,ml,Mali,Secondary Education,Overall,Overall,0.226258292794228,Private
+2003,MLI,ml,Mali,Secondary Education,Overall,Overall,0.627411365509033,Public
+2010,MLI,ml,Mali,Secondary Education,Overall,Overall,0.312124878168106,Public
+2003,MLI,ml,Mali,Tertiary Education,Overall,Overall,0.0159046482294798,Private
+2010,MLI,ml,Mali,Tertiary Education,Overall,Overall,0.0610112771391869,Private
+2003,MLI,ml,Mali,Tertiary Education,Overall,Overall,0.189144924283028,Public
+2010,MLI,ml,Mali,Tertiary Education,Overall,Overall,0.454616367816925,Public
+2000,MRT,mr,Mauritania,No Education,Overall,Overall,0.483248472213745,Private
+2004,MRT,mr,Mauritania,No Education,Overall,Overall,0.562085568904877,Private
+2008,MRT,mr,Mauritania,No Education,Overall,Overall,0.473987907171249,Private
+2000,MRT,mr,Mauritania,No Education,Overall,Overall,0.204589411616325,Public
+2004,MRT,mr,Mauritania,No Education,Overall,Overall,0.142502412199974,Public
+2008,MRT,mr,Mauritania,No Education,Overall,Overall,0.0882530733942986,Public
+2000,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.245088458061218,Private
+2004,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.234797194600105,Private
+2008,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.262229591608047,Private
+2000,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.184285938739777,Public
+2004,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.167426764965057,Public
+2008,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.140034556388855,Public
+2014,MRT,mr,Mauritania,Primary Education,Overall,Overall,0.273440361022949,Public
+2000,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.210950374603271,Private
+2004,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.165668532252312,Private
+2008,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.202875450253487,Private
+2014,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.201663643121719,Private
+2000,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.470260769128799,Public
+2004,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.495977401733398,Public
+2008,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.495280385017395,Public
+2014,MRT,mr,Mauritania,Secondary Education,Overall,Overall,0.392080426216125,Public
+2000,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.0607127025723457,Private
+2004,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.037448737770319,Private
+2008,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.0609070360660553,Private
+2014,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.0962774381041527,Private
+2000,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.140863865613937,Public
+2004,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.194093406200409,Public
+2008,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.276431977748871,Public
+2014,MRT,mr,Mauritania,Tertiary Education,Overall,Overall,0.31743723154068,Public
+2001,MUS,mu,Mauritius,No Education,Overall,Overall,0.0366051197052002,Private
+2003,MUS,mu,Mauritius,No Education,Overall,Overall,0.0355105809867382,Private
+2001,MUS,mu,Mauritius,No Education,Overall,Overall,0.0206794682890177,Public
+2003,MUS,mu,Mauritius,No Education,Overall,Overall,0.0187546890228987,Public
+2001,MUS,mu,Mauritius,Primary Education,Overall,Overall,0.427923560142517,Private
+2003,MUS,mu,Mauritius,Primary Education,Overall,Overall,0.422447115182877,Private
+2001,MUS,mu,Mauritius,Primary Education,Overall,Overall,0.237075328826904,Public
+2003,MUS,mu,Mauritius,Primary Education,Overall,Overall,0.216054007411003,Public
+2001,MUS,mu,Mauritius,Secondary Education,Overall,Overall,0.535147368907928,Private
+2003,MUS,mu,Mauritius,Secondary Education,Overall,Overall,0.401839911937714,Private
+2001,MUS,mu,Mauritius,Secondary Education,Overall,Overall,0.742245197296143,Public
+2003,MUS,mu,Mauritius,Secondary Education,Overall,Overall,0.416354089975357,Public
+2001,MUS,mu,Mauritius,Tertiary Education,Overall,Overall,3.2393910805694e-4,Private
+2003,MUS,mu,Mauritius,Tertiary Education,Overall,Overall,0.140202388167381,Private
+2003,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.590717315673828,Private
+2007,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.563291132450104,Private
+2008,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.558521568775177,Private
+2009,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.571743905544281,Private
+2010,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.586278557777405,Private
+2012,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.582441091537476,Private
+2001,MUS,mu,Mauritius,Tertiary Education,industry,Health,0,Private
+2003,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.238805964589119,Private
+2006,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.0490196086466312,Private
+2007,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.214814811944962,Private
+2008,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.242424249649048,Private
+2009,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.159663870930672,Private
+2010,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.2786885201931,Private
+2012,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.257668703794479,Private
+2012,MUS,mu,Mauritius,Tertiary Education,occupation,Medical workers,0.875,Private
+2012,MUS,mu,Mauritius,Tertiary Education,occupation,Teachers,0.766187071800232,Private
+2003,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.667883217334747,Public
+2007,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.621428549289703,Public
+2008,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.673860907554626,Public
+2009,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.658139526844025,Public
+2010,MUS,mu,Mauritius,Tertiary Education,industry,Education,0.687640428543091,Public
+2003,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.448979586362839,Public
+2007,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.414351850748062,Public
+2008,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.482849597930908,Public
+2009,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.468671679496765,Public
+2010,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.479905426502228,Public
+2012,MUS,mu,Mauritius,Tertiary Education,industry,Health,0.492610841989517,Public
+2003,MUS,mu,Mauritius,Tertiary Education,industry,Public Administration,0.266115695238113,Public
+2007,MUS,mu,Mauritius,Tertiary Education,industry,Public Administration,0.432664752006531,Public
+2008,MUS,mu,Mauritius,Tertiary Education,industry,Public Administration,0.474489808082581,Public
+2009,MUS,mu,Mauritius,Tertiary Education,industry,Public Administration,0.423935085535049,Public
+2010,MUS,mu,Mauritius,Tertiary Education,industry,Public Administration,0.425655990839005,Public
+2012,MUS,mu,Mauritius,Tertiary Education,industry,Public Administration,0.402504473924637,Public
+2012,MUS,mu,Mauritius,Tertiary Education,occupation,Teachers,0.90625,Public
+2012,MOZ,mz,Mozambique,Primary Education,Overall,Overall,0.523727595806122,Private
+2014,MOZ,mz,Mozambique,Primary Education,Overall,Overall,0.48137629032135,Private
+2008,MOZ,mz,Mozambique,Primary Education,Overall,Overall,0.342417746782303,Public
+2012,MOZ,mz,Mozambique,Primary Education,Overall,Overall,0.137780070304871,Public
+2014,MOZ,mz,Mozambique,Primary Education,Overall,Overall,0.0912812277674675,Public
+2002,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.0358194820582867,Private
+2008,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.177610546350479,Private
+2012,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.319188922643662,Private
+2014,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.356309324502945,Private
+2008,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.445507615804672,Public
+2012,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.579597771167755,Public
+2014,MOZ,mz,Mozambique,Secondary Education,Overall,Overall,0.507344663143158,Public
+2002,MOZ,mz,Mozambique,Tertiary Education,Overall,Overall,0.0240986682474613,Private
+2008,MOZ,mz,Mozambique,Tertiary Education,Overall,Overall,0.0409280322492123,Private
+2012,MOZ,mz,Mozambique,Tertiary Education,Overall,Overall,0.0549538321793079,Private
+2014,MOZ,mz,Mozambique,Tertiary Education,Overall,Overall,0.0544050335884094,Private
+2008,MOZ,mz,Mozambique,Tertiary Education,Overall,Overall,0.192724198102951,Public
+2012,MOZ,mz,Mozambique,Tertiary Education,Overall,Overall,0.261238396167755,Public
+2008,NAM,NA,Namibia,No Education,Overall,Overall,0.0982551127672195,Private
+2012,NAM,NA,Namibia,No Education,Overall,Overall,0.0868304744362831,Private
+2013,NAM,NA,Namibia,No Education,Overall,Overall,0.084187850356102,Private
+2014,NAM,NA,Namibia,No Education,Overall,Overall,0.0934577509760857,Private
+2015,NAM,NA,Namibia,No Education,Overall,Overall,0.110958248376846,Private
+2008,NAM,NA,Namibia,No Education,Overall,Overall,0.0384162180125713,Public
+2012,NAM,NA,Namibia,No Education,Overall,Overall,0.0158786326646805,Public
+2013,NAM,NA,Namibia,No Education,Overall,Overall,0.0204835161566734,Public
+2014,NAM,NA,Namibia,No Education,Overall,Overall,0.0183623414486647,Public
+2015,NAM,NA,Namibia,No Education,Overall,Overall,0.0237437561154366,Public
+2008,NAM,NA,Namibia,Primary Education,Overall,Overall,0.236446052789688,Private
+2012,NAM,NA,Namibia,Primary Education,Overall,Overall,0.184751600027084,Private
+2013,NAM,NA,Namibia,Primary Education,Overall,Overall,0.205314204096794,Private
+2014,NAM,NA,Namibia,Primary Education,Overall,Overall,0.207056656479836,Private
+2015,NAM,NA,Namibia,Primary Education,Overall,Overall,0.17534801363945,Private
+2008,NAM,NA,Namibia,Primary Education,Overall,Overall,0.120595820248127,Public
+2012,NAM,NA,Namibia,Primary Education,Overall,Overall,0.106919914484024,Public
+2013,NAM,NA,Namibia,Primary Education,Overall,Overall,0.0955458655953407,Public
+2014,NAM,NA,Namibia,Primary Education,Overall,Overall,0.0724535956978798,Public
+2015,NAM,NA,Namibia,Primary Education,Overall,Overall,0.0844459384679794,Public
+2008,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.615474164485931,Private
+2012,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.676305592060089,Private
+2013,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.638264119625092,Private
+2014,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.655042290687561,Private
+2015,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.564346551895142,Private
+2008,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.488282591104507,Public
+2012,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.587764263153076,Public
+2013,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.54600203037262,Public
+2014,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.589719176292419,Public
+2015,NAM,NA,Namibia,Secondary Education,Overall,Overall,0.383776426315308,Public
+2008,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.0498246736824512,Private
+2012,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.0521122999489307,Private
+2013,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.0722338557243347,Private
+2014,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.0444432944059372,Private
+2015,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.149347171187401,Private
+2008,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.352705359458923,Public
+2012,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.28943720459938,Public
+2013,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.337968587875366,Public
+2014,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.319464862346649,Public
+2015,NAM,NA,Namibia,Tertiary Education,Overall,Overall,0.508033871650696,Public
+2005,NER,ne,Niger,No Education,Overall,Overall,0.514514923095703,Private
+2007,NER,ne,Niger,No Education,Overall,Overall,0.546231687068939,Private
+2011,NER,ne,Niger,No Education,Overall,Overall,0.611972212791443,Private
+2005,NER,ne,Niger,No Education,Overall,Overall,0.157769769430161,Public
+2007,NER,ne,Niger,No Education,Overall,Overall,0.113209314644337,Public
+2011,NER,ne,Niger,No Education,Overall,Overall,0.0649178996682167,Public
+2005,NER,ne,Niger,Primary Education,Overall,Overall,0.341664165258408,Private
+2007,NER,ne,Niger,Primary Education,Overall,Overall,0.3870490193367,Private
+2011,NER,ne,Niger,Primary Education,Overall,Overall,0.193135872483253,Private
+2005,NER,ne,Niger,Primary Education,Overall,Overall,0.219670593738556,Public
+2007,NER,ne,Niger,Primary Education,Overall,Overall,0.319635689258575,Public
+2011,NER,ne,Niger,Primary Education,Overall,Overall,0.0459453240036964,Public
+2005,NER,ne,Niger,Secondary Education,Overall,Overall,0.0991235002875328,Private
+2007,NER,ne,Niger,Secondary Education,Overall,Overall,0.0122486427426338,Private
+2011,NER,ne,Niger,Secondary Education,Overall,Overall,0.159116700291634,Private
+2005,NER,ne,Niger,Secondary Education,Overall,Overall,0.470785409212112,Public
+2007,NER,ne,Niger,Secondary Education,Overall,Overall,0.410168409347534,Public
+2011,NER,ne,Niger,Secondary Education,Overall,Overall,0.61478978395462,Public
+2005,NER,ne,Niger,Tertiary Education,Overall,Overall,0.044697392731905,Private
+2007,NER,ne,Niger,Tertiary Education,Overall,Overall,0.0544706508517265,Private
+2011,NER,ne,Niger,Tertiary Education,Overall,Overall,0.0357751920819283,Private
+2005,NER,ne,Niger,Tertiary Education,Overall,Overall,0.151774227619171,Public
+2007,NER,ne,Niger,Tertiary Education,Overall,Overall,0.156986609101295,Public
+2011,NER,ne,Niger,Tertiary Education,Overall,Overall,0.274347007274628,Public
+2003,NGA,ng,Nigeria,No Education,Overall,Overall,0.36837300658226,Private
+2009,NGA,ng,Nigeria,No Education,Overall,Overall,0.454036593437195,Private
+2010,NGA,ng,Nigeria,No Education,Overall,Overall,0.340082913637161,Private
+2003,NGA,ng,Nigeria,No Education,Overall,Overall,0.0725003704428673,Public
+2010,NGA,ng,Nigeria,No Education,Overall,Overall,0.0321081653237343,Public
+2003,NGA,ng,Nigeria,Primary Education,Overall,Overall,0.230782181024551,Private
+2009,NGA,ng,Nigeria,Primary Education,Overall,Overall,0.27084955573082,Private
+2010,NGA,ng,Nigeria,Primary Education,Overall,Overall,0.293663948774338,Private
+2003,NGA,ng,Nigeria,Primary Education,Overall,Overall,0.165224924683571,Public
+2009,NGA,ng,Nigeria,Primary Education,Overall,Overall,0.164806082844734,Public
+2010,NGA,ng,Nigeria,Primary Education,Overall,Overall,0.104260846972466,Public
+2003,NGA,ng,Nigeria,Secondary Education,Overall,Overall,0.274119943380356,Private
+2009,NGA,ng,Nigeria,Secondary Education,Overall,Overall,0.193445980548859,Private
+2010,NGA,ng,Nigeria,Secondary Education,Overall,Overall,0.286884278059006,Private
+2003,NGA,ng,Nigeria,Secondary Education,Overall,Overall,0.368050307035446,Public
+2009,NGA,ng,Nigeria,Secondary Education,Overall,Overall,0.247877687215805,Public
+2010,NGA,ng,Nigeria,Secondary Education,Overall,Overall,0.248784825205803,Public
+2003,NGA,ng,Nigeria,Tertiary Education,Overall,Overall,0.126724883913994,Private
+2009,NGA,ng,Nigeria,Tertiary Education,Overall,Overall,0.0816678702831268,Private
+2010,NGA,ng,Nigeria,Tertiary Education,Overall,Overall,0.0793688520789146,Private
+2003,NGA,ng,Nigeria,Tertiary Education,Overall,Overall,0.394224375486374,Public
+2009,NGA,ng,Nigeria,Tertiary Education,Overall,Overall,0.383636355400085,Public
+2010,NGA,ng,Nigeria,Tertiary Education,Overall,Overall,0.614846169948578,Public
+2013,RWA,rw,Rwanda,No Education,Overall,Overall,0.171838194131851,Private
+2016,RWA,rw,Rwanda,No Education,Overall,Overall,0.147839337587357,Private
+2013,RWA,rw,Rwanda,No Education,Overall,Overall,0.0186015162616968,Public
+2016,RWA,rw,Rwanda,No Education,Overall,Overall,0.0481653995811939,Public
+2013,RWA,rw,Rwanda,Primary Education,Overall,Overall,0.622540414333344,Private
+2016,RWA,rw,Rwanda,Primary Education,Overall,Overall,0.681941151618958,Private
+2013,RWA,rw,Rwanda,Primary Education,Overall,Overall,0.177330076694489,Public
+2016,RWA,rw,Rwanda,Primary Education,Overall,Overall,0.287819504737854,Public
+2013,RWA,rw,Rwanda,Secondary Education,Overall,Overall,0.166891306638718,Private
+2016,RWA,rw,Rwanda,Secondary Education,Overall,Overall,0.128175050020218,Private
+2013,RWA,rw,Rwanda,Secondary Education,Overall,Overall,0.405327260494232,Public
+2016,RWA,rw,Rwanda,Secondary Education,Overall,Overall,0.279059827327728,Public
+2013,RWA,rw,Rwanda,Tertiary Education,Overall,Overall,0.0387300997972488,Private
+2016,RWA,rw,Rwanda,Tertiary Education,Overall,Overall,0.0420444644987583,Private
+2013,RWA,rw,Rwanda,Tertiary Education,industry,Education,0.312442541122437,Private
+2013,RWA,rw,Rwanda,Tertiary Education,industry,Health,0.308369368314743,Private
+2013,RWA,rw,Rwanda,Tertiary Education,Overall,Overall,0.398741155862808,Public
+2016,RWA,rw,Rwanda,Tertiary Education,Overall,Overall,0.384955257177353,Public
+2013,RWA,rw,Rwanda,Tertiary Education,industry,Education,0.475224882364273,Public
+2013,RWA,rw,Rwanda,Tertiary Education,industry,Health,0.507015824317932,Public
+2013,RWA,rw,Rwanda,Tertiary Education,industry,Public Administration,0.362524658441544,Public
+2000,STP,st,São Tomé and Principe,No Education,Overall,Overall,0.0715242028236389,Private
+2010,STP,st,São Tomé and Principe,Primary Education,Overall,Overall,0.367707818746567,Private
+2010,STP,st,São Tomé and Principe,Primary Education,Overall,Overall,0.354804158210754,Public
+2010,STP,st,São Tomé and Principe,Secondary Education,Overall,Overall,0.107469648122787,Public
+2000,STP,st,São Tomé and Principe,Tertiary Education,Overall,Overall,0,Private
+2010,STP,st,São Tomé and Principe,Tertiary Education,Overall,Overall,0.0377090387046337,Private
+2017,STP,st,São Tomé and Principe,Tertiary Education,Overall,Overall,0.0202551409602165,Private
+2000,STP,st,São Tomé and Principe,Tertiary Education,Overall,Overall,0,Public
+2010,STP,st,São Tomé and Principe,Tertiary Education,Overall,Overall,0.10767437517643,Public
+2017,STP,st,São Tomé and Principe,Tertiary Education,Overall,Overall,0.16576786339283,Public
+2001,SEN,sn,Senegal,No Education,Overall,Overall,0.532355844974518,Private
+2005,SEN,sn,Senegal,No Education,Overall,Overall,0.259089022874832,Private
+2011,SEN,sn,Senegal,No Education,Overall,Overall,0.343067616224289,Private
+2001,SEN,sn,Senegal,No Education,Overall,Overall,0.226932212710381,Public
+2001,SEN,sn,Senegal,Primary Education,Overall,Overall,0.24796561896801,Private
+2005,SEN,sn,Senegal,Primary Education,Overall,Overall,0.233551636338234,Private
+2011,SEN,sn,Senegal,Primary Education,Overall,Overall,0.32080540060997,Private
+2001,SEN,sn,Senegal,Primary Education,Overall,Overall,0.241213157773018,Public
+2005,SEN,sn,Senegal,Primary Education,Overall,Overall,0.259238600730896,Public
+2011,SEN,sn,Senegal,Primary Education,Overall,Overall,0.127020254731178,Public
+2001,SEN,sn,Senegal,Secondary Education,Overall,Overall,0.146881327033043,Private
+2005,SEN,sn,Senegal,Secondary Education,Overall,Overall,0.296551495790482,Private
+2011,SEN,sn,Senegal,Secondary Education,Overall,Overall,0.200129076838493,Private
+2001,SEN,sn,Senegal,Secondary Education,Overall,Overall,0.318407237529755,Public
+2005,SEN,sn,Senegal,Secondary Education,Overall,Overall,0.191061407327652,Public
+2011,SEN,sn,Senegal,Secondary Education,Overall,Overall,0.304304182529449,Public
+2001,SEN,sn,Senegal,Tertiary Education,Overall,Overall,0.0727972313761711,Private
+2005,SEN,sn,Senegal,Tertiary Education,Overall,Overall,0.210807844996452,Private
+2011,SEN,sn,Senegal,Tertiary Education,Overall,Overall,0.135997921228409,Private
+2001,SEN,sn,Senegal,Tertiary Education,Overall,Overall,0.213447391986847,Public
+2005,SEN,sn,Senegal,Tertiary Education,Overall,Overall,0.144863367080688,Public
+2013,SYC,sc,Seychelles,Tertiary Education,industry,Education,0.524722695350647,Private
+2013,SYC,sc,Seychelles,Tertiary Education,industry,Health,0.0809319242835045,Private
+2013,SYC,sc,Seychelles,Tertiary Education,industry,Education,0.339316427707672,Public
+2013,SYC,sc,Seychelles,Tertiary Education,industry,Health,0.206445619463921,Public
+2013,SYC,sc,Seychelles,Tertiary Education,industry,Public Administration,0.27180004119873,Public
+2003,SLE,sl,Sierra Leone,No Education,Overall,Overall,0.198511943221092,Private
+2011,SLE,sl,Sierra Leone,No Education,Overall,Overall,0.268505394458771,Private
+2015,SLE,sl,Sierra Leone,No Education,Overall,Overall,0.225076958537102,Private
+2003,SLE,sl,Sierra Leone,No Education,Overall,Overall,0.0586469322443008,Public
+2011,SLE,sl,Sierra Leone,No Education,Overall,Overall,0.0596700385212898,Public
+2015,SLE,sl,Sierra Leone,No Education,Overall,Overall,0.0387342907488346,Public
+2003,SLE,sl,Sierra Leone,Primary Education,Overall,Overall,0.158921495079994,Private
+2011,SLE,sl,Sierra Leone,Primary Education,Overall,Overall,0.157400980591774,Private
+2015,SLE,sl,Sierra Leone,Primary Education,Overall,Overall,0.131570890545845,Private
+2003,SLE,sl,Sierra Leone,Primary Education,Overall,Overall,0.054112400859594303,Public
+2011,SLE,sl,Sierra Leone,Primary Education,Overall,Overall,0.0899034440517426,Public
+2015,SLE,sl,Sierra Leone,Primary Education,Overall,Overall,0.0276546757668257,Public
+2003,SLE,sl,Sierra Leone,Secondary Education,Overall,Overall,0.638674020767212,Private
+2015,SLE,sl,Sierra Leone,Secondary Education,Overall,Overall,0.545877575874329,Private
+2015,SLE,sl,Sierra Leone,Secondary Education,Overall,Overall,0.42046445608139,Public
+2003,SLE,sl,Sierra Leone,Tertiary Education,Overall,Overall,0.00389254093170166,Private
+2015,SLE,sl,Sierra Leone,Tertiary Education,Overall,Overall,0.0974745899438858,Private
+2015,SLE,sl,Sierra Leone,Tertiary Education,Overall,Overall,0.513146579265594,Public
+2013,SOM,so,Somalia,No Education,Overall,Overall,0.519523561000824,Private
+2013,SOM,so,Somalia,Primary Education,Overall,Overall,0.177473992109299,Private
+2013,SOM,so,Somalia,Primary Education,Overall,Overall,0.162964314222336,Public
+2013,SOM,so,Somalia,Secondary Education,Overall,Overall,0.142458945512772,Private
+2013,SOM,so,Somalia,Secondary Education,Overall,Overall,0.172096729278564,Public
+2013,SOM,so,Somalia,Tertiary Education,Overall,Overall,0.160543516278267,Private
+2013,SOM,so,Somalia,Tertiary Education,Overall,Overall,0.248919889330864,Public
+2000,ZAF,za,South Africa,No Education,Overall,Overall,0.079617366194725,Private
+2001,ZAF,za,South Africa,No Education,Overall,Overall,0.0739416927099228,Private
+2003,ZAF,za,South Africa,No Education,Overall,Overall,0.0686515942215919,Private
+2008,ZAF,za,South Africa,No Education,Overall,Overall,0.0410486049950123,Private
+2009,ZAF,za,South Africa,No Education,Overall,Overall,0.0364630371332169,Private
+2010,ZAF,za,South Africa,No Education,Overall,Overall,0.0310192797333002,Private
+2012,ZAF,za,South Africa,No Education,Overall,Overall,0.0269337277859449,Private
+2013,ZAF,za,South Africa,No Education,Overall,Overall,0.0259709600359201,Private
+2014,ZAF,za,South Africa,No Education,Overall,Overall,0.0240405816584826,Private
+2015,ZAF,za,South Africa,No Education,Overall,Overall,0.0271695647388697,Private
+2016,ZAF,za,South Africa,No Education,Overall,Overall,0.0227362513542175,Private
+2017,ZAF,za,South Africa,No Education,Overall,Overall,0.0199940614402294,Private
+2018,ZAF,za,South Africa,No Education,Overall,Overall,0.0185645148158073,Private
+2019,ZAF,za,South Africa,No Education,Overall,Overall,0.0187560450285673,Private
+2020,ZAF,za,South Africa,No Education,Overall,Overall,0.0131524596363306,Private
+2000,ZAF,za,South Africa,No Education,Overall,Overall,0.0326923690736294,Public
+2001,ZAF,za,South Africa,No Education,Overall,Overall,0.031243396922946,Public
+2003,ZAF,za,South Africa,No Education,Overall,Overall,0.0180397592484951,Public
+2008,ZAF,za,South Africa,No Education,Overall,Overall,0.0214711986482143,Public
+2009,ZAF,za,South Africa,No Education,Overall,Overall,0.0177443809807301,Public
+2010,ZAF,za,South Africa,No Education,Overall,Overall,0.016795227304101,Public
+2012,ZAF,za,South Africa,No Education,Overall,Overall,0.012051397934556,Public
+2013,ZAF,za,South Africa,No Education,Overall,Overall,0.0141964219510555,Public
+2014,ZAF,za,South Africa,No Education,Overall,Overall,0.0200195964425802,Public
+2015,ZAF,za,South Africa,No Education,Overall,Overall,0.0150781534612179,Public
+2016,ZAF,za,South Africa,No Education,Overall,Overall,0.0123511394485831,Public
+2017,ZAF,za,South Africa,No Education,Overall,Overall,0.0147311659529805,Public
+2018,ZAF,za,South Africa,No Education,Overall,Overall,0.012477888725698,Public
+2019,ZAF,za,South Africa,No Education,Overall,Overall,0.0122845573350787,Public
+2020,ZAF,za,South Africa,No Education,Overall,Overall,0.00904837064445019,Public
+2000,ZAF,za,South Africa,Primary Education,Overall,Overall,0.1964320987463,Private
+2001,ZAF,za,South Africa,Primary Education,Overall,Overall,0.184742897748947,Private
+2003,ZAF,za,South Africa,Primary Education,Overall,Overall,0.172313243150711,Private
+2008,ZAF,za,South Africa,Primary Education,Overall,Overall,0.16946966946125,Private
+2009,ZAF,za,South Africa,Primary Education,Overall,Overall,0.157581374049187,Private
+2010,ZAF,za,South Africa,Primary Education,Overall,Overall,0.140267908573151,Private
+2012,ZAF,za,South Africa,Primary Education,Overall,Overall,0.130397453904152,Private
+2013,ZAF,za,South Africa,Primary Education,Overall,Overall,0.129787743091583,Private
+2014,ZAF,za,South Africa,Primary Education,Overall,Overall,0.116926647722721,Private
+2015,ZAF,za,South Africa,Primary Education,Overall,Overall,0.123584076762199,Private
+2016,ZAF,za,South Africa,Primary Education,Overall,Overall,0.121386557817459,Private
+2017,ZAF,za,South Africa,Primary Education,Overall,Overall,0.106267593801022,Private
+2018,ZAF,za,South Africa,Primary Education,Overall,Overall,0.105728320777416,Private
+2019,ZAF,za,South Africa,Primary Education,Overall,Overall,0.103021197021008,Private
+2020,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0869440212845802,Private
+2000,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0855124667286873,Public
+2001,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0775107741355896,Public
+2003,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0689052417874336,Public
+2008,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0820574387907982,Public
+2009,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0765721723437309,Public
+2010,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0651751309633255,Public
+2012,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0672213658690453,Public
+2013,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0675974637269974,Public
+2014,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0699592754244804,Public
+2015,ZAF,za,South Africa,Primary Education,Overall,Overall,0.074730396270752,Public
+2016,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0739750191569328,Public
+2017,ZAF,za,South Africa,Primary Education,Overall,Overall,0.077734112739563,Public
+2018,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0609101243317127,Public
+2019,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0571476295590401,Public
+2020,ZAF,za,South Africa,Primary Education,Overall,Overall,0.0507763437926769,Public
+2000,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.615315556526184,Private
+2001,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.639328122138977,Private
+2003,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.651627779006958,Private
+2008,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.65997314453125,Private
+2009,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.664909660816193,Private
+2010,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.683373749256134,Private
+2012,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.698284506797791,Private
+2013,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.695972144603729,Private
+2014,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.701328992843628,Private
+2015,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.704930067062378,Private
+2016,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.71257221698761,Private
+2017,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.7054523229599,Private
+2018,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.724380135536194,Private
+2019,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.722345590591431,Private
+2020,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.739776849746704,Private
+2000,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.484435021877289,Public
+2001,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.490757167339325,Public
+2003,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.476583331823349,Public
+2008,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.445708096027374,Public
+2009,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.440041333436966,Public
+2010,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.44840607047081,Public
+2012,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.470882028341293,Public
+2013,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.476712316274643,Public
+2014,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.485753923654556,Public
+2015,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.496081620454788,Public
+2016,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.47777333855629,Public
+2017,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.451648443937302,Public
+2018,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.476424992084503,Public
+2019,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.466794461011887,Public
+2020,ZAF,za,South Africa,Secondary Education,Overall,Overall,0.463021516799927,Public
+2000,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.108634971082211,Private
+2001,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.101987309753895,Private
+2003,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.1074073985219,Private
+2008,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.129508569836617,Private
+2009,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.141045957803726,Private
+2010,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.145339027047157,Private
+2012,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.144384324550629,Private
+2013,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.148269131779671,Private
+2014,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.157703787088394,Private
+2015,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.144316285848618,Private
+2016,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.143304988741875,Private
+2017,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.168285995721817,Private
+2018,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.151327028870583,Private
+2019,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.155877158045769,Private
+2020,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.16012667119503,Private
+2014,ZAF,za,South Africa,Tertiary Education,industry,Education,0.437771290540695,Private
+2017,ZAF,za,South Africa,Tertiary Education,industry,Education,0.510579586029053,Private
+2014,ZAF,za,South Africa,Tertiary Education,industry,Health,0.0679817721247673,Private
+2017,ZAF,za,South Africa,Tertiary Education,industry,Health,0.113920666277409,Private
+2014,ZAF,za,South Africa,Tertiary Education,occupation,Medical workers,0.863103866577148,Private
+2014,ZAF,za,South Africa,Tertiary Education,occupation,Teachers,0.850558221340179,Private
+2017,ZAF,za,South Africa,Tertiary Education,occupation,Teachers,0.888465404510498,Private
+2000,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.397360146045685,Public
+2001,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.400488644838333,Public
+2003,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.43647164106369,Public
+2008,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.450763285160065,Public
+2009,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.465642094612122,Public
+2010,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.469623565673828,Public
+2012,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.449845224618912,Public
+2013,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.441493779420853,Public
+2014,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.42426723241806,Public
+2015,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.414109826087952,Public
+2016,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.43590047955513,Public
+2017,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.455886274576187,Public
+2018,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.450186967849731,Public
+2019,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.463773369789124,Public
+2020,ZAF,za,South Africa,Tertiary Education,Overall,Overall,0.477153748273849,Public
+2014,ZAF,za,South Africa,Tertiary Education,industry,Education,0.476953506469727,Public
+2017,ZAF,za,South Africa,Tertiary Education,industry,Education,0.543784379959106,Public
+2014,ZAF,za,South Africa,Tertiary Education,industry,Health,0.220383450388908,Public
+2017,ZAF,za,South Africa,Tertiary Education,industry,Health,0.229786023497581,Public
+2014,ZAF,za,South Africa,Tertiary Education,industry,Public Administration,0.358985751867294,Public
+2017,ZAF,za,South Africa,Tertiary Education,industry,Public Administration,0.472993493080139,Public
+2014,ZAF,za,South Africa,Tertiary Education,occupation,Medical workers,0.894423425197601,Public
+2014,ZAF,za,South Africa,Tertiary Education,occupation,Teachers,0.945214986801147,Public
+2017,ZAF,za,South Africa,Tertiary Education,occupation,Teachers,0.992347359657288,Public
+2000,TZA,tz,Tanzania,No Education,Overall,Overall,0.107771471142769,Private
+2006,TZA,tz,Tanzania,No Education,Overall,Overall,8.8689016411081e-4,Private
+2007,TZA,tz,Tanzania,No Education,Overall,Overall,0.176395162940025,Private
+2009,TZA,tz,Tanzania,No Education,Overall,Overall,0.124456465244293,Private
+2011,TZA,tz,Tanzania,No Education,Overall,Overall,0.107413992285728,Private
+2012,TZA,tz,Tanzania,No Education,Overall,Overall,0.101961083710194,Private
+2014,TZA,tz,Tanzania,No Education,Overall,Overall,0.00143640581518412,Private
+2000,TZA,tz,Tanzania,No Education,Overall,Overall,0.00901748239994049,Public
+2006,TZA,tz,Tanzania,No Education,Overall,Overall,0.00109751988202333,Public
+2007,TZA,tz,Tanzania,No Education,Overall,Overall,0.0422497130930424,Public
+2009,TZA,tz,Tanzania,No Education,Overall,Overall,0.0394384525716305,Public
+2011,TZA,tz,Tanzania,No Education,Overall,Overall,0.0275061447173357,Public
+2012,TZA,tz,Tanzania,No Education,Overall,Overall,0.0170161817222834,Public
+2014,TZA,tz,Tanzania,No Education,Overall,Overall,0,Public
+2000,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.719609141349792,Private
+2006,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.800781905651093,Private
+2007,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.570459365844727,Private
+2009,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.734171986579895,Private
+2011,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.672715842723846,Private
+2012,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.632383763790131,Private
+2014,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.666671216487885,Private
+2000,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.381539672613144,Public
+2006,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.419404834508896,Public
+2007,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.433920383453369,Public
+2009,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.360498338937759,Public
+2011,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.294411182403564,Public
+2012,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.198303863406181,Public
+2014,TZA,tz,Tanzania,Primary Education,Overall,Overall,0.163755118846893,Public
+2000,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.166180968284607,Private
+2006,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.187867015600204,Private
+2007,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.195448517799377,Private
+2009,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.131884217262268,Private
+2011,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.213864967226982,Private
+2012,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.229947954416275,Private
+2014,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.223032966256142,Private
+2000,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.566855430603027,Public
+2006,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.513440608978271,Public
+2007,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.392071217298508,Public
+2009,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.521698594093323,Public
+2011,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.548333406448364,Public
+2012,TZA,tz,Tanzania,Secondary Education,Overall,Overall,0.522047758102417,Public
+2000,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.00643845042213798,Private
+2006,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0104641569778323,Private
+2007,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0576969832181931,Private
+2009,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0094873271882534,Private
+2011,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.00600521266460419,Private
+2012,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0357071794569492,Private
+2014,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.108859412372112,Private
+2006,TZA,tz,Tanzania,Tertiary Education,industry,Education,0.0347774997353554,Private
+2007,TZA,tz,Tanzania,Tertiary Education,industry,Education,0.0513951294124126,Private
+2011,TZA,tz,Tanzania,Tertiary Education,industry,Education,0.01051832921803,Private
+2006,TZA,tz,Tanzania,Tertiary Education,industry,Health,0.00621314020827413,Private
+2007,TZA,tz,Tanzania,Tertiary Education,industry,Health,0.21509975194931,Private
+2011,TZA,tz,Tanzania,Tertiary Education,industry,Health,0,Private
+2000,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0425873994827271,Public
+2006,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0660570189356804,Public
+2007,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.13175867497921,Public
+2009,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.0783646181225777,Public
+2011,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.129749268293381,Public
+2012,TZA,tz,Tanzania,Tertiary Education,Overall,Overall,0.262632191181183,Public
+2007,TZA,tz,Tanzania,Tertiary Education,industry,Education,0.233021974563599,Public
+2007,TZA,tz,Tanzania,Tertiary Education,industry,Health,0.190180435776711,Public
+2011,TZA,tz,Tanzania,Tertiary Education,industry,Health,0.0873643234372139,Public
+2006,TZA,tz,Tanzania,Tertiary Education,industry,Public Administration,0.0993174910545349,Public
+2007,TZA,tz,Tanzania,Tertiary Education,industry,Public Administration,0.101619087159634,Public
+2011,TZA,tz,Tanzania,Tertiary Education,industry,Public Administration,0.20543247461319,Public
+2010,GMB,gm,The Gambia,No Education,Overall,Overall,0.337073355913162,Private
+2015,GMB,gm,The Gambia,No Education,Overall,Overall,0.279070824384689,Private
+2010,GMB,gm,The Gambia,Primary Education,Overall,Overall,0.11643410474062,Private
+2015,GMB,gm,The Gambia,Primary Education,Overall,Overall,0.0722931027412415,Private
+2010,GMB,gm,The Gambia,Primary Education,Overall,Overall,0.0313063524663448,Public
+2015,GMB,gm,The Gambia,Primary Education,Overall,Overall,0.110665246844292,Public
+2010,GMB,gm,The Gambia,Secondary Education,Overall,Overall,0.42609116435051,Private
+2015,GMB,gm,The Gambia,Secondary Education,Overall,Overall,0.371273308992386,Private
+2010,GMB,gm,The Gambia,Secondary Education,Overall,Overall,0.560338616371155,Public
+2015,GMB,gm,The Gambia,Secondary Education,Overall,Overall,0.337702572345734,Public
+2010,GMB,gm,The Gambia,Tertiary Education,Overall,Overall,0.120401360094547,Private
+2015,GMB,gm,The Gambia,Tertiary Education,Overall,Overall,0.277362763881683,Private
+2010,GMB,gm,The Gambia,Tertiary Education,industry,Education,0.398020923137665,Private
+2010,GMB,gm,The Gambia,Tertiary Education,industry,Health,0.307508945465088,Private
+2010,GMB,gm,The Gambia,Tertiary Education,occupation,Teachers,0.432346284389496,Private
+2015,GMB,gm,The Gambia,Tertiary Education,occupation,Teachers,0.743292689323425,Private
+2010,GMB,gm,The Gambia,Tertiary Education,Overall,Overall,0.256461620330811,Public
+2015,GMB,gm,The Gambia,Tertiary Education,Overall,Overall,0.169636011123657,Public
+2015,GMB,gm,The Gambia,Tertiary Education,industry,Core Public Administration,0.746531069278717,Public
+2010,GMB,gm,The Gambia,Tertiary Education,industry,Education,0.544373035430908,Public
+2010,GMB,gm,The Gambia,Tertiary Education,industry,Health,0.309329628944397,Public
+2010,GMB,gm,The Gambia,Tertiary Education,industry,Public Administration,0.118441365659237,Public
+2015,GMB,gm,The Gambia,Tertiary Education,industry,Public Safety,0.0750586912035942,Public
+2010,GMB,gm,The Gambia,Tertiary Education,occupation,Teachers,0.623153328895569,Public
+2015,GMB,gm,The Gambia,Tertiary Education,occupation,Teachers,0.62873250246048,Public
+2006,TGO,tg,Togo,No Education,Overall,Overall,0.160307735204697,Private
+2011,TGO,tg,Togo,No Education,Overall,Overall,0.277835577726364,Private
+2006,TGO,tg,Togo,No Education,Overall,Overall,0.0146399596706033,Public
+2011,TGO,tg,Togo,No Education,Overall,Overall,0.0262050069868565,Public
+2006,TGO,tg,Togo,Primary Education,Overall,Overall,0.38919872045517,Private
+2011,TGO,tg,Togo,Primary Education,Overall,Overall,0.366053402423859,Private
+2006,TGO,tg,Togo,Primary Education,Overall,Overall,0.145786359906197,Public
+2011,TGO,tg,Togo,Primary Education,Overall,Overall,0.13205960392952,Public
+2006,TGO,tg,Togo,Secondary Education,Overall,Overall,0.290015786886215,Private
+2011,TGO,tg,Togo,Secondary Education,Overall,Overall,0.289786577224731,Private
+2006,TGO,tg,Togo,Secondary Education,Overall,Overall,0.393138527870178,Public
+2011,TGO,tg,Togo,Secondary Education,Overall,Overall,0.560771286487579,Public
+2006,TGO,tg,Togo,Tertiary Education,Overall,Overall,0.16047777235508,Private
+2011,TGO,tg,Togo,Tertiary Education,Overall,Overall,0.0663244724273682,Private
+2006,TGO,tg,Togo,Tertiary Education,Overall,Overall,0.446435153484344,Public
+2011,TGO,tg,Togo,Tertiary Education,Overall,Overall,0.280964106321335,Public
+2002,UGA,ug,Uganda,No Education,Overall,Overall,0.14197838306427,Private
+2005,UGA,ug,Uganda,No Education,Overall,Overall,0.109772332012653,Private
+2012,UGA,ug,Uganda,No Education,Overall,Overall,0.159357741475105,Private
+2016,UGA,ug,Uganda,No Education,Overall,Overall,0.0927072092890739,Private
+2002,UGA,ug,Uganda,No Education,Overall,Overall,0.0303021892905235,Public
+2005,UGA,ug,Uganda,No Education,Overall,Overall,0.00790748093277216,Public
+2012,UGA,ug,Uganda,No Education,Overall,Overall,0.0249295793473721,Public
+2016,UGA,ug,Uganda,No Education,Overall,Overall,0.00572395091876388,Public
+2002,UGA,ug,Uganda,Primary Education,Overall,Overall,0.514973521232605,Private
+2005,UGA,ug,Uganda,Primary Education,Overall,Overall,0.517526924610138,Private
+2012,UGA,ug,Uganda,Primary Education,Overall,Overall,0.50640594959259,Private
+2016,UGA,ug,Uganda,Primary Education,Overall,Overall,0.453549087047577,Private
+2002,UGA,ug,Uganda,Primary Education,Overall,Overall,0.106278970837593,Public
+2005,UGA,ug,Uganda,Primary Education,Overall,Overall,0.0818941816687584,Public
+2012,UGA,ug,Uganda,Primary Education,Overall,Overall,0.126243233680725,Public
+2016,UGA,ug,Uganda,Primary Education,Overall,Overall,0.0946934148669243,Public
+2002,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.271889120340347,Private
+2005,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.297969669103622,Private
+2012,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.27505823969841,Private
+2016,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.330893188714981,Private
+2002,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.55015903711319,Public
+2005,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.450712114572525,Public
+2012,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.446064561605453,Public
+2016,UGA,ug,Uganda,Secondary Education,Overall,Overall,0.372864127159119,Public
+2002,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.0711589977145195,Private
+2005,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.0747311040759087,Private
+2012,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.0591780580580235,Private
+2016,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.122850529849529,Private
+2002,UGA,ug,Uganda,Tertiary Education,industry,Education,0.293184190988541,Private
+2005,UGA,ug,Uganda,Tertiary Education,industry,Education,0.36677947640419,Private
+2012,UGA,ug,Uganda,Tertiary Education,industry,Education,0.289243370294571,Private
+2002,UGA,ug,Uganda,Tertiary Education,industry,Health,0.202684730291367,Private
+2005,UGA,ug,Uganda,Tertiary Education,industry,Health,0.347368478775024,Private
+2012,UGA,ug,Uganda,Tertiary Education,industry,Health,0.278633922338486,Private
+2002,UGA,ug,Uganda,Tertiary Education,occupation,Medical workers,0.718442022800446,Private
+2005,UGA,ug,Uganda,Tertiary Education,occupation,Medical workers,0.710392236709595,Private
+2002,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.313259810209274,Public
+2005,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.459486246109009,Public
+2012,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.402762651443481,Public
+2016,UGA,ug,Uganda,Tertiary Education,Overall,Overall,0.526718497276306,Public
+2002,UGA,ug,Uganda,Tertiary Education,industry,Core Public Administration,0.363078624010086,Public
+2005,UGA,ug,Uganda,Tertiary Education,industry,Core Public Administration,0.596495270729065,Public
+2002,UGA,ug,Uganda,Tertiary Education,industry,Education,0.348705977201462,Public
+2005,UGA,ug,Uganda,Tertiary Education,industry,Education,0.461070626974106,Public
+2012,UGA,ug,Uganda,Tertiary Education,industry,Education,0.478567868471146,Public
+2002,UGA,ug,Uganda,Tertiary Education,industry,Health,0.356454521417618,Public
+2005,UGA,ug,Uganda,Tertiary Education,industry,Health,0.51673698425293,Public
+2012,UGA,ug,Uganda,Tertiary Education,industry,Health,0.391474485397339,Public
+2002,UGA,ug,Uganda,Tertiary Education,industry,Public Administration,0.250515103340149,Public
+2005,UGA,ug,Uganda,Tertiary Education,industry,Public Administration,0.404324561357498,Public
+2012,UGA,ug,Uganda,Tertiary Education,industry,Public Administration,0.290880709886551,Public
+2002,UGA,ug,Uganda,Tertiary Education,industry,Public Safety,0.0731229335069656,Public
+2005,UGA,ug,Uganda,Tertiary Education,industry,Public Safety,0.175095275044441,Public
+2002,UGA,ug,Uganda,Tertiary Education,industry,Social Security,0,Public
+2005,UGA,ug,Uganda,Tertiary Education,industry,Social Security,0.156838610768318,Public
+2002,UGA,ug,Uganda,Tertiary Education,occupation,Medical workers,0.495784223079681,Public
+2005,UGA,ug,Uganda,Tertiary Education,occupation,Medical workers,0.752255618572235,Public
+2002,UGA,ug,Uganda,Tertiary Education,occupation,Teachers,0.474024504423141,Public
+2005,UGA,ug,Uganda,Tertiary Education,occupation,Teachers,0.81687593460083,Public
+2002,ZMB,zm,Zambia,No Education,Overall,Overall,0.0369440354406834,Private
+2004,ZMB,zm,Zambia,No Education,Overall,Overall,0.0315159223973751,Private
+2008,ZMB,zm,Zambia,No Education,Overall,Overall,0.060218907892704,Private
+2010,ZMB,zm,Zambia,No Education,Overall,Overall,0.0453907251358032,Private
+2012,ZMB,zm,Zambia,No Education,Overall,Overall,0.0509746186435223,Private
+2014,ZMB,zm,Zambia,No Education,Overall,Overall,0.0506570413708687,Private
+2015,ZMB,zm,Zambia,No Education,Overall,Overall,0.0288166776299477,Private
+2002,ZMB,zm,Zambia,No Education,Overall,Overall,0.00851702410727739,Public
+2004,ZMB,zm,Zambia,No Education,Overall,Overall,0.0119709987193346,Public
+2008,ZMB,zm,Zambia,No Education,Overall,Overall,0.00781415868550539,Public
+2010,ZMB,zm,Zambia,No Education,Overall,Overall,0.00922800973057747,Public
+2012,ZMB,zm,Zambia,No Education,Overall,Overall,0.0188149977475405,Public
+2014,ZMB,zm,Zambia,No Education,Overall,Overall,0.010254911147058,Public
+2015,ZMB,zm,Zambia,No Education,Overall,Overall,0.0177809074521065,Public
+2002,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.328417718410492,Private
+2004,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.280410498380661,Private
+2008,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.344901472330093,Private
+2010,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.313477724790573,Private
+2012,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.370565265417099,Private
+2014,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.305388003587723,Private
+2015,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.172775730490685,Private
+2002,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.101531133055687,Public
+2004,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.0701791420578957,Public
+2008,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.0800885781645775,Public
+2010,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.332091271877289,Public
+2012,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.147966116666794,Public
+2014,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.0703056156635284,Public
+2015,ZMB,zm,Zambia,Primary Education,Overall,Overall,0.109137684106827,Public
+2002,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.559178352355957,Private
+2004,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.577450692653656,Private
+2008,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.494653046131134,Private
+2010,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.522754907608032,Private
+2012,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.551807403564453,Private
+2014,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.565245866775513,Private
+2015,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.578589379787445,Private
+2002,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.557477056980133,Public
+2004,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.53337699174881,Public
+2008,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.486489772796631,Public
+2010,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.284238398075104,Public
+2012,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.685131728649139,Public
+2014,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.447270423173904,Public
+2015,ZMB,zm,Zambia,Secondary Education,Overall,Overall,0.342219352722168,Public
+2002,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.0754598677158356,Private
+2004,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.110622897744179,Private
+2008,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.100226566195488,Private
+2010,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.11837662011385,Private
+2012,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.0266526862978935,Private
+2014,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.0787090808153152,Private
+2015,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.219818204641342,Private
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.261571764945984,Private
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.321505904197693,Private
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.367174327373505,Private
+2010,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.249899923801422,Private
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.585321009159088,Private
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.208820909261703,Private
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.279940724372864,Private
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.20122005045414,Private
+2010,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.307719260454178,Private
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.469836413860321,Private
+2004,ZMB,zm,Zambia,Tertiary Education,occupation,Medical workers,0.270316570997238,Private
+2008,ZMB,zm,Zambia,Tertiary Education,occupation,Medical workers,0.865108728408813,Private
+2002,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.380472898483276,Private
+2004,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.527519702911377,Private
+2008,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.403574883937836,Private
+2015,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.765286386013031,Private
+2002,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.332474768161774,Public
+2004,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.384472906589508,Public
+2008,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.42560750246048,Public
+2010,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.374442309141159,Public
+2012,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.148087173700333,Public
+2014,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.472169041633606,Public
+2015,ZMB,zm,Zambia,Tertiary Education,Overall,Overall,0.530862092971802,Public
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Core Public Administration,0.250561773777008,Public
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Core Public Administration,0.310480862855911,Public
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Core Public Administration,0.418382287025452,Public
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Core Public Administration,0.466286480426788,Public
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.543199777603149,Public
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.517083823680878,Public
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.618448793888092,Public
+2010,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.476515501737595,Public
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Education,0.839926481246948,Public
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.375101625919342,Public
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.342060476541519,Public
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.466009080410004,Public
+2010,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.45673468708992,Public
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Health,0.69787859916687,Public
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Public Administration,0.229921624064445,Public
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Public Administration,0.366930097341537,Public
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Public Administration,0.320301920175552,Public
+2010,ZMB,zm,Zambia,Tertiary Education,industry,Public Administration,0.290986627340317,Public
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Public Administration,0.459120839834213,Public
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Public Safety,0.214194267988205,Public
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Public Safety,0.418057352304459,Public
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Public Safety,0.289199382066727,Public
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Public Safety,0.459363281726837,Public
+2002,ZMB,zm,Zambia,Tertiary Education,industry,Social Security,0.22550593316555,Public
+2004,ZMB,zm,Zambia,Tertiary Education,industry,Social Security,0.0761047676205635,Public
+2008,ZMB,zm,Zambia,Tertiary Education,industry,Social Security,0.164840906858444,Public
+2015,ZMB,zm,Zambia,Tertiary Education,industry,Social Security,0.154310941696167,Public
+2004,ZMB,zm,Zambia,Tertiary Education,occupation,Medical workers,0.57935756444931,Public
+2008,ZMB,zm,Zambia,Tertiary Education,occupation,Medical workers,0.616894602775574,Public
+2002,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.698111832141876,Public
+2004,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.594529092311859,Public
+2008,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.641556859016418,Public
+2015,ZMB,zm,Zambia,Tertiary Education,occupation,Teachers,0.922619342803955,Public
+2001,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.0486253835260868,Private
+2007,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.0373033098876476,Private
+2011,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.0230694133788347,Private
+2017,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.0164546389132738,Private
+2001,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.00126692303456366,Public
+2007,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.00235632620751858,Public
+2011,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.0017041148385033,Public
+2017,ZWE,zw,Zimbabwe,No Education,Overall,Overall,0.00489528942853212,Public
+2001,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.488651543855667,Private
+2007,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.375464171171188,Private
+2011,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.253088861703873,Private
+2017,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.825188219547272,Private
+2001,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.115050919353962,Public
+2007,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.0850683376193047,Public
+2011,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.0613351836800575,Public
+2017,ZWE,zw,Zimbabwe,Primary Education,Overall,Overall,0.365867108106613,Public
+2001,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.36214092373848,Private
+2007,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.454952031373978,Private
+2011,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.550669312477112,Private
+2017,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.0306726451963186,Private
+2001,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.250267118215561,Public
+2007,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.385636001825333,Public
+2011,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.34169065952301,Public
+2017,ZWE,zw,Zimbabwe,Secondary Education,Overall,Overall,0.0470727421343327,Public
+2001,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.100582167506218,Private
+2007,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.132280483841896,Private
+2011,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.173172414302826,Private
+2017,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.127684518694878,Private
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Education,0.401792794466019,Private
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Health,0.474151909351349,Private
+2011,ZWE,zw,Zimbabwe,Tertiary Education,occupation,Teachers,0.612292170524597,Private
+2001,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.633415043354034,Public
+2007,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.526939332485199,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.595270037651062,Public
+2017,ZWE,zw,Zimbabwe,Tertiary Education,Overall,Overall,0.582164883613586,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Core Public Administration,0.511111497879028,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Education,0.824737191200256,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Health,0.685439705848694,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Public Administration,0.400522410869598,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Public Safety,0.355531573295593,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,industry,Social Security,0.535245716571808,Public
+2011,ZWE,zw,Zimbabwe,Tertiary Education,occupation,Teachers,0.857363164424896,Public
