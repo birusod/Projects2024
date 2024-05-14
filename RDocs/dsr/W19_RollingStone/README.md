@@ -9,8 +9,13 @@
 
 <h2 align="left"> 4. Viz </h2>
 
+<h3 align="left"> 4.1 Spotify Popularity </h3>
+<p align="center">
+  <img src="/RDocs/dsr/W19_RollingStone/plots_w19/final_plot_pop.png" width="60%">
+</p>
+<br>
 
-<h3 align="left"> 4.2 2020-2003 Differential: Negative value if ranking went down in the chart. Positive value if it went up </h3>
+<h3 align="left"> 4.2 2020-2003 Differential Negative value if ranking went down in the chart. Positive value if it went up </h3>
 <p align="center">
   <img src="/RDocs/dsr/W19_RollingStone/plots_w19/final_plot_dif.gif" width="60%">
 </p>
