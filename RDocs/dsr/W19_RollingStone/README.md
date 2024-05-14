@@ -15,8 +15,10 @@
 </p>
 <br>
 
-<h3 align="left"> 4.2 2020-2003 Differential Negative value if ranking went down in the chart. Positive value if it went up </h3>
+<h3 align="left"> 4.2 2020-2003 Differential:</h3>
+ - Negative value if ranking went down in the chart; 
+ - Positive value if it went up. 
 <p align="center">
-  <img src="/RDocs/dsr/W19_RollingStone/plots_w19/final_plot_dif.gif" width="60%">
+  <img src="/RDocs/dsr/W19_RollingStone/plots_w19/final_plot_dif.png" width="60%">
 </p>
 
