@@ -35,7 +35,7 @@ Rolling Stone Album Rankings
 
 <h3 align="left">
 
-4.1. Spotify Popularity
+4.1. Spotify Average Popularity: Top 20
 
 </h3>
 

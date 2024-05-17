@@ -30,7 +30,7 @@ df <- tuesdata$rolling_stone |>
     starts_with('rank'), 
     release =  release_year, 
     spotify = spotify_popularity)
-tuesdata$rolling_stone |> select(1:3)
+tuesdata$rolling_stone |> select(1:3, differential) |> arrange(differential)
 
 ## Average popularity  on Spotify ----
 ave_pop <- df |> 
@@ -47,7 +47,7 @@ df_dif <- df |>
   mutate(pos = differential > 0, abs = abs(differential)) |> 
   group_by(pos) |> 
   arrange(desc(abs)) |> 
-  slice_head(n = 10)
+  slice_head(n = 10) |> view()
 
 
 
@@ -112,9 +112,9 @@ subtitle_dif <- paste0(
   " & ",
   "<span style='color: darkred'>Loss</span>",
   " From ",
-  "<span style='color: gold'>2020</span>",
+  "<span style='color: gold'>2003</span>",
   " To ",
-  "<span style='color: gold'>2023</span>")
+  "<span style='color: gold'>2020</span>")
 
 
 #==========================================================================#
