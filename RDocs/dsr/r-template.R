@@ -45,7 +45,7 @@ highlight   <- ""
 title_color <- ""
 sub_color   <- ""
 cap_color   <- ""
-tsize       <-  unit(30, units = "cm")
+
 
 
 
