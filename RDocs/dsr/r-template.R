@@ -7,8 +7,8 @@ pacman::p_load(
   scales, ggthemes, patchwork,               
   showtext, extrafont, ggtext, ggtext, glue  
 )
-
-
+source('RDrafts/myfunc.R')
+#df |> missing_details() 
 #==========================================================================#
 # Loading data -------------------------------------------------------------
 #==========================================================================#
