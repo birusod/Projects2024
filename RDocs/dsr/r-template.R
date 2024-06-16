@@ -5,7 +5,7 @@
 pacman::p_load(
   tidytuesdayR, tidyverse, janitor,          
   scales, ggthemes, patchwork,               
-  showtext, extrafont, ggtext, ggtext, glue  
+  showtext, extrafont, ggtext, ggtext, glue, ggview
 )
 source('RDrafts/myfunc.R')
 #df |> missing_details() 
@@ -99,7 +99,7 @@ costum_theme <- function(){
 # Data Viz ------------------------------------------------------------------
 #===========================================================================#
 
-
+ggview(units = 'cm', width = 20, height = 18)
 
 
 
