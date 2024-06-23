@@ -1,0 +1,52 @@
+fullname,state,leaning,id
+Alabama,AL,red,1
+Alaska,AK,red,2
+Arizona,AZ,purple,4
+Arkansas,AR,red,5
+California,CA,blue,6
+Colorado,CO,purple,8
+Connecticut,CT,blue,9
+Delaware,DE,blue,10
+District of Columbia,DC,blue,11
+Florida,FL,purple,12
+Georgia,GA,purple,13
+Hawaii,HI,blue,15
+Idaho,ID,red,16
+Illinois,IL,blue,17
+Indiana,IN,purple,18
+Iowa,IA,purple,19
+Kansas,KS,red,20
+Kentucky,KY,red,21
+Louisiana,LA,red,22
+Maine,ME,blue,23
+Maryland,MD,blue,24
+Massachusetts,MA,blue,25
+Michigan,MI,purple,26
+Minnesota,MN,blue,27
+Mississippi,MS,red,28
+Missouri,MO,red,29
+Montana,MT,red,30
+Nebraska,NE,red,31
+Nevada,NV,purple,32
+New Hampshire,NH,purple,33
+New Jersey,NJ,blue,34
+New Mexico,NM,purple,35
+New York,NY,blue,36
+North Carolina,NC,purple,37
+North Dakota,ND,red,38
+Ohio,OH,purple,39
+Oklahoma,OK,red,40
+Oregon,OR,blue,41
+Pennsylvania,PA,purple,42
+Rhode Island,RI,blue,44
+South Carolina,SC,red,45
+South Dakota,SD,red,46
+Tennessee,TN,red,47
+Texas,TX,red,48
+Utah,UT,red,49
+Vermont,VT,blue,50
+Virginia,VA,purple,51
+Washington,WA,blue,53
+West Virginia,WV,red,54
+Wisconsin,WI,purple,55
+Wyoming,WY,red,56
