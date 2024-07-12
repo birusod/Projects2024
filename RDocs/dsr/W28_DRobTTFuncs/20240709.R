@@ -173,7 +173,7 @@ funs100 |> ggplot(aes(category)) + geom_bar()
 funs100 |> 
   make_circle_plot(
     n = 50, 
-    title = 'DAVID ROBINSON SCREENCAST:\nTOP 10 PACKAGES & MOST USED FUNS') +
+    title = 'DAVID ROBINSON SCREENCAST:\nTOP 10 PACKAGES & MOST USED FUNCTIONS') +
   labs(caption = plot_caption) +
   theme(
     panel.background = element_rect(fill = '#303236'),
