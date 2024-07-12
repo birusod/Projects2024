@@ -14,6 +14,6 @@
 </p>
 <br></br>
 <p align="center">
-  <img src="/RDocs/dsr/W28_DRobTTFuncs/plots_w28/file_name.gif" width="60%">
+  <img src="/RDocs/dsr/W28_DRobTTFuncs/plots_w28/w28_finalPlot2.jpeg" width="60%">
 </p>
 
