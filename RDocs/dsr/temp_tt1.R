@@ -5,13 +5,13 @@
 
 # only need to update these 5 parameters, then: Alt+Cmd+r (Cmd+A+Enter)
 # ****************************************************************
-week_date <- '2024-07-02'
-week_number <- 'W27'
-weekly_data <- 'tidytuesdayR'
+week_date <- '2024-07-09'
+week_number <- 'W28'
+weekly_data <- 'DRobTTFuncs'
 current_week_folder <- paste0(week_number, '_', weekly_data)
-week_title <- "tidytuesdayR Datasets"
-plot_folder <- 'plots_w27'
-final_plot <- 'final_plot_w27.png'
+week_title <- "David Robinson's TidyTuesday Functions"
+plot_folder <- 'plots_w28'
+final_plot <- 'final_plot_w28.png'
 #*****************************************************************
 
 use_tt_template <- function(

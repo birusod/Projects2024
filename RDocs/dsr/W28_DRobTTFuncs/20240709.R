@@ -5,7 +5,8 @@
 pacman::p_load(
   tidytuesdayR, tidyverse, janitor,          
   scales, ggthemes, patchwork,               
-  showtext, extrafont, ggtext, ggtext, glue, ggview
+  showtext, extrafont, ggtext, ggtext, glue, ggview,
+  packcircles
 )
 source('RDrafts/myfunc.R')
 #df |> missing_details() 
@@ -13,14 +14,80 @@ source('RDrafts/myfunc.R')
 # Loading data -------------------------------------------------------------
 #==========================================================================#
 
-tuesdata <- tidytuesdayR::tt_load(date_chr)
-
-
+tuesdata <- tidytuesdayR::tt_load("2024-07-09")
+dfr <- tuesdata$drob_funs
+dfr |> missing_details()
+#dfr |> view()
 #==========================================================================#
 # Wrangling Data -----------------------------------------------------------
 #==========================================================================#
 
+dfr |> count(funs, sort = TRUE)
+dfr |> count(funs, pkgs, sort = TRUE)
 
+
+dfr |> 
+  filter(pkgs != '(unknown)') |> 
+  mutate(pkgs = fct_lump_n(pkgs, n = 50)) |> 
+  count(pkgs, sort = TRUE) 
+
+# top 10 most loaded packages:
+
+pkgs10 <- dfr |> 
+  filter(pkgs != '(unknown)', !in_multiple_pkgs) |> 
+  count(pkgs, sort = TRUE) |> 
+  head(10) |> pull(pkgs)
+
+# funs
+# top 100 most used functions from the 10 packages:
+
+funs100 <- dfr |> 
+  filter(!in_multiple_pkgs, pkgs %in% pkgs10) |> 
+  count(funs, pkgs, sort = TRUE) |> 
+  rename_with(~c('group', 'category', 'value')) |> 
+  head(100)
+
+
+# custom function to prep data and plot circles:
+make_circle_plot <- function(dat, type = 'area', n = 50, title = 'mytitle'){
+  rows    <- nrow(dat)
+  val     <- dat |> pull(value)
+  cat     <- dat |> pull(category)
+  cols    <- n_distinct(cat)
+  packing <- circleProgressiveLayout(val, sizetype = type)
+  dgg     <- circleLayoutVertices(packing, npoints = n) |> 
+    mutate(category = rep(cat, each = n + 1))
+  
+  dff <- cbind(dat, packing)
+  
+  dgg |> 
+    ggplot() + 
+    geom_polygon(                     
+      aes(x, y,  group = id, fill = as.factor(category)), 
+      colour = "black", 
+      alpha = 0.6) +
+    scale_fill_manual(values = tableau_color_pal('Tableau 10')(cols)) +
+    geom_text(                        
+      data = dff, 
+      aes(x, y, 
+          size = value, 
+          label = group),
+      color = 'white', fontface = 'bold') +
+    scale_size_continuous(range = c(1,4)) +
+    guides(size = 'none',
+           fill = guide_legend(
+             title = '',
+             theme = theme(
+               legend.key = element_rect(color = 'white'),
+               legend.key.spacing.y = unit(4, "pt")
+               )
+           )) +
+    
+    ggtitle(title) +
+    theme_void() + 
+    coord_equal() 
+  
+}
 
 #==========================================================================#
 # Loading fonts ------------------------------------------------------------
@@ -29,13 +96,17 @@ tuesdata <- tidytuesdayR::tt_load(date_chr)
 #loadfonts()
 #font_files() |> tibble() |> view()
 font_add_google("Roboto", "roboto")
+font_add_google("Nova Mono", "nova") 
+font_add_google("Saira Extra Condensed", "saira") 
+font_add_google("Wellfleet", "wellfleet") 
 
-font_families()
 showtext_auto()
+#font_families()
+
 
 
 #==========================================================================#
-# Defining colors ---------------------------------------------------------
+# Defining colors ----------------------------------------------------------
 #==========================================================================#
 
 bg_color    <- "white"
@@ -44,7 +115,7 @@ text_dark   <- ""
 highlight   <- ""
 title_color <- ""
 sub_color   <- ""
-cap_color   <- ""
+cap_color   <- "grey30"
 
 
 
@@ -70,13 +141,11 @@ social_caption <- glue::glue(
   <span style='font-family:fab6_reg;'>{xtwitter};</span> 
   <span style='color: {cap_color}'>{xtwitter_username}</span>")
 plot_caption <- paste0(
-  "**Data**: TidyTuesday Week ##<br>", 
+  "**Data**: TidyTuesday Week 28 | ", 
+  "**source**: @drob screencast | ",
   "**Graphics:** ", 
   social_caption)
 
-
-title    <- ""
-subtitle <- ""
 
 
 #==========================================================================#
@@ -99,7 +168,32 @@ costum_theme <- function(){
 # Data Viz ------------------------------------------------------------------
 #===========================================================================#
 
-ggview(units = 'cm', width = 20, height = 18)
+funs100 |> ggplot(aes(category)) + geom_bar()
+
+funs100 |> 
+  make_circle_plot(
+    n = 50, 
+    title = 'DAVID ROBINSON SCREENCAST:\nTOP 10 PACKAGES & MOST USED FUNS') +
+  labs(caption = plot_caption) +
+  theme(
+    panel.background = element_rect(fill = '#303236'),
+    plot.margin = margin(1, 1, 1, 1, unit = 'cm'),
+    text = element_text(family = 'wellfleet'),
+    plot.title = element_text(family = 'nova', size = 1 * tsize, 
+                              face = 'bold', color = 'black',
+                              hjust = .5,
+                              lineheight = .3),
+    plot.caption = element_textbox_simple(
+      family = 'saira',
+      halign = 0.5, 
+      size = .5 * tsize,
+      margin = margin(t = 5, unit = 'pt')),
+    legend.key.size = unit(.4, 'cm'),
+    legend.text = element_text(size = .6 * tsize)
+    
+  )
+
+ggview(units = 'cm', width = 14, height = 12)
 
 
 
@@ -109,9 +203,9 @@ ggview(units = 'cm', width = 20, height = 18)
 
 # save the final plot as 'final_plot'
 ggsave(
-  filename = file.path(wkf,
-                       pfolder, 
-                       paste0("final_plot", ".png"))
+  filename = file.path("W28_DRobTTFuncs",
+                       "plots_w28", 
+                       paste0("w28_finalPlot.jpeg"))
   )
 
 ggsave(
