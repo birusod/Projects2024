@@ -4,8 +4,9 @@
 
 pacman::p_load(
   tidytuesdayR, tidyverse, janitor,          
-  scales, ggthemes, patchwork,               
-  showtext, extrafont, ggtext, ggtext, glue, ggview
+  scales, ggthemes,              
+  showtext, extrafont, ggtext, ggtext, glue,
+  patchwork, ggview
 )
 source('RDrafts/myfunc.R')
 #df |> missing_details() 
@@ -115,10 +116,11 @@ ggsave(
   )
 
 ggsave(
-  filename = here::here(),
-  #plot    = plot,
+  filename = here::here(wkf,
+                        pfolder, 
+                        paste0("final_plot", ".png")),
   width    = 40, 
   height   = 30, 
   units    = "cm",
-  bg       = bg_col
+  bg       = bg_color
 )
