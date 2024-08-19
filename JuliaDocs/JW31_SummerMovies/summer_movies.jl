@@ -4,398 +4,274 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 191db777-fb98-481f-bf11-232fb3b59daf
+# ╔═╡ 3a842483-2898-4be1-9fa7-20dcb6214d20
 begin
 	using PlutoUI
 	TableOfContents()
 end
 
-# ╔═╡ 1b84bb76-b8ff-4b06-b40e-1e8df91c5855
-using Tidier, Chain
+# ╔═╡ 1655d27e-8c6d-47ca-98d9-3293cfa38148
+using Tidier
 
-# ╔═╡ 4b30fd3c-427a-402e-a6ee-7e2f7cb0a63c
-using Dates
+# ╔═╡ 53db8f20-9237-4ce7-8dbc-7967dba9e7e4
+using Chain
 
-# ╔═╡ 591e3da8-c4fe-44ce-9d91-8c96b059d9d8
+# ╔═╡ 5b3cfa6d-14e8-4149-85a6-f9985160800e
+using DataFrames
+
+# ╔═╡ 8542e7cc-5150-11ef-2c46-ab267f5be6b1
 html"""
-<div style="position: absolute; width: calc(100% - 30px); border: 50vw solid wheat;
-border-top: 500px solid wheat; border-bottom: none; box-sizing: content-box;
-left: calc(-50vw + 15px); top: -500px; height: 160px; pointer-events: none;">
+<div style="position: absolute; width: calc(100% - 30px); border: 50vw solid seagreen; border-top: 500px solid seagreen; border-bottom: none; box-sizing: content-box; left: calc(-50vw + 15px); top: -500px; height: 160px; pointer-events: none;">
 </div>
 
-<div style=" height: 160px; width: 300%; background: wheat; color: wheat;
+<div style=" height: 160px; width: 300%; background: seagreen; color: seagreen;
 padding-top: 5px; padding-left: 5px;
 ">
 
 <span style="font-family:Fira;font-weight:200;font-feature-settings:'lnum','pnum';"> 
 
 <p style=" font-family: Roboto; font-size: 2rem; font-weight: 700; opacity: 1.0;
-color: royalblue;
-	">AMERICAN IDOL DATA
+color: ghostwhite;
+	">SUMMER MOVIES
 </p>
 
-<p style="text-align: left; font-size: 1.8rem; color: navy">
-	TidyTuesday Data: Week-30
+<p style="text-align: left; font-size: 1.8rem; color: ghostwhite">
+	TidyTuesday Data: Week-31
 </p>
-<p style=" font-family: 'Julia mono'; font-size: 1rem; font-weight: 200; color: limegreen;">
+<p style=" font-family: 'Julia mono'; font-size: 1rem; font-weight: 200; color: ghostwhite;">
 	&copy birusod
 </p>
 """
 
-# ╔═╡ 2bb15b03-b48d-4063-973e-0ef563642aa4
+# ╔═╡ 46cfb53b-a2de-459e-b51a-eb7b1ca57f23
 md"---"
 
-# ╔═╡ 8219aa3c-ccd1-49bf-8eba-eb93a578c01d
+# ╔═╡ 1ff29bb6-4613-450d-b15d-0b5ab187b819
 md"# Setup"
 
-# ╔═╡ 855abb3c-4b14-11ef-3cc1-03fe69ee544b
+# ╔═╡ 143eea97-e256-430a-b68e-ee4d033930c9
 pwd()
 
-# ╔═╡ e21b5d24-c027-46bf-b269-f41671ac87d3
+# ╔═╡ a53d942b-0f2f-4298-8117-964fcdbac791
 readdir()
 
-# ╔═╡ d4fbd68a-0865-4654-8ad6-e3854d45e9bf
+# ╔═╡ 2c53bba8-1d5d-425c-ac18-058a0fec42e5
 html"""
 <h2 style="
 	text-align:left;
 	font-size: 1.6rem;
 	font-family:roboto;
 	font-weight:bold;
-	color: dodgerblue">
+	color: seagreen">
 		Packages
 </h2>
 """
 
-# ╔═╡ 0287a627-5554-4e83-89ab-20ec78df0c91
-#using Makie
-
-# ╔═╡ 7dccaa70-195a-4222-8acb-54ac65e19462
+# ╔═╡ b4405083-604f-4e00-a643-0b4599bc3c13
 html"""
 <h2 style="
 	text-align:left;
 	font-size: 1.6rem;
 	font-family:roboto;
 	font-weight:bold;
-	color: dodgerblue">
+	color: seagreen">
 		Data
 </h2>
 """
 
-# ╔═╡ 86c28fc1-53f5-477e-b872-15fd33725c80
+# ╔═╡ 12b44358-cf55-4902-9812-376884761e3e
 begin
-	url_main="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/"
-	url_data = "data/2024/2024-07-23/finalists.csv"
-	dfr = read_csv(
-		url_main * url_data)
-	season_year = read_csv("season_year.csv")
-end;
+url_main = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/"
+url_genres = "data/2024/2024-07-30/summer_movie_genres.csv"
+url_mvs = "data/2024/2024-07-30/summer_movies.csv"
+df_genres = read_csv(url_main * url_genres)
+df_mvs = read_csv(url_main * url_mvs)
+end
 
-# ╔═╡ 0424d978-ed5b-4027-b12e-376a01f1ae2f
-first(dfr, 3)
+# ╔═╡ c259bd77-2326-42cf-ae4e-b1927a024439
+md"# EDA"
 
-# ╔═╡ 12113393-bebf-4b93-9200-029908bcefb3
-first(season_year, 3)
-
-# ╔═╡ fbd65cb5-2bcd-4d6c-aa18-3d4089bb50e1
-dfr |> describe
-
-# ╔═╡ 8a2cec3c-125e-4ee5-9e7f-163eb9b12bec
-md"**Dates operations review**"
-
-# ╔═╡ d279c111-d6e2-42cb-8b8c-33a3aa476686
-sizeof("1-Aug-93")
-
-# ╔═╡ 9c67b79a-204f-4c58-a4d0-039888454b41
-dmy("8 Aug 1978")
-
-# ╔═╡ 44a85e4c-5a7d-4822-be74-844a9a4f3c47
-monthname(dmy("8 Aug 1978"))
-
-# ╔═╡ 270e6fb7-cbde-4dc4-a782-aad884d84413
-Dates.Year(dmy("8 Aug 1978"))
-
-# ╔═╡ c224bdbd-ebc9-4bc4-b22f-3f8ed013de3c
-Date("2020-01-01", "yyyy-mm-dd")
-
-# ╔═╡ f1f559e5-8072-4e07-94c6-f6e0def15c73
-Date("12-31-2024", "mm-dd-yyyy")
-
-# ╔═╡ b3b7637c-0f62-428f-a806-e47b1d319ff7
-Date.(["12-Dec-24", "1-Jan-24", "3-Mar-24", "24-Apr-82"], "dd-u-yy") + Dates.Year(1900)
-
-# ╔═╡ 6247af95-75c5-4944-962a-4c44dea63c65
-md"**Reading NA as missing**"
-
-# ╔═╡ 1016ee23-974d-45eb-9f8d-e7a738bb44d1
-dfm = read_csv(url_main * url_data, missingstring = ["NA"]);
-
-# ╔═╡ 94892fcc-e945-417f-b436-e90185110156
-dfm |> describe
-
-# ╔═╡ 609b4a4e-04c8-415f-a53a-67af7504973e
-filter(x -> ismissing(x.Birthday), dfm) 
-
-# ╔═╡ 942c7d74-3dbb-46aa-819d-a9e9c0ca6b38
-md" # EDA"
-
-# ╔═╡ ff7cde4c-7a83-46b9-901d-b8a6821a6482
+# ╔═╡ b20f4406-9df3-446b-9881-bb6fd0cf3892
 html"""
-<h3 style="
+<h2 style="
 	text-align:left;
 	font-size: 1.6rem;
 	font-family:roboto;
 	font-weight:bold;
-	color: lightblue">
-		Data Cleaning
-</h3>
+	color: seagreen">
+		Overview
+</h2>
 """
 
-# ╔═╡ 484ed3b1-4386-4490-8c00-efc1f504f772
-filter(x -> x.Contestant == "Jax", dfr)
+# ╔═╡ a36a415d-7969-4c3f-a1b2-024844f883e5
+first(df_genres, 4)
 
-# ╔═╡ e700dd8a-7a60-4ccb-a6ee-8264d62b4739
-filter(x -> x.Birthday == "NA", dfr)
+# ╔═╡ 2a81777f-f563-4350-bbcf-da7752e9bae0
+first(df_mvs, 4)
 
-# ╔═╡ a55aed78-4d8c-4c35-8598-b1c55a92b43b
-md"
- - Rewrite contestant name (Joese)
- - Update birthday for Jax: Jacqueline Cole Miskanic Gregg born May 5, 1996
- - Convert birtday column type to date type
- - Drop `description` column
- - Create `city` and `state` column  for birthplace
-"	 
+# ╔═╡ 0bb3bf96-a974-40f9-8b56-10eccf105b0d
+df_mvs |> names
 
-# ╔═╡ 2aab1d10-afb7-45f0-b238-c8eed9d365af
-dfc = @chain dfr begin
-	@clean_names()
+# ╔═╡ 6dfc24f2-c896-4aad-a515-94b87c3ed58e
+df_mvs |> describe
+
+# ╔═╡ 101eeacb-5cf1-49fd-905a-164ac4b4d644
+html"""
+<h2 style="
+	text-align:left;
+	font-size: 1.6rem;
+	font-family:roboto;
+	font-weight:bold;
+	color: seagreen">
+		Data Wrangling
+</h2>
+"""
+
+# ╔═╡ 5ef3c6c3-4fd8-4359-962c-eee59f88f919
+md"### Subsetting data"
+
+# ╔═╡ 0ac214f2-f698-4f27-8fae-15aa710621b6
+md"**Select / rename columns**"
+
+# ╔═╡ 83b19ecd-f11f-46e4-8e06-7ade893351b5
+dfs = @chain df_mvs begin
+	@select(
+		tconst, year, genres, 
+		rating = average_rating,
+		runtime = runtime_minutes,
+		votes = num_votes
+	)
+end;
+
+# ╔═╡ 8b47e4d2-c82c-476f-90a5-6d5030a9145a
+first(dfs, 4)
+
+# ╔═╡ 4b0f5fee-f2d8-44d4-8cc8-afc8ae4faa5f
+md"**Drop rows with NAs in genres and runtime columns**"
+
+# ╔═╡ 4597f51c-0a19-450d-9ac5-a5961be34ab8
+dfc = @chain dfs begin  
+	@filter(runtime != "NA")
+	@filter(genres != "NA")
+end;
+
+# ╔═╡ ff310b57-cbd9-4443-a1e2-d8dc78996b55
+first(dfc, 4)
+
+# ╔═╡ ec7cf0a9-98e2-4dc4-9b7a-8598e27f7b29
+md"### Converting columns"
+
+# ╔═╡ 7eb9b52a-12f0-4463-a35e-cd95fc6acf13
+dft = @chain dfc begin
 	@mutate(
-		contestant = case_when(
-			contestant ==  """Jos\x8e \"Sway\" Penala""" => "Jose Sway Penala", 
-			true => contestant
-			),
-		birthday = case_when(
-			contestant == "Jax" => "5-May-96",
-			true => birthday),
-		birthplace = case_when(
-			contestant == "Jennifer Hudson" => "Chicago, Illinois",
-			contestant == "Stevie Scott" => "Fair Oaks, California",
-			contestant == """Jos\x8e \"Sway\" Penala""" => "South San Francisco, California",
-			contestant == "Burnell Taylor" => "New Orleans, Louisiana",
-			contestant == "Devin Velez" => "Chicago, Illinois",
-			contestant == "Curtis Finch, Jr." => "St. Louis, Missouri",
-			true => birthplace)) 
-	@mutate(birthday =  Date(birthday, "dd-u-yy") + Dates.Year(1900))
-	@mutate(birthyear = year(birthday))
-	@select(-description)
-	@separate(birthplace, [city, state], ", ")
+		year = as_integer(year),
+		runtime = as_integer(runtime))
 end;
 
-# ╔═╡ 94d9f485-2a98-4c54-b0a2-6e6544a6d351
-first(dfc, 3)
+# ╔═╡ 805c6e1a-1e21-4aac-bf39-c45fb6a8cda5
+first(dft, 4)
 
-# ╔═╡ a413e941-90e6-40f5-9e65-22ae675c9555
-dmy(String("24 Apr 82"))
+# ╔═╡ e51878d9-2483-4fff-a4ee-dbe182e93c0f
+md"### Create new column and separate genres"
 
-# ╔═╡ 300255d7-cbfb-4650-b884-49df4cb131cc
-dmy("13 Aug 1978")
+# ╔═╡ caf58a72-9a20-4392-b88e-9b9d71a0712a
+dfg = @chain dft begin 
+	@separate(genres, (g1, g2, g3), ",")
+	@pivot_longer(g1:g3)
+	@mutate(decade = as_integer(floor(year / 10) * 10))
+	@select(-variable)
+	@filter(!ismissing(value))
+	@rename(genres = value)
+end;
 
-# ╔═╡ b9cc33e4-8fd6-4f7d-95ca-7d83f70b1e19
+# ╔═╡ c030ece9-6169-4133-9151-f8b094ad17bd
+first(dfg, 4)
+
+# ╔═╡ 655d0675-df01-4cc5-84a8-cfb2e8959e63
 html"""
-<h3 style="
+<h2 style="
 	text-align:left;
 	font-size: 1.6rem;
 	font-family:roboto;
 	font-weight:bold;
-	color: lightblue">
-		Merging with Season_year df
-</h3>
+	color: seagreen">
+		Data Analysis
+</h2>
 """
 
-# ╔═╡ 6f12ba35-5cbc-4123-8693-36a241b7f2db
-dff =  @chain dfc begin
-	@left_join(season_year)
-	@mutate(age = end_year - birthyear)
+# ╔═╡ 270e3dee-e368-4204-9747-5df14489897d
+md"### Genres"
+
+# ╔═╡ a3f50e7f-13f8-464b-a891-4ae7bf6cc5b5
+by_genders = @arrange(@count(dfg, genres), desc(n));
+
+# ╔═╡ 2280f602-891f-46c5-8e13-1d5a7f637539
+@chain by_genders begin
+	#@arrange(n)
+    ggplot(xticklabelrotation = .9)
+        geom_col(aes(y = :n, x = cat_inorder(:genres)))
+		labs(
+			title = "SUMMER MOVIES",
+			subtitle = "Distribution by genres") +
+		theme_light() +
+		theme(xgridvisible = false)
 end
 
-# ╔═╡ 433ad0fe-ecb2-4637-bd7d-b95f7a565dfc
-html"""
-<h3 style="
-	text-align:left;
-	font-size: 1.6rem;
-	font-family:roboto;
-	font-weight:bold;
-	color: lightblue">
-		Data Analysis and Summary
-</h3>
-"""
+# ╔═╡ 6ccfb0f1-0a83-4c71-9d29-3e33fce87a6c
+md"### Years / decade"
 
-# ╔═╡ 2595a1f1-e42d-4884-ad7c-04c098989c0e
-first(dff, 3)
+# ╔═╡ 7c0b6a35-c25b-4810-ae73-2b0162a03593
+by_years = @chain dfg begin
+	@count(year)
+	@arrange(year)
+end;
 
-# ╔═╡ a67cb0e6-d4bc-462d-b239-0215649bd84b
-@chain dff begin
+# ╔═╡ 197cf364-5338-4553-b453-26198d5f4e0b
+by_decade= @chain dfg begin
+	@count(decade)
+	@arrange(decade)
+	@mutate(decade = as_string(decade))
+end;
+
+# ╔═╡ d9143f3e-17aa-4c74-a310-46b68b2b4402
+first(by_years, 3)
+
+# ╔═╡ 72554217-6790-4f84-b33a-ecb443054a4e
+@chain by_years begin
 	ggplot()
-	geom_histogram(aes(x = :age))
+        geom_line(aes(x = :year, y = :n))
+		labs(
+			title = "SUMMER MOVIES",
+			subtitle = "Distribution by year") +
+		theme_light() +
+		theme(xgridvisible = false)
 end
 
-# ╔═╡ e6716f03-2b10-44d8-a79b-83cae859848f
-md"*Age correction*"
-
-# ╔═╡ e013b384-7608-43e0-9845-e1e57f09e61d
-dff2 = @chain dff begin
-	@mutate(age2 = case_when(
-		age > 50 => age - 100,
-		true => age
-	))
-end;
-
-# ╔═╡ 1c4e5441-cef8-43b7-af4a-cffc97ecdf3b
-@chain dff2 begin
-	ggplot()
-	geom_histogram(aes(x = :age2))
+# ╔═╡ c3894951-7fe8-440c-abd3-aedbd338a4c8
+@chain by_decade begin
+	ggplot(xticklabelrotation = 1.6)
+        geom_col(aes(y = :n, x = cat_inorder(:decade)))
+		labs(
+			title = "SUMMER MOVIES",
+			subtitle = "Distribution by decade") +
+		theme_light() +
+		theme(xgridvisible = false)
 end
 
-# ╔═╡ bafa2522-c065-4650-830b-5e8732957564
-html"""
-<h4 style="
-	text-align:left;
-	font-size: 1.2rem;
-	font-family:roboto;
-	font-weight:bold;
-	color: crimson">
-		Total Contestants by state
-</h4>
-"""
-
-# ╔═╡ 02151bd6-64a1-478d-8f05-02a33a68b4ee
-by_state = @chain begin dff
-	@count(state)
-	@arrange(desc(n))
-	@filter(
-		state ∉ ["Canada","Alberta","Ireland","Philippines","Western","Australia"])
-	@mutate(state = uppercase(state))
-end;
-
-# ╔═╡ 8a5655ef-de46-4f5b-85d9-b9053ebbae63
-first(by_state, 3)
-
-# ╔═╡ 759eb04e-1517-42ee-ae87-79adffafe9ce
-html"""
-<h4 style="
-	text-align:left;
-	font-size: 1.2rem;
-	font-family:roboto;
-	font-weight:bold;
-	color: crimson">
-		Average Age by Season
-</h4>
-"""
-
-# ╔═╡ 144255e2-dec2-49e3-ad5d-447372f7f01e
-average_season = @chain dff2 begin
-	@group_by(season) 
-	@summarise(avg = mean(age2))
-end;
-
-# ╔═╡ 6ff09e21-d98c-4da5-a8d9-030cdebf9ecf
-first(average_season, 3)
-
-# ╔═╡ 17aa7bb6-3fea-4163-8890-f6348d19d330
-md"# Viz"
-
-# ╔═╡ 267f9e0f-1e19-40fd-ac46-683e978aa783
-html"""
-<h3 style="
-	text-align:left;
-	font-size: 1.6rem;
-	font-family:roboto;
-	font-weight:bold;
-	color: lightblue">
-		Themes
-</h3>
-"""
-
-# ╔═╡ 1394671b-bd47-43d1-9794-5afb38c8261b
-# theme_latexfonts()
-# theme_ggplot2()
-# dark_latexfonts = merge(theme_dark(), theme_latexfonts())
-# clean_latexfonts = merge(theme_minimal(), theme_latexfonts())
-
-# ╔═╡ 47b70c89-f901-426e-a592-4185d7fea8cf
-mk_theme = theme(
-			backgroundcolor = :white,
-			ygridcolor = :grey,
-			ygridwidth = .3,
-			xgridwidth = 0,
-			xticksize = 0, yticksize = 0,
-			xticklabelsize = 10,
-			titlecolor = :royalblue,
-			titlesize = 30, subtitlesize = 20,
-			titlefont = "Dancing Script", subtitlefont = "Playfair Display",
-			xticklabelfont = "Alegreya"
-		);
-
-# ╔═╡ 62f90103-fde0-480e-8199-12addf10fbd5
-html"""
-<h3 style="
-	text-align:left;
-	font-size: 1.6rem;
-	font-family:roboto;
-	font-weight:bold;
-	color: lightblue">
-		By state
-</h3>
-"""
-
-# ╔═╡ 23200b6f-3f2f-4508-a0cc-27bc67344c47
-@chain by_state begin
-    ggplot(xticklabelrotation = .90)
-        geom_col(aes(y = :n, x = cat_inorder(:state))) +
-		labs(title = "AMERICAN IDOL", subtitle = "Participation by state") +
-		theme_light() 
-end
-
-# ╔═╡ 2a5fc22c-6e15-4228-bed7-1edfdb51108e
-@chain by_state begin
-    ggplot(xticklabelrotation = .90)
-        geom_col(aes(y = :n, x = cat_inorder(:state))) +
-		labs(title = "AMERICAN IDOL", subtitle = "Participation by state") +
-		mk_theme
-		
-end
-
-
-# ╔═╡ 89b49d78-b8f9-453f-a159-cadac1e2574c
-html"""
-<h3 style="
-	text-align:left;
-	font-size: 1.6rem;
-	font-family:roboto;
-	font-weight:bold;
-	color: lightblue">
-		By season
-</h3>
-"""
-
-# ╔═╡ 958c9f46-ccd6-454a-b308-d0c90ec172ed
-@chain average_season begin
-	@mutate(season = "Season_" * string(season))
-	ggplot(xticklabelrotation = 0.7)
-        geom_col(aes(y = :avg, x = cat_inorder(:season))) +
-		labs(title = "AMERICAN IDOL", subtitle = "Avegrage Contestant Age By Season") +
-		mk_theme
-end
+# ╔═╡ 35eb1aa1-dede-4fd7-bea2-1483bfff5b39
+by_years
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
-Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Tidier = "f0413319-3358-4bb0-8e7c-0c83523a93bd"
 
 [compat]
 Chain = "~0.6.0"
+DataFrames = "~1.6.1"
 PlutoUI = "~0.7.52"
 Tidier = "~1.4.0"
 """
@@ -406,7 +282,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "6851f966f8f7a33cf386ad97044edc35f345e020"
+project_hash = "35020095e99a6c5cbda50a6a83d516d97a3ae179"
 
 [[deps.ANSIColoredPrinters]]
 git-tree-sha1 = "574baf8110975760d391c710b6341da1afa48d8c"
@@ -443,9 +319,9 @@ version = "0.4.5"
 
 [[deps.Accessors]]
 deps = ["CompositionsBase", "ConstructionBase", "Dates", "InverseFunctions", "LinearAlgebra", "MacroTools", "Markdown", "Test"]
-git-tree-sha1 = "c0d491ef0b135fd7d63cbc6404286bc633329425"
+git-tree-sha1 = "f61b15be1d76846c0ce31d3fcfac5380ae53db6a"
 uuid = "7d9f7c33-5ae7-4f3b-8dc6-eff91059b697"
-version = "0.1.36"
+version = "0.1.37"
 
     [deps.Accessors.extensions]
     AccessorsAxisKeysExt = "AxisKeys"
@@ -471,6 +347,11 @@ weakdeps = ["StaticArrays"]
 
     [deps.Adapt.extensions]
     AdaptStaticArraysExt = "StaticArrays"
+
+[[deps.AdaptivePredicates]]
+git-tree-sha1 = "7d5da5dd472490d048b081ca1bda4a7821b06456"
+uuid = "35492f91-a3bd-45ad-95db-fcad7dcfedb7"
+version = "1.1.1"
 
 [[deps.AliasTables]]
 deps = ["PtrArrays", "Random"]
@@ -704,9 +585,9 @@ version = "0.4.0"
 
 [[deps.ColorSchemes]]
 deps = ["ColorTypes", "ColorVectorSpace", "Colors", "FixedPointNumbers", "PrecompileTools", "Random"]
-git-tree-sha1 = "4b270d6465eb21ae89b732182c20dc165f8bf9f2"
+git-tree-sha1 = "b5278586822443594ff615963b0c09755771b3e0"
 uuid = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
-version = "3.25.0"
+version = "3.26.0"
 
 [[deps.ColorTypes]]
 deps = ["FixedPointNumbers", "Random"]
@@ -762,9 +643,9 @@ version = "2.4.2"
 
 [[deps.ConstructionBase]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "260fd2400ed2dab602a7c15cf10c1933c59930a2"
+git-tree-sha1 = "d8a9c0b6ac2d9081bf76324b39c78ca3ce4f0c98"
 uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
-version = "1.5.5"
+version = "1.5.6"
 weakdeps = ["IntervalSets", "StaticArrays"]
 
     [deps.ConstructionBase.extensions]
@@ -835,10 +716,10 @@ uuid = "244e2a9f-e319-4986-a169-4d1fe445cd52"
 version = "0.1.2"
 
 [[deps.DelaunayTriangulation]]
-deps = ["EnumX", "ExactPredicates", "Random"]
-git-tree-sha1 = "b0cb128d2e100646573e1da8565b02491fddb5ef"
+deps = ["AdaptivePredicates", "EnumX", "ExactPredicates", "Random"]
+git-tree-sha1 = "1abb6a8541775a0bf82749ac8373a34e9f2f71e0"
 uuid = "927a84f5-c5f4-47a5-9785-b46e178433df"
-version = "1.0.4"
+version = "1.1.1"
 
 [[deps.Distances]]
 deps = ["LinearAlgebra", "Statistics", "StatsAPI"]
@@ -1252,20 +1133,20 @@ uuid = "22cec73e-a1b8-11e9-2c92-598750a2cf9c"
 version = "0.3.1"
 
 [[deps.InlineStrings]]
-deps = ["Parsers"]
-git-tree-sha1 = "86356004f30f8e737eff143d57d41bd580e437aa"
+git-tree-sha1 = "45521d31238e87ee9f9732561bfee12d4eebd52d"
 uuid = "842dd82b-1e85-43dc-bf29-5d0ee9dffc48"
-version = "1.4.1"
-weakdeps = ["ArrowTypes"]
+version = "1.4.2"
+weakdeps = ["ArrowTypes", "Parsers"]
 
     [deps.InlineStrings.extensions]
     ArrowTypesExt = "ArrowTypes"
+    ParsersExt = "Parsers"
 
 [[deps.IntelOpenMP_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "be50fe8df3acbffa0274a744f1a99d29c45a57f4"
+git-tree-sha1 = "14eb2b542e748570b56446f4c50fbfb2306ebc45"
 uuid = "1d5cc7b8-4909-519e-a0f8-d0f5ad9712d0"
-version = "2024.1.0+0"
+version = "2024.2.0+0"
 
 [[deps.InteractiveUtils]]
 deps = ["Markdown"]
@@ -1316,9 +1197,9 @@ version = "1.10.0"
 
 [[deps.InverseFunctions]]
 deps = ["Test"]
-git-tree-sha1 = "e7cbed5032c4c397a6ac23d1493f3289e01231c4"
+git-tree-sha1 = "18c59411ece4838b18cd7f537e56cf5e41ce5bfd"
 uuid = "3587e190-3f89-42d0-90ee-14403ec27112"
-version = "0.1.14"
+version = "0.1.15"
 weakdeps = ["Dates"]
 
     [deps.InverseFunctions.extensions]
@@ -1589,9 +1470,9 @@ version = "0.1.4"
 
 [[deps.MKL_jll]]
 deps = ["Artifacts", "IntelOpenMP_jll", "JLLWrappers", "LazyArtifacts", "Libdl", "oneTBB_jll"]
-git-tree-sha1 = "80b2833b56d466b3858d565adcd16a4a05f2089b"
+git-tree-sha1 = "f046ccd0c6db2832a9f639e2c669c6fe867e5f4f"
 uuid = "856f044c-d86e-5d09-b602-aeab76dc8ba7"
-version = "2024.1.0+0"
+version = "2024.2.0+0"
 
 [[deps.MacroTools]]
 deps = ["Markdown", "Random"]
@@ -1634,9 +1515,9 @@ version = "0.1.2"
 
 [[deps.MathTeXEngine]]
 deps = ["AbstractTrees", "Automa", "DataStructures", "FreeTypeAbstraction", "GeometryBasics", "LaTeXStrings", "REPL", "RelocatableFolders", "UnicodeFun"]
-git-tree-sha1 = "1865d0b8a2d91477c8b16b49152a32764c7b1f5f"
+git-tree-sha1 = "e1641f32ae592e415e3dbae7f4a188b5316d4b62"
 uuid = "0a4f8689-d25c-4efe-a92b-7142dfc1aa53"
-version = "0.6.0"
+version = "0.6.1"
 
 [[deps.MatrixFactorizations]]
 deps = ["ArrayLayouts", "LinearAlgebra", "Printf", "Random"]
@@ -1732,9 +1613,9 @@ uuid = "510215fc-4207-5dde-b226-833fc4488ee2"
 version = "0.5.5"
 
 [[deps.OffsetArrays]]
-git-tree-sha1 = "e64b4f5ea6b7389f6f046d13d4896a8f9c1ba71e"
+git-tree-sha1 = "1a27764e945a152f7ca7efa04de513d473e9542e"
 uuid = "6fe1bfb0-de20-5000-8ca7-80f57d26f881"
-version = "1.14.0"
+version = "1.14.1"
 weakdeps = ["Adapt"]
 
     [deps.OffsetArrays.extensions]
@@ -1908,9 +1789,9 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
 [[deps.ProgressMeter]]
 deps = ["Distributed", "Printf"]
-git-tree-sha1 = "763a8ceb07833dd51bb9e3bbca372de32c0605ad"
+git-tree-sha1 = "8f6bc219586aef8baf0ff9a5fe16ee9c70cb65e4"
 uuid = "92933f4c-e287-5a05-a399-4b506db050ca"
-version = "1.10.0"
+version = "1.10.2"
 
 [[deps.PtrArrays]]
 git-tree-sha1 = "f011fbb92c4d401059b2212c05c0601b70f8b759"
@@ -1925,9 +1806,9 @@ version = "1.0.0"
 
 [[deps.QuadGK]]
 deps = ["DataStructures", "LinearAlgebra"]
-git-tree-sha1 = "9b23c31e76e333e6fb4c1595ae6afa74966a729e"
+git-tree-sha1 = "e237232771fdafbae3db5c31275303e056afaa9f"
 uuid = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"
-version = "2.9.4"
+version = "2.10.1"
 
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
@@ -2045,9 +1926,9 @@ version = "1.2.1"
 
 [[deps.SentinelArrays]]
 deps = ["Dates", "Random"]
-git-tree-sha1 = "90b4f68892337554d31cdcdbe19e48989f26c7e6"
+git-tree-sha1 = "ff11acffdb082493657550959d4feb4b6149e73a"
 uuid = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
-version = "1.4.3"
+version = "1.4.5"
 
 [[deps.Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
@@ -2269,10 +2150,10 @@ uuid = "3783bdb8-4a98-5b6b-af9a-565f29a5fe9c"
 version = "1.0.1"
 
 [[deps.Tables]]
-deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "LinearAlgebra", "OrderedCollections", "TableTraits"]
-git-tree-sha1 = "cb76cf677714c095e535e3501ac7954732aeea2d"
+deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "OrderedCollections", "TableTraits"]
+git-tree-sha1 = "598cd7c1f68d1e205689b1c2fe65a9f85846f297"
 uuid = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
-version = "1.11.1"
+version = "1.12.0"
 
 [[deps.Tar]]
 deps = ["ArgTools", "SHA"]
@@ -2401,9 +2282,9 @@ version = "0.4.82"
     Referenceables = "42d2dcc6-99eb-4e98-b66c-637b7d73030e"
 
 [[deps.Tricks]]
-git-tree-sha1 = "eae1bb484cd63b36999ee58be2de6c178105112f"
+git-tree-sha1 = "7822b97e99a1672bfb1b49b668a6d46d58d8cbcb"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.8"
+version = "0.1.9"
 
 [[deps.TriplotBase]]
 git-tree-sha1 = "4d4ed7f294cda19382ff7de4c137d24d16adc89b"
@@ -2436,9 +2317,9 @@ version = "0.4.1"
 
 [[deps.Unitful]]
 deps = ["Dates", "LinearAlgebra", "Random"]
-git-tree-sha1 = "dd260903fdabea27d9b6021689b3cd5401a57748"
+git-tree-sha1 = "d95fe458f26209c66a187b1114df96fd70839efd"
 uuid = "1986cc42-f94f-5a68-af5c-568840ba703d"
-version = "1.20.0"
+version = "1.21.0"
 weakdeps = ["ConstructionBase", "InverseFunctions"]
 
     [deps.Unitful.extensions]
@@ -2611,9 +2492,9 @@ version = "1.0.20+0"
 
 [[deps.libvorbis_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Ogg_jll", "Pkg"]
-git-tree-sha1 = "b910cb81ef3fe6e78bf6acee440bda86fd6ae00c"
+git-tree-sha1 = "490376214c4721cdaca654041f635213c6165cb3"
 uuid = "f27f6e37-5d2b-51aa-960f-b287f2bc3b7a"
-version = "1.3.7+1"
+version = "1.3.7+2"
 
 [[deps.nghttp2_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -2657,64 +2538,48 @@ version = "3.5.0+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═591e3da8-c4fe-44ce-9d91-8c96b059d9d8
-# ╟─2bb15b03-b48d-4063-973e-0ef563642aa4
-# ╟─191db777-fb98-481f-bf11-232fb3b59daf
-# ╟─8219aa3c-ccd1-49bf-8eba-eb93a578c01d
-# ╠═855abb3c-4b14-11ef-3cc1-03fe69ee544b
-# ╠═e21b5d24-c027-46bf-b269-f41671ac87d3
-# ╠═d4fbd68a-0865-4654-8ad6-e3854d45e9bf
-# ╠═1b84bb76-b8ff-4b06-b40e-1e8df91c5855
-# ╠═4b30fd3c-427a-402e-a6ee-7e2f7cb0a63c
-# ╠═0287a627-5554-4e83-89ab-20ec78df0c91
-# ╟─7dccaa70-195a-4222-8acb-54ac65e19462
-# ╠═86c28fc1-53f5-477e-b872-15fd33725c80
-# ╠═0424d978-ed5b-4027-b12e-376a01f1ae2f
-# ╠═12113393-bebf-4b93-9200-029908bcefb3
-# ╠═fbd65cb5-2bcd-4d6c-aa18-3d4089bb50e1
-# ╟─8a2cec3c-125e-4ee5-9e7f-163eb9b12bec
-# ╠═d279c111-d6e2-42cb-8b8c-33a3aa476686
-# ╠═9c67b79a-204f-4c58-a4d0-039888454b41
-# ╠═44a85e4c-5a7d-4822-be74-844a9a4f3c47
-# ╠═270e6fb7-cbde-4dc4-a782-aad884d84413
-# ╠═c224bdbd-ebc9-4bc4-b22f-3f8ed013de3c
-# ╠═f1f559e5-8072-4e07-94c6-f6e0def15c73
-# ╠═b3b7637c-0f62-428f-a806-e47b1d319ff7
-# ╟─6247af95-75c5-4944-962a-4c44dea63c65
-# ╠═1016ee23-974d-45eb-9f8d-e7a738bb44d1
-# ╠═94892fcc-e945-417f-b436-e90185110156
-# ╠═609b4a4e-04c8-415f-a53a-67af7504973e
-# ╟─942c7d74-3dbb-46aa-819d-a9e9c0ca6b38
-# ╟─ff7cde4c-7a83-46b9-901d-b8a6821a6482
-# ╠═484ed3b1-4386-4490-8c00-efc1f504f772
-# ╠═e700dd8a-7a60-4ccb-a6ee-8264d62b4739
-# ╟─a55aed78-4d8c-4c35-8598-b1c55a92b43b
-# ╠═2aab1d10-afb7-45f0-b238-c8eed9d365af
-# ╠═94d9f485-2a98-4c54-b0a2-6e6544a6d351
-# ╠═a413e941-90e6-40f5-9e65-22ae675c9555
-# ╠═300255d7-cbfb-4650-b884-49df4cb131cc
-# ╟─b9cc33e4-8fd6-4f7d-95ca-7d83f70b1e19
-# ╠═6f12ba35-5cbc-4123-8693-36a241b7f2db
-# ╟─433ad0fe-ecb2-4637-bd7d-b95f7a565dfc
-# ╠═2595a1f1-e42d-4884-ad7c-04c098989c0e
-# ╠═a67cb0e6-d4bc-462d-b239-0215649bd84b
-# ╟─e6716f03-2b10-44d8-a79b-83cae859848f
-# ╠═e013b384-7608-43e0-9845-e1e57f09e61d
-# ╠═1c4e5441-cef8-43b7-af4a-cffc97ecdf3b
-# ╟─bafa2522-c065-4650-830b-5e8732957564
-# ╠═02151bd6-64a1-478d-8f05-02a33a68b4ee
-# ╠═8a5655ef-de46-4f5b-85d9-b9053ebbae63
-# ╟─759eb04e-1517-42ee-ae87-79adffafe9ce
-# ╠═144255e2-dec2-49e3-ad5d-447372f7f01e
-# ╠═6ff09e21-d98c-4da5-a8d9-030cdebf9ecf
-# ╟─17aa7bb6-3fea-4163-8890-f6348d19d330
-# ╟─267f9e0f-1e19-40fd-ac46-683e978aa783
-# ╠═1394671b-bd47-43d1-9794-5afb38c8261b
-# ╠═47b70c89-f901-426e-a592-4185d7fea8cf
-# ╟─62f90103-fde0-480e-8199-12addf10fbd5
-# ╠═23200b6f-3f2f-4508-a0cc-27bc67344c47
-# ╠═2a5fc22c-6e15-4228-bed7-1edfdb51108e
-# ╟─89b49d78-b8f9-453f-a159-cadac1e2574c
-# ╠═958c9f46-ccd6-454a-b308-d0c90ec172ed
+# ╟─8542e7cc-5150-11ef-2c46-ab267f5be6b1
+# ╟─46cfb53b-a2de-459e-b51a-eb7b1ca57f23
+# ╟─3a842483-2898-4be1-9fa7-20dcb6214d20
+# ╟─1ff29bb6-4613-450d-b15d-0b5ab187b819
+# ╠═143eea97-e256-430a-b68e-ee4d033930c9
+# ╠═a53d942b-0f2f-4298-8117-964fcdbac791
+# ╟─2c53bba8-1d5d-425c-ac18-058a0fec42e5
+# ╠═1655d27e-8c6d-47ca-98d9-3293cfa38148
+# ╠═53db8f20-9237-4ce7-8dbc-7967dba9e7e4
+# ╠═5b3cfa6d-14e8-4149-85a6-f9985160800e
+# ╟─b4405083-604f-4e00-a643-0b4599bc3c13
+# ╠═12b44358-cf55-4902-9812-376884761e3e
+# ╟─c259bd77-2326-42cf-ae4e-b1927a024439
+# ╟─b20f4406-9df3-446b-9881-bb6fd0cf3892
+# ╠═a36a415d-7969-4c3f-a1b2-024844f883e5
+# ╠═2a81777f-f563-4350-bbcf-da7752e9bae0
+# ╠═0bb3bf96-a974-40f9-8b56-10eccf105b0d
+# ╠═6dfc24f2-c896-4aad-a515-94b87c3ed58e
+# ╟─101eeacb-5cf1-49fd-905a-164ac4b4d644
+# ╟─5ef3c6c3-4fd8-4359-962c-eee59f88f919
+# ╟─0ac214f2-f698-4f27-8fae-15aa710621b6
+# ╠═83b19ecd-f11f-46e4-8e06-7ade893351b5
+# ╠═8b47e4d2-c82c-476f-90a5-6d5030a9145a
+# ╟─4b0f5fee-f2d8-44d4-8cc8-afc8ae4faa5f
+# ╠═4597f51c-0a19-450d-9ac5-a5961be34ab8
+# ╠═ff310b57-cbd9-4443-a1e2-d8dc78996b55
+# ╟─ec7cf0a9-98e2-4dc4-9b7a-8598e27f7b29
+# ╠═7eb9b52a-12f0-4463-a35e-cd95fc6acf13
+# ╠═805c6e1a-1e21-4aac-bf39-c45fb6a8cda5
+# ╟─e51878d9-2483-4fff-a4ee-dbe182e93c0f
+# ╠═caf58a72-9a20-4392-b88e-9b9d71a0712a
+# ╠═c030ece9-6169-4133-9151-f8b094ad17bd
+# ╟─655d0675-df01-4cc5-84a8-cfb2e8959e63
+# ╟─270e3dee-e368-4204-9747-5df14489897d
+# ╠═a3f50e7f-13f8-464b-a891-4ae7bf6cc5b5
+# ╠═2280f602-891f-46c5-8e13-1d5a7f637539
+# ╟─6ccfb0f1-0a83-4c71-9d29-3e33fce87a6c
+# ╠═7c0b6a35-c25b-4810-ae73-2b0162a03593
+# ╠═197cf364-5338-4553-b453-26198d5f4e0b
+# ╠═d9143f3e-17aa-4c74-a310-46b68b2b4402
+# ╠═72554217-6790-4f84-b33a-ecb443054a4e
+# ╠═c3894951-7fe8-440c-abd3-aedbd338a4c8
+# ╠═35eb1aa1-dede-4fd7-bea2-1483bfff5b39
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
