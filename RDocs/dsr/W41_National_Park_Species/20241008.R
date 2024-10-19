@@ -6,7 +6,7 @@ pacman::p_load(
   tidytuesdayR, tidyverse, janitor,          
   scales, ggthemes,              
   showtext, extrafont, ggtext, ggtext, glue,
-  patchwork, ggview
+  patchwork, ggview, gt, gtUtils
 )
 source('RDrafts/myfunc.R')
 #df |> missing_details() 
@@ -14,31 +14,69 @@ source('RDrafts/myfunc.R')
 # Loading data ------------------------------------------------
 #=============================================================#
 
-tuesdata <- tidytuesdayR::tt_load("2024-10-01")
-cgd <- tuesdata$chess
+tuesdata <- tidytuesdayR::tt_load("2024-10-08")
+
+df <- tuesdata$most_visited_nps_species_data |> 
+  clean_names()
 
 #=============================================================#
 # Wrangling Data ---------------------------------------------
 #=============================================================#
-cgd |># colnames()
-  head(30) |> 
-  view()
+df |> count(park_name)
 
-cgd |> missing_details() 
+df |> count(category_name, sort = TRUE)
+df |> count(order, sort = TRUE)
+df |> count(family, sort = TRUE)
 
-custom_describe(cgd, white_rating)
-grouped_smry(cgd, white_rating, opening_name)
-cgd |> count(victory_status) |> kable_style()
+df |> 
+  select(sensitive, park_accepted) |> 
+  group_by(park_accepted) |> 
+  count(sensitive)
+
+
+df |> 
+  filter(category_name == 'Amphibian', !is.na(family)) |> 
+  mutate(family = fct_lump_n(family, n = 10)
+           |> fct_infreq() |> fct_rev()) |> 
+  count(family, sort = TRUE, name = 'total') |> 
+  ggplot(aes(total, family)) +
+  geom_col()
+
+## Plotting function -----
+plot_freq_family <- function(data, category, title = NULL, subtitle = NULL){
+  data |> 
+    filter(
+      category_name == category, 
+      !is.na(family)) |> 
+    mutate(family = fct_lump_n(family, n = 10)
+         |> fct_infreq() |> fct_rev()) |> 
+    count(family, sort = TRUE, name = 'total') |> 
+    ggplot(aes(total, family)) +
+    geom_col() +
+    labs(title = title,
+         subtitle = subtitle,
+         x = 'Total Number', 
+         y = NULL)
+}
+
+df |> plot_freq_family('Reptile',
+                       title = 'National Park Species',
+                       subtitle = 'Reptiles: Most frequent families')
+
+df |> plot_freq_family('Bird',
+                       title = 'National Park Species',
+                       subtitle = 'Birds: Most frequent families')
+
+df |> plot_freq_family('Insect',
+                       title = 'National Park Species',
+                       subtitle = 'Insects: Most frequent families')
+
+df |> plot_freq_family('Fish',
+                       title = 'National Park Species',
+                       subtitle = 'Fish: Most frequent families')
 
 
 
-cgd |> 
-  ggplot(aes(victory_status)) +
-  geom_bar() +
-  simple_theme() +
-  theme(
-    panel.grid.major.x = element_blank()
-  )
 #=============================================================#
 # Loading fonts ----------------------------------------------
 #=============================================================#
@@ -126,14 +164,14 @@ ggview(units = 'cm', width = 20, height = 18)
 
 # save the final plot as 'final_plot'
 ggsave(
-  filename = file.path("W40_ChessGames",
-                       "plots_w40", 
+  filename = file.path("W41_National_Park_Species",
+                       "plots_w41", 
                        paste0("final_plot", ".png"))
   )
 
 ggsave(
-  filename = here::here("W40_ChessGames",
-                        "plots_w40", 
+  filename = here::here("W41_National_Park_Species",
+                        "plots_w41", 
                         paste0("final_plot", ".png")),
   width    = 40, 
   height   = 30, 
