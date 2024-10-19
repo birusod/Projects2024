@@ -5,13 +5,13 @@
 
 # only need to update these 5 parameters, then: Alt+Cmd+r (Cmd+A+Enter)
 # ****************************************************************
-week_date <- '2024-10-08'
-week_number <- 'W41'
-weekly_data <- 'National_Park_Species'
+week_date <- '2024-10-15'
+week_number <- 'W42'
+weekly_data <- 'KillerWhale'
 current_week_folder <- paste0(week_number, '_', weekly_data)
-week_title <- "National Park Species"
-plot_folder <- 'plots_w41'
-final_plot <- 'final_plot_w41.png'
+week_title <- "Southern Resident Killer Whale Encounters"
+plot_folder <- 'plots_w42'
+final_plot <- 'final_plot_w42.png'
 #*****************************************************************
 
 use_tt_template <- function(
